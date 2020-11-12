@@ -1,6 +1,8 @@
 module Conduction
 
 using QuadGK, HCubature, Roots, Base.Threads
+import Base.Threads.@spawn
+
 struct Semiconductor
     k::Float64 # Boltzman constant (J.K^-1)
     q::Float64 # Electron's charge (C)
@@ -93,7 +95,7 @@ function xf(semiconductor::Semiconductor, Rnn::Function, U, T)
     functionI = [I1, I2, I3, I4]
     resultI = Array{Float64}(undef, 4)
 
-    Threads.@threads for i in 1:4
+    for i in 1:4
         resultI[i] = functionI[i](U, T, semiconductor, Rnn)
     end
 
@@ -125,7 +127,10 @@ function asymptoteRnnPerco(semiconductor::Semiconductor, U, T)
 end
 
 function electronMobility(semiconductor::Semiconductor, Rnn::Function, U, T)
-    return semiconductor.nu * xf(semiconductor, Rnn, U, T) * exp(-Rnn(semiconductor, U, T)) / (-semiconductor.F * 2 * semiconductor.alpha)
+    x = @spawn xf(semiconductor, Rnn, U, T)
+    r = @spawn Rnn(semiconductor, U, T)
+
+    return semiconductor.nu * fetch(x) * exp(-fetch(r)) / (-semiconductor.F * 2 * semiconductor.alpha)
 end
 
 end # module
