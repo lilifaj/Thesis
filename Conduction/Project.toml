@@ -1,0 +1,13 @@
+name = "Conduction"
+uuid = "cd7943d8-f130-43a2-a05b-083c0f95df17"
+authors = ["lilifaj "]
+version = "0.1.0"
+
+[deps]
+HCubature = "19dc6840-f33b-545b-b366-655c7e3ffd49"
+LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+QuadGK = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"
+Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
+VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
