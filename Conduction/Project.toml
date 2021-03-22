@@ -4,6 +4,7 @@ authors = ["lilifaj "]
 version = "0.1.0"
 
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 HCubature = "19dc6840-f33b-545b-b366-655c7e3ffd49"
 IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
 LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
