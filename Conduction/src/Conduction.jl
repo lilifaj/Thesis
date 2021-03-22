@@ -16,7 +16,7 @@ N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (semicondu
     x -> DOS(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T) * (1 - F(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
     [0, 0, 0],
     [1, R, pi],
-    rtol=1e-8)[1]
+    rtol=1e-5)[1]
 
 # Range to the nearest neighbour using a VRH approach
 RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = find_zero(r -> N(semiconductor, U, T, r) - 1, 5, Order0())
@@ -26,7 +26,7 @@ RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3
     r -> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)),
     -Inf,
     U + semiconductor.ModeEffect / (semiconductor.k * T),
-    rtol=1e-8
+    rtol=1e-5
     )[1])^(-1/3) * 2 * semiconductor.alpha * (semiconductor.k * T)^(-1/3)
 
 # Range to the nearest neighbour using a percolation approach taking into account the field
