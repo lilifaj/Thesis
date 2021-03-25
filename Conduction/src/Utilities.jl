@@ -21,6 +21,11 @@ struct Semiconductor
     end
 end
 
+struct ConvergenceError <: Exception
+end
+
+Base.showerror(io::IO, e::ConvergenceError) = print(io, "Root function starting point does not lead to a convergence")
+
 average_density_integral(f::Function, x) = quadgk(
     x -> f(x),
     -x,
