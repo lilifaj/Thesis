@@ -93,4 +93,8 @@ function D_no_t(semiconductor::Semiconductor, Rnn::Float64)
     return Rnn^2 / (6 * (2 * semiconductor.alpha)^2) * semiconductor.nu * exp(-Rnn)
 end
 
+function ein(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
+    return D(semiconductor, Rnn, xf, t) / electronMobility(semiconductor, Rnn, xf)
+end
+
 end # module

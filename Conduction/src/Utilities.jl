@@ -21,9 +21,12 @@ struct Semiconductor
     end
 end
 
-average_density(f::Function) = quadgk(
+average_density_integral(f::Function, x) = quadgk(
     x -> f(x),
-    -15,
-    15,
+    -x,
+    x,
     rtol=1e-5,
 )[1]
+
+average_density(fn::Function, fd::Function, x::Real) =
+    return average_density(fn, x) / average_density(fd, x)
