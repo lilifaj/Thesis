@@ -29,4 +29,4 @@ average_density_integral(f::Function, x) = quadgk(
 )[1]
 
 average_density(fn::Function, fd::Function, x::Real) =
-    return average_density(fn, x) / average_density(fd, x)
+    return average_density_integral(fn, x) / average_density_integral(fd, x)
