@@ -19,7 +19,21 @@ N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (semicondu
     rtol=1e-5)[1]
 
 # Range to the nearest neighbour using a VRH approach
-RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = find_zero(r -> N(semiconductor, U, T, r) - 1, 5, Order0())
+function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
+    i = 0;
+    while i < 10
+        println(i)
+        try
+            return find_zero(r -> N(semiconductor, U, T, r) - 1, 5 + i * 10, Order0())
+            break
+        catch
+        end
+
+        i += 1;
+    end
+
+    throw(ConvergenceError())
+end
 
 # Range to the nearest neighbour using a percolation approach
 RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3 * 2.8) * quadgk(
