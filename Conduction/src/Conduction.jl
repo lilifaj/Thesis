@@ -22,7 +22,6 @@ N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (semicondu
 function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
     i = 0;
     while i < 10
-        println(i)
         try
             return find_zero(r -> N(semiconductor, U, T, r) - 1, 5 + i * 10, Order0())
             break
