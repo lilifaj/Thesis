@@ -19,11 +19,11 @@ struct Semiconductor
         FSigmaD(T) = SigmaD * k * T
         Fbeta(T) = (F * q) / (2 * alpha * k * T)
         FGamma(T) = Gamma * k * T
-        new(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta)
+        new(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma)
     end
 end
 
-hbar = 1.054571817×10^(-34) # Planck constant in J.s
+hbar = 1.054571817*10^(-34) # Planck constant in J.s
 struct ConvergenceError <: Exception
 end
 

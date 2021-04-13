@@ -116,6 +116,4 @@ function Dp(semiconductor::Semiconductor, T, eta)
     return average_density(fn, fd, -15)
 end
 
-
-
 end # module
