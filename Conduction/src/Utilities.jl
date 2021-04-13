@@ -8,19 +8,22 @@ struct Semiconductor
     Ed::Float64 # Energy to a vacant target site (J)
     F::Float64 # Field (V.cm^-1)
     nu::Float64 # Base electron jump rate
-    Uf::Function # Fermi level (J)
+    Uf::Function # Fermi level (no unit)
     SigmaI::Function # Intrinsic semiconductor's gaussian width (J)
     SigmaD::Function # Doping states' gaussian width (J)
     beta::Function # Field Effect(No Unit)
-    function Semiconductor(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Float64, SigmaI::Float64, SigmaD::Float64)
+    gamma::Function # Amount of disorder (J)
+    function Semiconductor(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Float64, SigmaI::Float64, SigmaD::Float64, Gamma::Float64)
         FUf(T) = Uf * k * T
         FSigmaI(T) = SigmaI * k * T
         FSigmaD(T) = SigmaD * k * T
         Fbeta(T) = (F * q) / (2 * alpha * k * T)
+        FGamma(T) = Gamma * k * T
         new(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta)
     end
 end
 
+hbar = 1.054571817×10^(-34) # Planck constant in J.s
 struct ConvergenceError <: Exception
 end
 
