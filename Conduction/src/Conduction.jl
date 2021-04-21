@@ -16,14 +16,34 @@ N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (semicondu
     x -> DOS(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T) * (1 - F(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
     [0, 0, 0],
     [1, R, pi],
-    rtol=1e-5)[1]
+    rtol=1e-6)[1]
+
+# Range to the nearest neighbour using a VRH approach
+# function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
+#     i = 0;
+#     while i < 10
+#         try
+#             return find_zero(r -> N(semiconductor, U, T, r) - 1, 5 + i * 10, Order0())
+#             break
+#         catch
+#         end
+
+#         i += 1;
+#     end
+
+#     throw(ConvergenceError())
+# end
 
 # Range to the nearest neighbour using a VRH approach
 function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
+    Rnn(semiconductor, U, T, 1)
+end
+
+function Rnn(semiconductor::Semiconductor, U::Real, T::Real, x)::Float64
     i = 0;
     while i < 10
         try
-            return find_zero(r -> N(semiconductor, U, T, r) - 1, 5 + i * 10, Order0())
+            return find_zero(r -> N(semiconductor, U, T, r) - x, 5 + i * 10, Order0())
             break
         catch
         end
@@ -43,7 +63,11 @@ RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3
     )[1])^(-1/3) * 2 * semiconductor.alpha * (semiconductor.k * T)^(-1/3)
 
 # Range to the nearest neighbour using a percolation approach taking into account the field
-RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = find_zero(r -> N(semiconductor, U, T, r) - 2.8, 5, Order0())
+# RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = find_zero(r -> N(semiconductor, U, T, r) - 2.8, 5 + i * 10, Order0())
+
+function RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64
+    Rnn(semiconductor, U, T, 2.8)
+end
 
 # Effective distance of jump of an electron
 function xf(semiconductor::Semiconductor, Rnn::Float64, U::Real, T::Real)
