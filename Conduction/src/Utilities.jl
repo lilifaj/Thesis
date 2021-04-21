@@ -29,12 +29,22 @@ end
 
 Base.showerror(io::IO, e::ConvergenceError) = print(io, "Root function starting point does not lead to a convergence")
 
-average_density_integral(f::Function, x) = quadgk(
+average_density_integral(f::Function, x::Real) = quadgk(
     x -> f(x),
     -x,
     x,
     rtol=1e-5,
 )[1]
 
+average_density_integral(f::Function, lower_value::Real, higher_value::Real) = quadgk(
+    x -> f(x),
+    lower_value,
+    higher_value,
+    rtol=1e-1,
+)[1]
+
 average_density(fn::Function, fd::Function, x::Real) =
     return average_density_integral(fn, x) / average_density_integral(fd, x)
+
+average_density(fn::Function, fd::Function, lower_value::Real, higher_value::Real) =
+    return average_density_integral(fn, lower_value, higher_value) / average_density_integral(fd, lower_value, higher_value)

@@ -110,10 +110,10 @@ function ein(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64
     return D(semiconductor, Rnn, xf, t) / electronMobility(semiconductor, Rnn, xf)
 end
 
-function Dp(semiconductor::Semiconductor, T, eta)
+function Dp(semiconductor::Semiconductor, T, eta, lower_value, higher_value)
     fn(omega) = 1 / (eta * omega^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
-    fd(omega) = omega^2 / (eta * semiconductor.gamma^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
-    return average_density(fn, fd, -15)
+    fd(omega) = omega^2 / (eta * semiconductor.gamma(T)^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
+    return average_density(fn, fd, lower_value, higher_value)
 end
 
 end # module
