@@ -8,6 +8,8 @@ include("Utilities.jl")
 # DOS of a doped semiconductor (J^-1.cm^-3)
 DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
 
+DOSp(semiconductor::Semiconductor, U::Real, T::Real) = semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi) * (U / hbar > semiconductor.omega_min)
+
 # Fermi-Dirac distribution
 F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (semiconductor.k * T)))
 
@@ -134,10 +136,32 @@ function ein(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64
     return D(semiconductor, Rnn, xf, t) / electronMobility(semiconductor, Rnn, xf)
 end
 
-function Dp(semiconductor::Semiconductor, T, eta, lower_value, higher_value)
-    fn(omega) = 1 / (eta * omega^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
-    fd(omega) = omega^2 / (eta * semiconductor.gamma(T)^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
-    return average_density(fn, fd, lower_value, higher_value)
+# function Dp(semiconductor::Semiconductor, T, eta, lower_value, higher_value)
+#     fn(omega) = 1 / (eta * omega^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
+#     fd(omega) = omega^2 / (eta * semiconductor.gamma(T)^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
+#     return average_density(fn, fd, lower_value, higher_value)
+# end
+
+Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U / hbar)^(-4)
+
+C(semiconductor, U, T) = exp(U / semiconductor.k / T) * (U / T)^2 / semiconductor.k / (exp(U / semiconductor.k / T) - 1)^2
+
+kp(semiconductor, T) = quadgk(
+    r -> DOSp(semiconductor, r, T) * C(semiconductor, r, T) * Dp(semiconductor, r, T),
+    hbar * semiconductor.omega_min,
+    +Inf
+)[1]
+
+function overallMobility(semiconductor::Semiconductor, Rnn::Function, x::Real)
+    g(x, y) = electronMobility(semiconductor, x, y);
+    function h(x, Rnn, g)
+        xf = xf(semiconductor, Rnn, x, T);
+        f(x) * g(Rnn, xf)
+    end;
+    h_VRH(x) = h(x, Rnn(semiconductor, x, T), g);
+
+    return average_density_integral(h_VRH, x);
+
 end
 
 end # module

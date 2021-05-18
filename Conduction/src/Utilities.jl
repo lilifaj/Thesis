@@ -1,4 +1,4 @@
-struct Semiconductor
+mutable struct Semiconductor
     k::Float64 # Boltzman constant (J.K^-1)
     q::Float64 # Electron's charge (C)
     alpha::Float64 # decay constant of the assumed hydrogen-like localized state wave functions (cm^-1)
@@ -13,13 +13,14 @@ struct Semiconductor
     SigmaD::Function # Doping states' gaussian width (J)
     beta::Function # Field Effect(No Unit)
     gamma::Function # Amount of disorder (J)
-    function Semiconductor(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Float64, SigmaI::Float64, SigmaD::Float64, Gamma::Float64)
+    omega_min::Real # Lower phonon frequency limit
+    function Semiconductor(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real, omega_min::Real)
         FUf(T) = Uf * k * T
         FSigmaI(T) = SigmaI * k * T
         FSigmaD(T) = SigmaD * k * T
         Fbeta(T) = (F * q) / (2 * alpha * k * T)
         FGamma(T) = Gamma * k * T
-        new(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma)
+        new(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma, omega_min)
     end
 end
 
