@@ -190,8 +190,8 @@ function overallEin(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Rea
 
     function fn(x::Real, Rnn::Function)
         Rnn = Rnn(semiconductor, x, T);
-        xf = xf(semiconductor, Rnn, x, T);
-        t = t(semiconductor, Rnn, x, T);
+        xf = Conduction.xf(semiconductor, Rnn, x, T);
+        t = Conduction.t(semiconductor, Rnn, x, T);
         return occupiedStates(semiconductor, x, T) * ein(semiconductor, Rnn, xf, t)
     end
 
