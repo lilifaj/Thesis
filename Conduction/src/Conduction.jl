@@ -152,16 +152,52 @@ kp(semiconductor, T) = quadgk(
     +Inf
 )[1]
 
-function overallMobility(semiconductor::Semiconductor, Rnn::Function, x::Real)
-    g(x, y) = electronMobility(semiconductor, x, y);
-    function h(x, Rnn, g)
+function occupiedStates(semiconductor::Semiconductor, U, T)
+    return DOS(semiconductor, U, T) * F(semiconductor, U, T)
+end
+
+function overallDiffusion(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
+    fd(x) = occupiedStates(semiconductor, x, T);
+
+    function fn(x::Real, Rnn::Function)
+        Rnn = Rnn(semiconductor, x, T);
         xf = xf(semiconductor, Rnn, x, T);
-        f(x) * g(Rnn, xf)
-    end;
-    h_VRH(x) = h(x, Rnn(semiconductor, x, T), g);
+        t = t(semiconductor, Rnn, x, T);
+        return occupiedStates(semiconductor, x, T) * D(semiconductor, Rnn, xf, t)
+    end
 
-    return average_density_integral(h_VRH, x);
+    fn_final(x) = fn(x, Rnn);
 
+    return average_density(fn_final, fd, x_limit)
+end
+
+function overallMobility(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
+    fd(x) = occupiedStates(semiconductor, x, T)
+
+    function fn(x, Rnn)
+        Rnn = Rnn(semiconductor, x, T);
+        xf = xf(semiconductor, Rnn, x, T);
+        return occupiedStates(semiconductor, x, T) * electronMobility(semiconductor, Rnn, xf)
+    end
+
+    fn_final(x) = fn(x, Rnn(semiconductor, x, T));
+
+    return average_density(fn_VRH, fd, x_limit);
+end
+
+function overallEin(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
+    fd(x) = occupiedStates(semiconductor, x, T);
+
+    function fn(x::Real, Rnn::Function)
+        Rnn = Rnn(semiconductor, x, T);
+        xf = xf(semiconductor, Rnn, x, T);
+        t = t(semiconductor, Rnn, x, T);
+        return occupiedStates(semiconductor, x, T) * ein(semiconductor, Rnn, xf, t)
+    end
+
+    fn_final(x) = fn(x, Rnn);
+
+    return average_density(fn_final, fd, x_limit)
 end
 
 end # module
