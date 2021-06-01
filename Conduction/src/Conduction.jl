@@ -125,14 +125,19 @@ function t(semiconductor, Rnn::Float64, U::Real, T::Real)::Float64
 end
 
 function D(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
-    return xf^2 / 6 * ((1 + semiconductor.nu * t * exp(-Rnn))^2 - 1) * semiconductor.nu * exp(-Rnn)
+    return xf^2 / (24 * semiconductor.alpha^2) * ((1 + semiconductor.nu * t * exp(-Rnn))^2 - 1) * semiconductor.nu * exp(-Rnn)
 end
 
-function D_no_t(semiconductor::Semiconductor, Rnn::Float64)
-    return Rnn^2 / (6 * (2 * semiconductor.alpha)^2) * semiconductor.nu * exp(-Rnn)
+function D_bis(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
+    nu_bar = semiconductor.nu * exp(-Rnn)
+    return 0.5 * nu_bar * ((xf + nu_bar * t)^2 - xf^2)
 end
 
-function ein(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
+function D_ter(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
+    return 1 / 12 * (xf * Rnn * semiconductor.nu * exp(-Rnn) * t /  + 0.5 * Rnn^2) / semiconductor.alpha^2 * semiconductor.nu * exp(-Rnn)
+end
+
+function ein(semiconductor::Semiconductor, D::Function, Rnn::Float64, xf::Float64, t::Float64)::Float64
     return D(semiconductor, Rnn, xf, t) / electronMobility(semiconductor, Rnn, xf)
 end
 
@@ -185,14 +190,14 @@ function overallMobility(semiconductor::Semiconductor, Rnn::Function, T, x_limit
     return average_density(fn_VRH, fd, x_limit);
 end
 
-function overallEin(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
+function overallEinD(semiconductor::Semiconductor, f::Function, Rnn::Function, T, x_limit::Real)
     fd(x) = occupiedStates(semiconductor, x, T);
 
     function fn(x::Real, Rnn::Function)
         Rnn = Rnn(semiconductor, x, T);
         xf = Conduction.xf(semiconductor, Rnn, x, T);
         t = Conduction.t(semiconductor, Rnn, x, T);
-        return occupiedStates(semiconductor, x, T) * ein(semiconductor, Rnn, xf, t)
+        return occupiedStates(semiconductor, x, T) * f(semiconductor, Rnn, xf, t)
     end
 
     fn_final(x) = fn(x, Rnn);
