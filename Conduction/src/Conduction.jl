@@ -8,7 +8,7 @@ include("Utilities.jl")
 # DOS of a doped semiconductor (J^-1.cm^-3)
 DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
 
-DOSp(semiconductor::Semiconductor, U::Real, T::Real) = semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi) * (U / hbar > semiconductor.omega_min)
+DOSp(semiconductor::Semiconductor, U::Real, T::Real) = semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
 
 # Fermi-Dirac distribution
 F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (semiconductor.k * T)))
@@ -153,7 +153,7 @@ C(semiconductor, U, T) = exp(U / semiconductor.k / T) * (U / T)^2 / semiconducto
 
 kp(semiconductor, T) = quadgk(
     r -> DOSp(semiconductor, r, T) * C(semiconductor, r, T) * Dp(semiconductor, r, T),
-    hbar * semiconductor.omega_min,
+    semiconductor.omega_min,
     +Inf
 )[1]
 
