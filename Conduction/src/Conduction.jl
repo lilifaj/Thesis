@@ -178,11 +178,11 @@ function overallMobility(semiconductor::Semiconductor, Rnn::Function, T, x_limit
 
     function fn(x, Rnn)
         Rnn = Rnn(semiconductor, x, T);
-        xf = xf(semiconductor, Rnn, x, T);
+        xf = Conduction.xf(semiconductor, Rnn, x, T);
         return occupiedStates(semiconductor, x, T) * electronMobility(semiconductor, Rnn, xf)
     end
 
-    fn_final(x) = fn(x, Rnn(semiconductor, x, T));
+    fn_final(x) = fn(x, Rnn);
 
     return average_density(fn_final, fd, x_limit);
 end
