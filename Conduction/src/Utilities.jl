@@ -41,7 +41,7 @@ average_density_integral(f::Function, lower_value::Real, higher_value::Real) = q
     x -> f(x),
     lower_value,
     higher_value,
-    rtol=1e-1,
+    rtol=1e-5,
 )[1]
 
 average_density(fn::Function, fd::Function, x::Real) =
