@@ -43,7 +43,7 @@ end
 
 function Rnn(semiconductor::Semiconductor, U::Real, T::Real, x)::Float64
     i = 0;
-    while i < 10
+    while i < 100
         try
             return find_zero(r -> N(semiconductor, U, T, r) - x, 5 + i * 10, Order0())
             break
@@ -124,15 +124,12 @@ function t(semiconductor, Rnn::Float64, U::Real, T::Real)::Float64
     return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])
 end
 
+# Electric diffusion (cm^2/s), first hypothesis
 function D(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
     return xf^2 / (24 * semiconductor.alpha^2) * ((1 + semiconductor.nu * t * exp(-Rnn))^2 - 1) * semiconductor.nu * exp(-Rnn)
 end
 
-function D_bis(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
-    nu_bar = semiconductor.nu * exp(-Rnn)
-    return 0.5 * nu_bar * ((xf + nu_bar * t)^2 - xf^2)
-end
-
+# Electric diffusion (cm^2/s), second hypothesis
 function D_ter(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
     return 1 / 12 * (xf * Rnn * semiconductor.nu * exp(-Rnn) * t /  + 0.5 * Rnn^2) / semiconductor.alpha^2 * semiconductor.nu * exp(-Rnn)
 end
@@ -149,7 +146,7 @@ end
 
 Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U / hbar)^(-4)
 
-C(semiconductor, U, T) = exp(U / semiconductor.k / T) * (U / T)^2 / semiconductor.k / (exp(U / semiconductor.k / T) - 1)^2
+C(semiconductor, U, T) = exp(U / semiconductor.k / T) * (U / T)^2 / (semiconductor.k * (exp(U / semiconductor.k / T) - 1)^2)
 
 kp(semiconductor, T) = quadgk(
     r -> DOSp(semiconductor, r, T) * C(semiconductor, r, T) * Dp(semiconductor, r, T),
@@ -187,7 +184,7 @@ function overallMobility(semiconductor::Semiconductor, Rnn::Function, T, x_limit
 
     fn_final(x) = fn(x, Rnn(semiconductor, x, T));
 
-    return average_density(fn_VRH, fd, x_limit);
+    return average_density(fn_final, fd, x_limit);
 end
 
 function overallEinD(semiconductor::Semiconductor, f::Function, Rnn::Function, T, x_limit::Real)
