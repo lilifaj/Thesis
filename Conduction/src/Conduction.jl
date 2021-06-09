@@ -6,15 +6,15 @@ include("Variables.jl")
 include("Utilities.jl")
 
 # DOS of a doped semiconductor (J^-1.cm^-3)
-DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
+DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
 
-DOSp(semiconductor::Semiconductor, U::Real, T::Real) = semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * semiconductor.k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
+DOSp(semiconductor::Semiconductor, U::Real, T::Real) = semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
 
 # Fermi-Dirac distribution
-F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (semiconductor.k * T)))
+F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (k * T)))
 
 # Number of free state within a sphere of radius R
-N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (semiconductor.k * T) / (8 * semiconductor.alpha^3) * 2 * pi * hcubature(
+N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (k * T) / (8 * semiconductor.alpha^3) * 2 * pi * hcubature(
     x -> DOS(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T) * (1 - F(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
     [0, 0, 0],
     [1, R, pi],
@@ -60,9 +60,9 @@ end
 RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3 * 2.8) * quadgk(
     r -> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)),
     -Inf,
-    U + semiconductor.ModeEffect / (semiconductor.k * T),
+    U + semiconductor.ModeEffect / (k * T),
     rtol=1e-5
-    )[1])^(-1/3) * 2 * semiconductor.alpha * (semiconductor.k * T)^(-1/3)
+    )[1])^(-1/3) * 2 * semiconductor.alpha * (k * T)^(-1/3)
 
 # Range to the nearest neighbour using a percolation approach taking into account the field
 # RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = find_zero(r -> N(semiconductor, U, T, r) - 2.8, 5 + i * 10, Order0())
@@ -86,20 +86,20 @@ end
 
 function asymptoteRnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64
 
-    positiveAsymptote = (2 * semiconductor.alpha) * (semiconductor.k * T * 4 * pi * quadgk(r-> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)), -Inf, +Inf)[1] / (3 * 2.8))^(-1/3)
-    x = -U - semiconductor.ModeEffect / (semiconductor.k * T)
+    positiveAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * quadgk(r-> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)), -Inf, +Inf)[1] / (3 * 2.8))^(-1/3)
+    x = -U - semiconductor.ModeEffect / (k * T)
 
-    A1 = semiconductor.SigmaI(T)^2 / (x * (semiconductor.k * T)^2 + semiconductor.ModeEffect * semiconductor.k * T + semiconductor.SigmaI(T)^2) * semiconductor.Ni * exp(-semiconductor.ModeEffect^2 / (2 * semiconductor.SigmaI(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (semiconductor.k * T)) / (sqrt(2pi) * semiconductor.SigmaI(T))
+    A1 = semiconductor.SigmaI(T)^2 / (x * (k * T)^2 + semiconductor.ModeEffect * k * T + semiconductor.SigmaI(T)^2) * semiconductor.Ni * exp(-semiconductor.ModeEffect^2 / (2 * semiconductor.SigmaI(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaI(T))
 
-    A2 = semiconductor.SigmaD(T)^2 / (x * (semiconductor.k * T)^2 + (semiconductor.ModeEffect - semiconductor.Ed) * semiconductor.k * T + semiconductor.SigmaD(T)^2) * semiconductor.Nd * exp(-(semiconductor.ModeEffect - semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (semiconductor.k * T)) / (sqrt(2pi) * semiconductor.SigmaD(T))
+    A2 = semiconductor.SigmaD(T)^2 / (x * (k * T)^2 + (semiconductor.ModeEffect - semiconductor.Ed) * k * T + semiconductor.SigmaD(T)^2) * semiconductor.Nd * exp(-(semiconductor.ModeEffect - semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaD(T))
 
-    J1(x) = exp(-x^2 * (semiconductor.k * T)^2 / (2 * semiconductor.SigmaI(T)^2) - x * (1 + (semiconductor.ModeEffect * semiconductor.k * T) / (semiconductor.SigmaI(T)^2)))
+    J1(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaI(T)^2) - x * (1 + (semiconductor.ModeEffect * k * T) / (semiconductor.SigmaI(T)^2)))
 
-    J2(x) = exp(-x^2 * (semiconductor.k * T)^2 / (2 * semiconductor.SigmaD(T)^2) - x * (1 + ((semiconductor.ModeEffect - semiconductor.Ed) * semiconductor.k * T) / (semiconductor.SigmaD(T)^2)))
+    J2(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaD(T)^2) - x * (1 + ((semiconductor.ModeEffect - semiconductor.Ed) * k * T) / (semiconductor.SigmaD(T)^2)))
 
     negativeAsymptote = 0
     try
-        negativeAsymptote = (2 * semiconductor.alpha) * (semiconductor.k * T * 4 * pi * (A1 * J1(x) + A2 * J2(x)) / (3 * 2.8))^(-1/3)
+        negativeAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * (A1 * J1(x) + A2 * J2(x)) / (3 * 2.8))^(-1/3)
     catch
     end
 
@@ -139,14 +139,14 @@ function ein(semiconductor::Semiconductor, D::Function, Rnn::Float64, xf::Float6
 end
 
 # function Dp(semiconductor::Semiconductor, T, eta, lower_value, higher_value)
-#     fn(omega) = 1 / (eta * omega^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
-#     fd(omega) = omega^2 / (eta * semiconductor.gamma(T)^2 * (exp(hbar * omega / (semiconductor.k * T)) - 1))
+#     fn(omega) = 1 / (eta * omega^2 * (exp(hbar * omega / (k * T)) - 1))
+#     fd(omega) = omega^2 / (eta * semiconductor.gamma(T)^2 * (exp(hbar * omega / (k * T)) - 1))
 #     return average_density(fn, fd, lower_value, higher_value)
 # end
 
 Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U / hbar)^(-4)
 
-C(semiconductor, U, T) = exp(U / semiconductor.k / T) * (U / T)^2 / (semiconductor.k * (exp(U / semiconductor.k / T) - 1)^2)
+C(semiconductor, U, T) = exp(U / k / T) * (U / T)^2 / (k * (exp(U / k / T) - 1)^2)
 
 kp(semiconductor, T) = quadgk(
     r -> DOSp(semiconductor, r, T) * C(semiconductor, r, T) * Dp(semiconductor, r, T),

@@ -1,6 +1,8 @@
+q = 1.6e-19; # Electron's charge (C)
+k = 1.38e-23; # Boltzman constant (J.K^-1)
+hbar = 1.054571817*10^(-34) # Planck constant in J.s
+
 mutable struct Semiconductor
-    k::Float64 # Boltzman constant (J.K^-1)
-    q::Float64 # Electron's charge (C)
     alpha::Float64 # decay constant of the assumed hydrogen-like localized state wave functions (cm^-1)
     ModeEffect::Float64 # Mode effect of the phonons (J)
     Ni::Float64 # intrinsic semiconductor's density (cm^-3)
@@ -14,17 +16,16 @@ mutable struct Semiconductor
     beta::Function # Field Effect(No Unit)
     gamma::Function # Amount of disorder (J)
     omega_min::Real # Lower phonon frequency limit
-    function Semiconductor(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real, omega_min::Real)
+    function Semiconductor(alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real, omega_min::Real)
         FUf(T) = Uf * k * T
         FSigmaI(T) = SigmaI * k * T
         FSigmaD(T) = SigmaD * k * T
         Fbeta(T) = (F * q) / (2 * alpha * k * T)
         FGamma(T) = Gamma * k * T
-        new(k, q, alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma, omega_min)
+        new(alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma, omega_min)
     end
 end
 
-hbar = 1.054571817*10^(-34) # Planck constant in J.s
 struct ConvergenceError <: Exception
 end
 
