@@ -65,8 +65,6 @@ RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3
     )[1])^(-1/3) * 2 * semiconductor.alpha * (k * T)^(-1/3)
 
 # Range to the nearest neighbour using a percolation approach taking into account the field
-# RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = find_zero(r -> N(semiconductor, U, T, r) - 2.8, 5 + i * 10, Order0())
-
 function RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64
     Rnn(semiconductor, U, T, 2.8)
 end
@@ -144,12 +142,13 @@ end
 #     return average_density(fn, fd, lower_value, higher_value)
 # end
 
-Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U / hbar)^(-4)
+Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U * k * T/ hbar)^(-4)
 
-C(semiconductor, U, T) = exp(U / k / T) * (U / T)^2 / (k * (exp(U / k / T) - 1)^2)
+# C(U, T) = exp(U / k / T) * (U / T)^2 / (k * (exp(U / k / T) - 1)^2)
+C(U, T) = (U * k * T)^2 / (k * T^2) * exp(1 - U)
 
 kp(semiconductor, T) = quadgk(
-    r -> DOSp(semiconductor, r, T) * C(semiconductor, r, T) * Dp(semiconductor, r, T),
+    r -> DOSp(semiconductor, r, T) * C(r, T) * Dp(semiconductor, r, T),
     semiconductor.omega_min,
     +Inf
 )[1]
@@ -159,18 +158,7 @@ function occupiedStates(semiconductor::Semiconductor, U, T)
 end
 
 function overallDiffusion(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
-    fd(x) = occupiedStates(semiconductor, x, T);
-
-    function fn(x::Real, Rnn::Function)
-        Rnn = Rnn(semiconductor, x, T);
-        xf = xf(semiconductor, Rnn, x, T);
-        t = t(semiconductor, Rnn, x, T);
-        return occupiedStates(semiconductor, x, T) * D(semiconductor, Rnn, xf, t)
-    end
-
-    fn_final(x) = fn(x, Rnn);
-
-    return average_density(fn_final, fd, x_limit)
+    return Conduction.overallEinD(semiconductor, Conduction.D, Rnn, T, x_limit)
 end
 
 function overallMobility(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
@@ -200,6 +188,10 @@ function overallEinD(semiconductor::Semiconductor, f::Function, Rnn::Function, T
     fn_final(x) = fn(x, Rnn);
 
     return average_density(fn_final, fd, x_limit)
+end
+
+function overallEin(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
+    return overallEinD(semiconductor, (x, y, z, v) -> Conduction.ein(x, Conduction.D_ter, y, z, v), Rnn, T, x_limit)
 end
 
 end # module
