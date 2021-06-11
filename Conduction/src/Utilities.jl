@@ -16,6 +16,7 @@ mutable struct Semiconductor
     beta::Function # Field Effect(No Unit)
     gamma::Function # Amount of disorder (J)
     omega_min::Real # Lower phonon frequency limit
+    L::Real # Length of the sample
     function Semiconductor(alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real, size::Real)
         FUf(T) = Uf * k * T
         FSigmaI(T) = SigmaI * k * T
@@ -23,7 +24,7 @@ mutable struct Semiconductor
         Fbeta(T) = (F * q) / (2 * alpha * k * T)
         FGamma(T) = Gamma * k * T
         omega_min = size^(-1/4)
-        new(alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma, omega_min)
+        new(alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma, omega_min, size)
     end
 end
 
