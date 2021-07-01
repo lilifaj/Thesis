@@ -8,7 +8,9 @@ include("Utilities.jl")
 # DOS of a doped semiconductor (J^-1.cm^-3)
 DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
 
-DOSp(semiconductor::Semiconductor, U::Real, T::Real) = semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
+DOSp2(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni) / semiconductor.SigmaI(T) * exp(-(log(U * k * T) - log(semiconductor.ModeEffect))^2 / (2 * (semiconductor.SigmaI(T) / hbar)^2)) / sqrt(2 * pi)
+
+DOSp(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni) / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
 
 # Fermi-Dirac distribution
 F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (k * T)))
@@ -145,11 +147,11 @@ end
 Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U * k * T/ hbar)^(-4)
 
 # C(U, T) = exp(U / k / T) * (U / T)^2 / (k * (exp(U / k / T) - 1)^2)
-C(U, T) = (U * k * T)^2 / (k * T^2) * exp(1 - U)
+C(U, T)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 
-kp(semiconductor, T) = quadgk(
+kp(semiconductor, T) = k * T * quadgk(
     r -> DOSp(semiconductor, r, T) * C(r, T) * Dp(semiconductor, r, T),
-    semiconductor.omega_min,
+    semiconductor.omega_min * hbar / (k * T),
     +Inf
 )[1]
 
