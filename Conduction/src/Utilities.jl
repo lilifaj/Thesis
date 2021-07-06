@@ -37,14 +37,14 @@ average_density_integral(f::Function, x::Real) = quadgk(
     x -> f(x),
     -x,
     x,
-    rtol=1e-5,
+    rtol=1e-2,
 )[1]
 
 average_density_integral(f::Function, lower_value::Real, higher_value::Real) = quadgk(
     x -> f(x),
     lower_value,
     higher_value,
-    rtol=1e-5,
+    rtol=1e-2,
 )[1]
 
 average_density(fn::Function, fd::Function, x::Real) =
