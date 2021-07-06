@@ -1,0 +1,166 @@
+% !TeX root = document-en.tex
+
+\chapter{Julia}
+\label{chap:julia}
+
+\section{Introduction}
+
+Julia is a recent open-source language (MIT) which has been developed specifically for scientific purposes. Syntax is also very similar to what can be done with Python, meaning that it's easy to read and write efficient code. Of course the syntax is also optimized for mathematics purpose, and the expressions are straightforwardly converted into the computer language. Even though it is a compiled language like Matlab, his use of REPL makes it quite easy to beta test code and run simple programs. The huge community involved around the language makes it easier to find useful package that are already optimized for fast computation in Julia. The support of other languages within the Julia language allows an even greater access to simple and user friendly tools: it is very easy to use the Python graphic renderer to plot and easily visualize data.
+
+\section{Performances}
+
+One key argument in choosing Julia over Matlab was its performances. According to the officials data (fig. \ref{fig:7}), for this specific benchmark, Julia language reaches the performances of static-compiled languages such as C and is even better performing than Matlab.
+
+\begin{figure}
+    \centering
+    \includegraphics*[width=.6\paperwidth]{figures/benchmarks.png}
+    \caption{Julia benchmark \label{fig:7}}
+\end{figure}
+
+\section{Notebooks}
+
+The communication and presentation of data and code is a key part in making a scientific work. To help smoothing out the process, we intensively used Jupyter notebooks. They put in the same document programming language code, as well as plain text (rendered through markdown) to help clarify and improve the overall lisibility.
+
+\section{Code implementation}
+
+\subsection{Packages}
+
+One of the key aspect of the modelisation that has been performed, was to perform easily and quickly complex integral over multiple dimension. The computation of 1D expression such as $\sigma$ (TODO: add ref) has been realized using QUADGK package:
+
+\begin{lstlisting}
+    kp(semiconductor, T) = k * T * quadgk(
+        r -> DOSp(semiconductor, r, T) * C(r, T) * Dp(semiconductor, r, T),
+        semiconductor.omega_min * hbar / (k * T),
+        +Inf
+    )[1]
+\end{lstlisting}
+
+The multidimensional integrals have been computed using HCubature:
+
+\begin{lstlisting}
+    # Number of free state within a sphere of radius R
+    N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (k * T) / (8 * semiconductor.alpha^3) * 2 * pi * hcubature(
+        x -> DOS(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T) * (1 - F(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
+        [0, 0, 0],
+        [1, R, pi],
+        rtol=1e-6)[1]
+\end{lstlisting}
+
+\subsection{Code adaptation}
+
+However, concerning the multi-dimensional integrals, they can't be used as they were presented in the thesis. The parameters presented in the born have to be some constant and not depend on an other integral parameters.
+
+\subsubsection{Number of free states\label{sec:free_states}}
+
+The formula for the number of free state is taken from TODO:REF :
+
+\begin{equation}
+    \begin{aligned}
+    \mathcal{N}\left(u, T, \beta, \mathscr{R}\right)=\int_{0}^{\pi} \int_{0}^{\mathscr{R}} \int_{-\infty}^{\mathscr{R}+u-r(1+\beta \cos \theta)} N\left(v\right)\left[1-F\left(v\right)\right] \frac{k T}{8 \alpha^{3}} \\
+    \times 2 \pi r^2 \sin \theta d v d r d \theta
+    \end{aligned}
+    \label{eq:2_1}
+\end{equation}
+
+For the $d v$ integrals, the superior born is defined by $\mathscr{R}+u-r(1+\beta \cos \theta)$, where $\theta$ and $R^\prime$ are already parameters for the first and second integral. In order to get rid of such born, we've made the change of variable:
+
+\begin{equation}
+    v = \mathscr{R}+u-r(1+\beta \cos \theta) - \frac{t}{1 - t} = a - \frac{t}{1-t}
+    \label{eq:2_2}
+\end{equation}
+
+It results in the change from eq. \ref{eq:2_1} to:
+
+\begin{equation}
+    \begin{aligned}
+    \mathcal{N}\left(u, T, \beta, \mathscr{R}\right)=\int_{0}^{\pi} \int_{0}^{\mathscr{R}} \int_{0}^{1} N\left(a - \frac{t}{1-t}\right)\left[1-F\left(a - \frac{t}{1-t}\right)\right] \frac{k T}{8 \alpha^{3}} \\
+    \times 2 \pi r^2 \sin \theta \frac{1}{(1 - t)^2} d t d r d \theta
+    \end{aligned}
+    \label{eq:2_3}
+\end{equation}
+
+With this simple change of variable, the time of computation has been reduced from several minutes depending on the initial conditions, to a few seconds.
+
+\subsubsection{Real hopped distance}
+
+From the equation of the real hopper distance TODO:REF:
+
+\begin{equation}
+    \begin{aligned}
+    I_{1}&=\int_{0}^{\pi} \int_{u-\overline{r_{n n}} \beta \cos \theta}^{u+\overline{r_{n n}}} N\left(v\right)\left[1-F\left(v\right)\right]\left[\frac{\overline{r_{n n}}-v+u}{1+\beta \cos \theta}\right]^{3} \quad \times \sin \theta \cos \theta d v d \theta \\
+    I_{2}&=\int_{0}^{\pi} \int_{-\infty}^{u-\overline{r_{n n}} \beta \cos \theta} N\left(v\right)\left[1-F\left(v\right)\right] \overline{r_{n n}}^{3} \sin \theta \cos \theta d v d \theta \\
+    I_{3}&=\int_{0}^{\pi} \int_{u-\overline{r_{n n}} \beta \cos \theta}^{u+\overline{r_{n n}}} N\left(v\right)\left[1-F\left(v\right)\right]\left[\frac{\overline{r_{n n}}-v+u}{1+\beta \cos \theta}\right]^{2} \sin \theta d v d \theta \\
+    I_{4}&=\int_{0}^{\pi} \int_{-\infty}^{u-\overline{r_{n n}} \beta \cos \theta} N\left(v\right)\left[1-F\left(v\right)\right] \overline{r_{n n}}^{2} \sin \theta d v d \theta
+    \end{aligned}
+    \label{eq:2_4}
+\end{equation}
+
+Similarly to the section \ref{sec:free_states}, the area of integrals contain integrated variable $\theta$. By the change of variable for $I_1$ and $I_3$:
+
+\begin{equation}
+    v = f_1(t) = \overline{\mathscr{R}_{n n}}\left[\frac{1+\beta \cos \theta}{t}-\beta \cos \theta\right]+u
+    \label{eq:2_5}
+\end{equation}
+
+And by doing the change of variable for $I_2$ and $I_4$:
+
+\begin{equation}
+    v = f_2(t) = u-\overline{\mathscr{R}_{n n}} \beta \cos \theta-\frac{t}{1-t}
+    \label{eq:2_6}
+\end{equation}
+
+We obtain the following formulas:
+
+\begin{equation}
+    \begin{aligned}
+    I_{1}&=0.5 * \overline{{r}_{n n}} \int_{0}^{\pi} \int_{0}^{1} N\left(f_1\left(t\right)\right)\left[1-F\left(f_1\left(t\right)\right)\right] \frac{\left[\overline{r}_{n n}-f_1\left(t\right)+u\right]^{3}}{[1+\beta \cos \theta]^{2}} \sin (2 \theta) d t d \theta \\
+    I_{2}&=0.5 * \overline{r_{n n}}^{3} \int_{0}^{\pi} \int_{0}^{1} N\left(f_2\left(t\right)\right)\left[1-F\left(f_2\left(t\right)\right)\right] \sin (2 \theta) \frac{1}{\left(1-t\right)^{2}} d t d \theta \\
+    I_{3}&=\overline{r_{n n}} \int_{0}^{\pi} \int_{0}^{1} N\left(f_1\left(t\right)\right)\left[1-F\left(f_1\left(t\right)\right)\right] \frac{\left[\bar{r}_{n n}-f_1\left(t\right)+u\right]^{2}}{[1+\beta \cos \theta]} \sin (\theta) d t d \theta \\
+    I_{4}&=\overline{r_{n n}}^{2} \int_{0}^{\pi} \int_{0}^{1} N\left(f_2\left(t\right)\right)\left[1-F\left(f_2\left(t\right)\right)\right] \sin (\theta) \frac{1}{\left(1-t\right)^{2}} d t d \theta
+    \end{aligned}
+    \label{eq:2_7}
+\end{equation}
+
+\subsubsection{Stochastic time of trap}
+
+From the equation of the stochastic time of trap TODO:REF:
+
+\begin{equation}
+    \begin{aligned}
+    J_{1}\left(u\right)=& \int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{u-r \beta \cos \theta}^{\overline{r_{n n}}+u-r(1+\beta \cos \theta)} d u \\
+    & \times \frac{\tau\left(u, u_{F}\right)}{v_{0}} \exp \left((1+\beta \cos \theta) r+u-u\right), \\
+    J_{2}\left(u\right)=& \int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{-\infty}^{u-r \beta \cos \theta} d u \frac{\tau\left(u, u_{F}\right)}{v_{0}} \\
+    & \times \exp ((1+\beta \cos \theta) r), \\
+    J_{3}\left(u\right)=& \int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{u-r \beta \cos \theta}^{\overline{r_{n n}}+u-r(1+\beta \cos \theta)} d u \tau\left(u, u_{F}\right), \\
+    J_{4}\left(u\right)=& \int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{-\infty}^{u-r \beta \cos \theta} d u \tau\left(u, \epsilon_{F}\right)
+    \end{aligned}
+\end{equation}
+
+By doing the change of variable for $J_1$ and $J_3$:
+
+\begin{equation}
+    v = g_{1}\left(t\right)=t\left(\overline{r_{n n}}-r\right)+u+r \beta \cos \theta \\
+\end{equation}
+
+And by doing the change of variable for $J_2$ and $J_4$:
+
+\begin{equation}
+    g_{2}\left(t\right)=\frac{t}{t-1}+u-r \beta \cos \theta
+\end{equation}
+
+We obtain the following formulas:
+
+\begin{equation}
+    \begin{aligned}
+    I_{1}\left(u\right)&=\int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{0}^{1} d t \frac{\tau\left(g_{1}(t), u_{F}\right)}{v_{0}} \exp \left((1+\beta \cos \theta) r+g_{1}(t)-u\right) \\
+    I_{2}\left(u\right)&=\int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{0}^{1} d t \frac{\tau\left(g_{2}(t), u_{F}\right)}{v_{0}} \exp ((1+\beta \cos \theta)) \\
+    I_{3}\left(u\right)&=\int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{0}^{1} d t \tau\left(g_{1}(t), u_{F}\right) \\
+    I_{4}\left(u\right)&=\int_{0}^{\pi} d \theta \sin \theta \int_{0}^{\overline{r_{n n}}} d r 2 \pi r^{2} \int_{0}^{1} d t \tau\left(g_{2}(t), u_{F}\right)
+    \end{aligned}
+\end{equation}
+
+\section{Conclusion}
+
+Thanks to the possibilities of Julia and to numerous package, we could optimize the code to obtain a final computation of einstein ratio in the order of several minutes/hours depending on the initial conditions.
+
+Optimization is a key point to computational simulation as we need to get a result in a fair amount of time in order to work by iteration and tune our model to real data: we may want to fit a certain numerical value for instance.

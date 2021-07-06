@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: document-en.aux
+The style file: bib/acm-sigchi.bst
+Database file #1: bib/document-en.bib
+Warning--empty journal in intro_orga
+Warning--empty journal in perovskite
+You've used 19 entries,
+            2243 wiz_defined-function locations,
+            669 strings with 7884 characters,
+and the built_in function-call counts, 6768 in all, are:
+= -- 644
+> -- 393
+< -- 0
++ -- 163
+- -- 142
+* -- 598
+:= -- 1169
+add.period$ -- 58
+call.type$ -- 19
+change.case$ -- 128
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 150
+empty$ -- 472
+format.name$ -- 142
+if$ -- 1354
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 19
+newline$ -- 99
+num.names$ -- 38
+pop$ -- 92
+preamble$ -- 1
+purify$ -- 109
+quote$ -- 0
+skip$ -- 94
+stack$ -- 0
+substring$ -- 478
+swap$ -- 17
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 76
+warning$ -- 2
+while$ -- 59
+width$ -- 21
+write$ -- 191
+(There were 2 warnings)

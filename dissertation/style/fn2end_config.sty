@@ -1,0 +1,35 @@
+% NameList環境定義
+
+\newcommand{\namelistlabel}[1]{\mbox{#1}\hfil}
+\newenvironment{namelist}[1]{%
+\begin{list}{}
+{\let\makelabel\namelistlabel
+\settowidth{\labelwidth}{#1}
+\setlength{\leftmargin}{1.1\labelwidth}}
+}{%
+\end{list}}
+
+% 「fn2end.sty」の修正
+
+\makeatletter
+\long\gdef\@copynote#1{%
+\immediate\write\n@tefile{\string\item[}%
+\immediate\write\n@tefile{\notenumberformat{\@thefnmark}]}%
+\immediate\write\n@tefile{#1}\endgroup}
+
+\renewcommand{\makeendnotes}{\newwrite\n@tefile%
+\immediate\openout\n@tefile=\jobname.end
+
+% この行の「x」の数でインデント幅を調節
+\immediate\write\n@tefile{\string\begin{namelist}{xxxx}}%
+%
+\immediate\write\n@tefile{\string\setlength{\itemsep}{0pt}}%
+\long\gdef\@footnotetext{\immediate\write\n@tefile{}%
+\begingroup\newlinechar=`\^^M%
+\catcode`\^^M=12\@setupcopy\@copynote}}%
+  
+\renewcommand{\theendnotes}{
+\immediate\write\n@tefile{\string\end{namelist}}
+\immediate\closeout\n@tefile
+\input\jobname.end\relax}
+\makeatother

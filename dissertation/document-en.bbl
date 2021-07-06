@@ -1,0 +1,119 @@
+\begin{thebibliography}{10}
+
+\bibitem{hopping_theory_1}
+Apsley, N., and Hughes, H.~P.
+\newblock Temperature-and field-dependence of hopping conduction in disordered
+  systems.
+\newblock {\em The Philosophical Magazine: A Journal of Theoretical
+  Experimental and Applied Physics 30}, 5 (1974), 963--972.
+
+\bibitem{ein_drift_2}
+Baranovskii, S., Faber, T., Hensel, F., Thomas, P., and Adriaenssens, G.
+\newblock Einstein's relationship for hopping electrons.
+\newblock {\em Journal of Non-Crystalline Solids 198-200\/} (1996), 214--217.
+\newblock Proceedings of the Sixteenth International Conference on Amorphous
+  Semiconductors - Science and Technology.
+
+\bibitem{intro_orga}
+Brütting, W.
+\newblock Introduction to the physics of organic semiconductors.
+\newblock 1--14.
+
+\bibitem{DOS_monte_carlo}
+Bässler, H.
+\newblock Charge transport in disordered organic photoconductors a monte carlo
+  simulation study.
+\newblock {\em physica status solidi (b) 175}, 1 (1993), 15--56.
+
+\bibitem{polyacetylene}
+Chiang, C.~K., Fincher, C.~R., Park, Y.~W., Heeger, A.~J., Shirakawa, H.,
+  Louis, E.~J., Gau, S.~C., and MacDiarmid, A.~G.
+\newblock Electrical conductivity in doped polyacetylene.
+\newblock {\em Phys. Rev. Lett. 39\/} (Oct 1977), 1098--1101.
+
+\bibitem{einstein}
+{Einstein}, A.
+\newblock {{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme
+  geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten
+  Teilchen}.
+\newblock {\em Annalen der Physik 322}, 8 (Jan. 1905), 549--560.
+
+\bibitem{einstein_model_thermic}
+Einstein, A.
+\newblock Elementare betrachtungen über die thermische molekularbewegung in
+  festen körpern [adp 35, 679 (1911)].
+\newblock {\em Annalen der Physik 14}, S1 (2005), 408--424.
+
+\bibitem{multiple_theory}
+Liu, C., Huang, K., Park, W.-T., Li, M., Yang, T., Liu, X., Liang, L., Minari,
+  T., and Noh, Y.-Y.
+\newblock A unified understanding of charge transport in organic
+  semiconductors: the importance of attenuated delocalization for the carriers.
+\newblock {\em Mater. Horiz. 4\/} (2017), 608--618.
+
+\bibitem{universal_einstein}
+Lu, N., Li, L., Gao, N., and Liu, M.
+\newblock A unified description of thermal transport performance in disordered
+  organic semiconductors.
+\newblock {\em Organic Electronics 41\/} (2017), 294--300.
+
+\bibitem{miller}
+Miller, A., and Abrahams, E.
+\newblock Impurity conduction at low concentrations.
+\newblock {\em Phys. Rev. 120\/} (Nov 1960), 745--755.
+
+\bibitem{OTFT}
+Minamiki, T., Minami, T., Chen, Y.-P., Mano, T., Takeda, Y., Fukuda, K., and
+  Tokito, S.
+\newblock Flexible organic thin-film transistor immunosensor printed on a
+  one-micron-thick film.
+\newblock {\em Communications Materials 2\/} (01 2021).
+
+\bibitem{perovskite}
+Mitzi, D.~B.
+\newblock Synthesis, structure, and properties of organic-inorganic perovskites
+  and related materials.
+\newblock 1--121.
+
+\bibitem{diffusion_F}
+Nenashev, A.~V., Jansson, F., Baranovskii, S.~D., \"Osterbacka, R.,
+  Dvurechenskii, A.~V., and Gebhard, F.
+\newblock Effect of electric field on diffusion in disordered materials. ii.
+  two- and three-dimensional hopping transport.
+\newblock {\em Phys. Rev. B 81\/} (Mar 2010), 115204.
+
+\bibitem{ein_drift}
+Richert, R., Pautmeier, L., and B\"assler, H.
+\newblock Diffusion and drift of charge carriers in a random potential:
+  Deviation from einstein's law.
+\newblock {\em Phys. Rev. Lett. 63\/} (Jul 1989), 547--550.
+
+\bibitem{generalied_quasi}
+Roichman, Y., and Tessler, N.
+\newblock Generalized einstein relation for disordered
+  semiconductors—implications for device performance.
+\newblock {\em Applied Physics Letters 80}, 11 (2002), 1948--1950.
+
+\bibitem{laserDiode}
+Sandanayaka, A. S.~D., Matsushima, T., Bencheikh, F., Terakawa, S., Potscavage,
+  W.~J., Qin, C., Fujihara, T., Goushi, K., Ribierre, J.-C., and Adachi, C.
+\newblock Indication of current-injection lasing from an organic semiconductor.
+\newblock {\em Applied Physics Express 12}, 6 (may 2019), 061010.
+
+\bibitem{IBM}
+Shaw, J., and Seidler, P.
+\newblock Organic electronics: Introduction.
+\newblock {\em IBM Journal of Research and Development 45\/} (02 2001), 3 -- 9.
+
+\bibitem{amorphous}
+Shibata, M., Sakai, Y., and Yokoyama, D.
+\newblock Advantages and disadvantages of vacuum-deposited and spin-coated
+  amorphous organic semiconductor films for organic light-emitting diodes.
+\newblock {\em J. Mater. Chem. C 3\/} (2015), 11178--11191.
+
+\bibitem{mono_crystal}
+Zhang, X., Dong, H., and Hu, W.
+\newblock Organic semiconductor single crystals for electronics and photonics.
+\newblock {\em Advanced Materials 30}, 44 (2018), 1801048.
+
+\end{thebibliography}

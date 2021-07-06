@@ -1,0 +1,314 @@
+%%This is the KMD un-official thesis template (Engineering Format for English Writer).
+%
+\documentclass[12pt,a4paper]{report}  % Should work with either pLaTeX or XeLaTeX
+\usepackage{style/new-emthesis}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Decide what graphicx driver to use for images.
+% For pLaTeX should use 'dvipdfmx'; default is OK otherwise.
+\newcommand\gfxdriver{}
+\ifXeTeX                        %% If XeLaTeX is being used
+    \usepackage{fontspec}
+    % Use standard TeX ligature logic
+    \defaultfontfeatures{Ligatures=TeX}
+    % Enable use of XeTeX CJK fonts for Japanese text if needed
+    \usepackage[indentfirst=false]{xeCJK}
+    % XeLaTeX also requires specifying CJK fonts
+    %   (these must be TTF/OTF fonts installed on the computer)
+    \setCJKmainfont{IPAMincho}      % Japanese serif (Mincho) font - e.g. MS PMincho
+    \setCJKsansfont{IPAPGothic}     % Japanese sans (Gothic) font - e.g. MS PGothic
+    \setCJKmonofont{IPAGothic}      % Japanese monospaced font - e.g. MS Gothic
+
+\else\ifptex                    %% If pLaTeX is being used
+    % Uncomment next 2 lines to enable ruby characters (furigana) if needed
+    %\usepackage{pxrubrica}
+    %\rubysetup{g}
+
+    \renewcommand\gfxdriver{dvipdfmx}
+\fi\fi
+\usepackage[\gfxdriver]{graphicx}
+%
+%%%%%%%% Load other packages
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{fancybox}
+\usepackage{amssymb}
+\usepackage{moreverb}
+\usepackage{afterpage}
+\usepackage{cite}
+%\usepackage{harvard-oikos}
+\usepackage{style/ccaption}           % caption
+\usepackage{style/fn2end}             % footnotes script
+\usepackage{style/fn2end_config}      % footnotes edit script
+\usepackage{tabu}               % more powerful/flexible tables
+\usepackage{fancyhdr}           % used to enable nice page headers
+\ifptex
+    \usepackage[hyphens]{url}           % format URLs nicely
+\else                                   % also create links in document
+    \usepackage[hidelinks,hypertexnames=false,hyperfootnotes=false]{hyperref}
+    % Uncomment to enable ruby characters (furigana) if needed
+    %\ifXeTeX \usepackage[CJK,nooverlap]{ruby} \fi
+\fi
+
+\lstset{frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%
+%%%%%%%%%% Other tweaks
+\makeatletter
+%
+% Remove the number from subsection headings
+%\renewcommand*{\l@subsection}{\@dottedtocline{2}{3.8em}{1.2em}}
+%\renewcommand{\thesubsection}{\hskip-1.0em}
+%
+% Make in-page footnotes use regular numbers instead of superscripts (per CMS)
+\renewcommand{\@makefntext}[1]{%
+    \noindent
+	\leftskip=1.5em
+	\hskip-1.5em
+	\makebox[1.5em][l]{\@thefnmark}{#1}
+}
+\setlength{\skip\footins}{\baselineskip}
+\setlength{\footnotesep}{1.3em}
+%
+% Also use a tighter line spacing for endnotes
+\let\saved@theendnotes\theendnotes
+\renewcommand{\theendnotes}{%
+    \setlength{\baselineskip}{1.3em}
+	\saved@theendnotes
+}
+%
+% Uncomment the following to include the abstract in the table of contents:
+%\let\saved@eabstractpage\eabstractpage
+%\renewcommand{\eabstractpage}{%
+%    \addcontentsline{toc}{chapter}{\abstractname}
+%    \saved@eabstractpage
+%}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%%%%%%%%%%
+% Page Style Settings - Choose One
+\pagestyle{final}               % Final Draft
+%\pagestyle{draft}               % Drafts
+
+
+%%%%%%%%%%%%%%%%%%%%%% Optional Styling Tweaks %%%%%%%%%%%%%%%%%%%%%%
+%
+% Uncomment one of these to change the default Latin font:
+%\renewcommand*\rmdefault{bch}   % Charter
+%\renewcommand*\rmdefault{pnc}   % Century Schoolbook
+
+%
+% Uncomment to adjust the default line spacing.  The defaults are 1.1 for
+% English and 1.2 for Japanese.  For tighter spacing, 1.0 can be used.
+%\renewcommand{\baselinestretch}{1.0}
+
+%
+% Add a nice header to each non-initial page (optional):
+%
+\pagestyle{fancy}
+\setlength{\headheight}{13.6pt}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{1em}#1}}
+\fancyhead{}
+\makeatletter\if@twoside              % Two-sided (book) style layout
+    \fancyhead[LE]{\footnotesize\leftmark}   % Chapter name on left-hand page
+    \fancyhead[RO]{\footnotesize\rightmark}  % Section name on right-hand page
+\else                                 % Regular (single-page) layout
+    \fancyhead[L]{\footnotesize\leftmark}    % Chapter name at left side
+    \fancyhead[R]{\footnotesize\rightmark}   % Section name at right side
+\fi\makeatother
+
+%
+% Table padding for use with tabu (only if \usepackage{tabu} specified above)
+\setlength{\tabulinesep}{3pt}   % Vertical padding between rows
+
+%
+% Adjust space around float captions
+\setlength{\abovecaptionskip}{0.5em}    % Space above bottom captions
+\setlength{\belowcaptionskip}{1em}      % Space below top captions
+
+%
+%%%%%%%%%%%%%% Thesis Parameters - Edit as Appropriate %%%%%%%%%%%%%%
+%
+%
+% Language Settings
+%\lang{Japanese} % Japanese
+\lang{English} % English
+
+%
+% Student ID number
+\studentnumber{81923362}
+
+%
+% Choosing Masters Thesis or Report
+\doctitle{\mastersthesis}       % Masters Thesis
+%\doctitle{\mastersreport}      % Report
+\graduateschool{Graduate School of Science and Technology}
+\school{School of Integrated Design Engineering}
+%
+% What Degree to obtain
+\major{\mediadesign}    % Degree of Media Design
+
+% \graduateschool{}
+%
+% Title (in LaTeX)
+\etitle{Numerical investigation on electrical and thermal characteristics in organic semiconductor films from the aspect of variable range hopping}
+%
+% Title (in plain text)
+%   No need to set if the same as  (in LaTeX)
+\eptitle{}
+
+%
+%Author's Name (in LaTeX)
+\eauthor{Descouens Nicolas}
+%
+% Author's Name (in plain text)
+%   No need to set if the same as in (in LaTeX)
+\epauthor{}
+\advisor{Associate Professor Noda Kei}
+%
+% Academic Year
+\syear{2021}
+%\heiseiyear{24}            % only required for Japanese thesis
+%\smonth{2}
+%\sday{7}
+
+%
+% Advisors
+%
+%\echmembers{Professor Hideki Sunahara}{(Supervisor)}
+%          {Professor Akira Kato}{(Co-supervisor)}
+%
+% Thesis committee members - Supervisor, Co-supervisor, and Member must be
+% specified.  Uncomment and edit ONE of these depending on the total number:
+%
+% If 5 advisors:
+% Supervisor, Co-supervisor, and Member must be specified.
+%\ecomembers{Professor Shunsuke Uemura}{(Supervisor)}
+%          {Professor Minoru Ito}{(Co-supervisor)}
+%          {Associate Professor Masatoshi Yoshikawa}{(Member, Nagoya University)}
+%          {Associate Professor xxxxxx xxxxxx}{(Member)}
+%\eaddcomembers{Associate Professor oooooo oooooo}{(Member)}
+%
+% If 4 advisors:
+%\ecomembers{Professor Hideki Sunahara}{(Supervisor)}
+%          {Professor Akira Kato}{(Co-supervisor)}
+%          {Professor Nobuo Kawaguchi}{(Member, Nagoya University)}
+%          {Associate Professor xxxxxx xxxxxx}{(Member)}
+%
+% If 3 advisors:
+% \advisor{Hideki Sunahara}
+% If 2 advisors:
+% \ecomembers{Professor Hideki Sunahara}{(Supervisor)}
+%           {Professor Akira Kato}{(Co-supervisor)}
+%
+% 5 or 6 Keywords (in LaTeX)
+%
+\ekeywords{}
+%
+% 5 or 6 Keywords (in plain text)
+%   No need to set if the same as in (in LaTeX)
+%\epkeywords{Design Thinking, Creative Society, Workshop, Innovation, Education}
+
+%
+%Choose one submission category from [Design, Science / Engineering, Social Science / Humanities, Action Research]
+\ecategory{Science / Engineering}
+%Choose one submission category from [Design, Science / Engineering, Social Science / Humanities, Action Research] (in plain text)
+\pecategory{Science / Engineering}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%Abstract%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\eabstract{
+}
+%%%%%%%%%%%%%%%%%%%%%%%%% document starts here %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% No need to edit these
+
+\begin{document}
+%
+%
+\titlepage
+\comemberspage
+\firstabstract
+%\secondabstract            % only required for Japanese thesis
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Acknowledgements here %%%%%%%%%%%%%%%%%%%%%%%
+\acknowledgements
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Main Matter %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Table of Contents and related matter
+\toc
+\newpage
+\listoffigures
+%
+\newpage
+\pagenumbering{arabic}
+
+%
+%%%%%%%% Chapters - input individual chapters here
+%
+\input{chapters/1_intro.tex}
+\input{chapters/2_julia.tex}
+%\input{implementation.tex}
+%\input{evaluation.tex}
+%\input{conclusion.tex}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Reference %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+%\reference
+\nocite{*} %Use if you want to list everything listed in bibtex, if not comment it out
+
+%%%%%%%%%%%%%%%%%%%%%%
+%Style of Bibliography
+%
+% Numbering Style (General Science Format):
+%\bibliographystyle{abbrv}
+%
+% ACM SIGCHI Style
+\bibliographystyle{bib/acm-sigchi}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{bib/document-en}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Default title is 'Appendices' (plural). If you have only one appendix
+% you can change it to 'Appendix' by uncommenting the following line:
+\renewcommand{\appendicestitle}{Appendix}
+
+\appendix
+\input{chapters/appendix1-en}
+
+\end{document}

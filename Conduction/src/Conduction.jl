@@ -155,6 +155,19 @@ kp(semiconductor, T) = k * T * quadgk(
     +Inf
 )[1]
 
+function ke(semiconductor, T)
+    function f(r)
+        Rnn = Conduction.RnnVRH(semiconductor, r, T);
+        xf = Conduction.xf(semiconductor, Rnn, r, T);
+        t = Conduction.t(semiconductor, Rnn, r, T);
+        return DOS(semiconductor, r, T) * C(r, t) * D_ter(semiconductor, Rnn, xf, t)
+    end
+    return k * T * quadgk(
+    r -> f(r),
+    -15,
+    15)[1]
+end
+
 function occupiedStates(semiconductor::Semiconductor, U, T)
     return DOS(semiconductor, U, T) * F(semiconductor, U, T)
 end

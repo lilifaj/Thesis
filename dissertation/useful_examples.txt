@@ -1,0 +1,350 @@
+USEFUL LATEX EXAMPLES
+---------------------
+
+This file contains some useful LaTeX examples. Feel free to copy and adapt
+them for your thesis.
+
+
+LISTS
+
+By default, lists have extra blank lines around them and in between each item.
+The 'enumitem' package lets you get rid of this extra space, and also provides 
+a lot of custom control over list appearance.  Put
+\usepackage{enumitem}
+in the preamble section of your main .tex file (with all the other \usepackage 
+lines).
+
+Now you can make compact lists by using:
+
+\begin{itemize}[nosep]
+\item blah
+\item blah
+\end{itemize}
+
+The same applies to enumerate and description lists as well.  You can use 
+'noitemsep' instead of 'nosep', in which case there will still be a blank line
+before and after the list, but none in between items:
+
+\begin{itemize}[noitemsep]
+\item blah
+\item blah
+\end{itemize}
+
+If you want slightly more compact lists, but still with some space, try adding
+a line like the following to the 'Optional Styling Tweaks' section of your main
+.tex file:
+\setlist{itemsep=0pt,parsep=4pt,topsep=4pt}
+
+Then you can leave out the 'nosep' parameter on lists, i.e.
+
+\begin{enumerate}
+\item blah
+\item blah
+\item blah
+\end{enumerate}
+
+When using the enumitem package, you can also change the bullet or numbering 
+style of lists. For example, to change bullets into boxes, you can use:
+
+\begin{itemize}[label=$\Box$]
+\item blah
+\item blah
+\item blah
+\end{itemize}
+
+To change the numbering of an enumeration, use label=\Alph* (for uppercase
+letters), label=\alph* (lowercase letters), label=\Roman* (uppercase Roman),
+label=\roman* (lowercase Roman), or label=\arabic (standard numbers). Any
+other characters you specify will be added to the label (so "label=\roman* .")
+will use lowercase Roman numerals followed by a period. (The space after 
+"roman*" in the above command is required; it won't show up in the actual 
+list.)
+
+
+Description lists are useful for terminology and so on. The basic format is:
+
+\begin{description}
+\item[foo] blah
+\item[bar] blah
+\item[baz] blah
+\end{description}
+
+By default, the item name will be in bold. If you're using the enumitem package
+you can change this, for example to italic, using a command like:
+
+\begin{description}[font=\normalfont\itshape]
+\item[foo] blah
+\item[bar] blah
+\item[baz] blah
+\end{description}
+
+
+
+PICTURES
+
+NOTE: In all these examples, the 'bb' (bounding box) parameter has been left
+off the \includegraphics commands.  Depending on your version of LaTeX, and 
+the type of image, this parameter may or may not be needed.  If you do need
+it, insert ',bb=0 0 x y' after the 'width' parameter, i.e.:
+\includegraphics[width=\linewidth,bb=0 0 x y]{myimage}
+where 'x' and 'y' are the image's width and height, respectively, in pixels
+(you should be able to find these values by examining the image file in
+almost any graphics viewer).
+
+
+Here's how to combine two pictures in a single figure.  This doesn't require 
+any special packages.
+
+\begin{figure}[htbp!]
+\centering
+\parbox{6.5cm}{\centering\includegraphics[width=\linewidth]{imagefile1}}\hskip3mm
+\parbox{6.5cm}{\centering\includegraphics[width=\linewidth]{imagefile2}}\vskip4pt
+\caption{Two pictures in one figure}
+\label{fig:twopic}
+\end{figure}
+
+In the KMD thesis template, the text block is 14.6cm wide.  That means that
+if you want the pictures to appear side-by-side, the width of the two 
+\parbox'es plus the width of the \hskip should not add up to more than 14.6cm.  
+Here we're using 6.5cm for each picture with 3mm in between, for a total of 
+13.4cm.  (The \vskip after the second picture controls how much extra padding 
+to put underneath the pictures.)
+
+
+Next, here's an example of combining more pictures in a grid layout.  The 
+spacing is slightly tighter here (1mm); feel free to use what you feel is 
+appropriate in your own thesis.
+
+\begin{figure}[htb!]
+\centering
+\parbox{6.7cm}{\centering\includegraphics[width=\linewidth]{imagefile1}}\hskip1mm
+\parbox{6.7cm}{\centering\includegraphics[width=\linewidth]{imagefile2}}\vskip1mm
+\parbox{6.7cm}{\centering\includegraphics[width=\linewidth]{imagefile3}}\hskip1mm
+\parbox{6.7cm}{\centering\includegraphics[width=\linewidth]{imagefile4}}\vskip4pt
+\caption{Four pictures in one figure}
+\label{fig:fourpic}
+\end{figure}
+
+
+If you want each sub-picture to have its own sub-caption, you need to use 
+the 'subfigure' package. This is normally included in the KMD Thesis template 
+by default (look near the top of your main .tex file), but I recommend adding 
+the `hang' and `tight' options, which improve the positioning of the 
+sub-captions:
+\usepackage[hang,tight]{subfigure}
+
+Here's an example of subfigures in use:
+
+\begin{figure}[htb!]
+\centering
+\label{fig:subfig}
+\subfigure[][]{\label{sf:sub_whatever}\includegraphics[width=6.5cm]{imagefile1}}\hskip3mm
+\subfigure[][]{\label{sf:sub_something}\includegraphics[width=6.5cm]{imagefile2}}
+\caption{Two subfigures \subref{sf:sub_whatever} and \subref{sf:sub_something} in one figure}
+\end{figure}
+
+
+
+TABLES
+
+Tables in LaTeX are complicated.  Here are some examples to hopefully make them 
+a bit easier.
+
+The 'tabularx' package allows you to use the 'tabularx' table type, which has a
+couple of improvements over the regular 'tabular' type.  The main one is a new
+column type, 'X'.  All columns with type X will have their width automatically 
+set to equal proportions of the (remaining) available space.  So if your table
+columns are '{|X|X|X|}', then each column will take up one third of the width 
+of the table.
+
+This requires the following line in the preamble section of your main .tex file
+(with all the other \usepackage lines):
+\usepackage{tabularx}
+(The KMD thesis template should include this line already.)
+
+Here's an example of using 'tabularx' with the 'X' column type:
+
+\begin{table}[!htbp]
+\centering \small
+\caption{Using X columns}
+\label{tab:tabularx}
+\begin{tabularx}{\linewidth}{|X|X|X|} 
+\hline
+Column 1 & Column 2 & Column 3 \\
+\hline
+blah & blah & blah\\
+blah & blah & blah\\
+blah & blah & blah\\
+\hline
+\end{tabularx}
+\end{table}
+
+You can also leave out the '|' symbols in the column specification (i.e. 
+'{X X X}') if you don't want vertical lines in your table.  Leaving out these
+lines often makes the table look more attractive and readable.
+
+
+Here's an example of using a list inside a table, without the extra space that
+usually causes.  This requires the 'enumitem' package (see the top of this 
+file), and also the 'tabu' package, loaded at the top of your main .tex file:
+\usepackage{tabu}
+
+
+\begin{table}[!htbp]
+\centering \small
+\caption{Lists inside a table}
+\label{tab:lists}
+\begin{tabu} to \linewidth {|p{3cm}|X|} 
+\hline
+Points & Sub-points \\
+\hline
+Point 1 &
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Sub-point
+\item Sub-point
+\end{itemize}
+\end{minipage}\par\\
+\hline
+Point 2 &
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Sub-point
+\item Sub-point
+\item Sub-point
+\end{itemize}
+\end{minipage}\par\\
+\hline
+Point 3 &
+\begin{minipage}[t]{\linewidth}
+Some optional text.
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item Sub-point
+\item Sub-point
+\end{itemize}
+\end{minipage}\par\\
+\hline
+\end{tabu}
+\end{table}
+
+
+Finally, an example of a table that spans more than one page.  This requires 
+the following lines in your main .tex file:
+\usepackage{longtable}  % required (this one is probably there already)
+\usepackage{tabu}
+
+
+\begin{center}
+\small
+\begin{longtabu} to \linewidth {|p{5cm}|X|X|X|}
+
+%%%%%%
+% Table caption (note: \label must follow on the same line!)
+\caption{A Long Table} \label{tab:long} \\  
+
+% Table header used on first page
+\hline
+\textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} & \textbf{Column 4} \\
+\hline
+\endfirsthead
+
+% Table header used on all pages except first
+\multicolumn{4}{c}{{\tablename~\thetable{} (continued)}} \\
+\hline
+\textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} & \textbf{Column 4} \\
+\hline
+\endhead
+
+% Table footer used on all pages except last
+\hline
+\multicolumn{4}{r}{{(continued on next page)}} \\ 
+\endfoot
+
+% Table footer used on last page
+\hline
+\endlastfoot
+
+%%%%%%
+% Now the cell contents
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+blah & blah & blah & blah \\
+% End
+%%%%%%
+\end{longtabu}
+\end{center}
+
+
+SOURCE CODE
+
+To quote source code or similar contents, you can use the `Verbatim' 
+environment (note the upper-case V) provided by the `fancyvrb' package.  
+This has some improvements over the standard `verbatim' environment, like the 
+ability to draw a frame around it, add line numbers, and various other things. 
+
+It requires the following two lines in the preamble of your main .tex file:
+\usepackage{fancybox}      % The KMD template includes this by default
+\usepackage{fancyvrb}      % Add this line
+
+\begin{Verbatim}[frame=single,fontsize=\small]
+This is some verbatim text.  It can include any kind of text, and LaTeX 
+will just print it out directly.  This is useful for things like source 
+code listings.  
+
+This example has a nice frame around it.
+\end{Verbatim}
+
+Here's another example that uses the line numbering and label features.
+
+\begin{Verbatim}[frame=single,numbers=left,label=mycode.txt]
+First line
+Second line
+
+Here are 
+some more
+lines
+\end{Verbatim}
+
+
+Text inside a Verbatim environment won't be wrapped automatically, so be
+sure not to make any lines too long.

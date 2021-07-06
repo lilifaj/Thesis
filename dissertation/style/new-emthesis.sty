@@ -1,0 +1,285 @@
+% 
+% kmd-emthesis.sty: master's thesis style in KMD (English version)
+%
+%                                             Ver. 1.1   Dec. 17, 2009
+%                                             Ver. 1.2   Feb. 23, 2015
+%                                             Ver. 1.21  Jul. 23, 2015
+% 
+% This file must be included before \begin{document}. The Document
+% style must be 'report', so you should include this macro as follows:
+%    \documentclass[12pt]{report}
+%	 \usepackage{kmd-emthesis}
+%
+%
+% input the common style file
+%
+\input style/new-mcommon.sty
+
+%%%%%%%%
+% Moved from mcommon
+%
+\def\@makechapterhead#1{\hbox{}%
+  \vskip2\baselineskip
+  {\parindent\z@ \raggedright
+   \reset@font\bfseries
+   \leavevmode
+   \ifnum \c@secnumdepth >\m@ne
+      \setbox\z@\hbox{\LARGE\@chapapp\space\thechapter\hfill}%
+      \unhbox\z@\break%
+      \vtop{\renewcommand{\baselinestretch}{0.9}\huge\vspace{0pt}{#1}\hfill}%
+   \else
+     #1\relax
+   \fi}\nobreak\vskip3\baselineskip
+}
+\def\@makeschapterhead#1{\hbox{}%
+  \vskip2\baselineskip
+  {\parindent\z@ \raggedright
+   \reset@font\huge\bfseries
+   \leavevmode
+   \setlength\@tempdima{\linewidth}%
+   \vtop{\hsize\@tempdima#1}}\nobreak\vskip3\baselineskip
+}
+
+%
+% From latex.ltx, but without an extra line before starting the toc
+%
+\def\@starttoc#1{%
+  \vskip-1\baselineskip
+  \begingroup
+    \makeatletter
+    \@input{\jobname.#1}%
+    \if@filesw
+      \expandafter\newwrite\csname tf@#1\endcsname
+      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+    \fi
+    \@nobreakfalse
+  \endgroup}
+
+%
+% Figure and Table Caption
+%       from article.sty, however, ``.'' was used instead of ``:'' 
+%       to separate figure/table numbers and captions.
+%
+\long\def\@makecaption#1#2{
+ \vskip 10pt 
+ \setbox\@tempboxa\hbox{#1. #2}
+ \ifdim \wd\@tempboxa >\hsize #1. #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil} 
+ \fi}
+%
+% References (bug fix article.sty)
+%
+%\typeout{reference}
+\def\thebibliography#1{%
+ \chapter*{References\@mkboth{REFERENCES}{REFERENCES}\addcontentsline{toc}{chapter}{References}}
+ \chaptermark{References}
+ \list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+%
+% page layout
+%
+\topmargin=0cm
+\textheight=20.5cm
+\textwidth=14.6cm
+\oddsidemargin=0.9cm
+\evensidemargin=0.43cm
+\renewcommand{\baselinestretch}{1.1}
+%
+% pagestyle
+%
+%\typeout{pagestyle}
+\def\yes{1}
+%
+% for final
+%
+\def\ps@final{
+\def\isfinal{1}
+\def\@evenhead{}%
+\def\@oddhead{}%
+\def\@oddfoot{\hfill\thepage\hfill}%
+\def\@evenfoot{\hfill\thepage\hfill}%
+}
+%
+% drafts
+%
+\def\ps@draft{
+\def\isfinal{0}
+\def\draftstr{{\engtoday. \ecurtime, \eauthorstr}}
+\def\draftfoot{%
+        {{\sf \draftstr}\hfill{\sf \thepage}}%
+}
+\def\@evenhead{}%
+\def\@oddhead{}%
+\def\@oddfoot{{\draftfoot}}%
+\def\@evenfoot{{\draftfoot}}%
+}
+%
+% title page
+%
+%\typeout{titlepage}
+\renewcommand{\titlepage}{
+        \newpage
+        \thispagestyle{empty}
+        \if\isfinal\yes
+            {    \linespread{1.3}
+%                {\raggedleft
+%                    \normalsize KMD-\studentnumberstr \\
+%                }
+                \vspace*{5mm}
+                \begin{center}
+                        \LARGE\edoctitle\, \\ \edatestr\
+                \end{center}
+                \vspace*{20mm}
+                \begin{center}
+                        \LARGE\textbf{\etitlestr}
+                \end{center}
+                \vspace*{20mm}
+                       \begin{center}
+                       {\linespread{1.1}
+                        \Large \graduateschoolstr,\\
+                        \Large \schoolstr,\\
+                        Keio University\par}
+                \end{center}
+                \vspace*{20mm}
+                \begin{center}
+                        \large\eauthorstr \\
+                        \large\studentnumberstr
+                \end{center}
+                       \vspace*{\fill}
+            }
+        \else
+%                \vspace*{\fill}
+%                \begin{center}
+%                        {\Huge\bf DRAFT}
+%                \end{center}
+%                \vspace*{1cm}
+%                \begin{center}
+%                        \Large\bf\etitlestr
+%                \end{center}
+%                \vspace*{1cm}
+%                \begin{center}
+%                        {\Large \eauthorstr}
+%                \end{center}
+%                \vspace*{1cm}
+%                \begin{center}
+%                        {\Large\bf \engtoday}
+%                \end{center}
+%                \begin{center}
+%                        {\Large\bf \ecurtime}
+%                \end{center}
+%                \vspace*{\fill}
+        \fi
+}
+%
+% committee members page
+%
+\newcommand{\comemberspage}{
+        \newpage
+        \thispagestyle{empty}
+        \vspace*{\fill}
+        \begin{center}
+        A \edoctitle\\
+        submitted to
+        \graduateschoolstr,
+        Keio University \\
+        in partial fulfillment of the requirements for the degree of \\
+        MASTER of \schoolstr
+
+        \bigskip
+
+        \eauthorstr
+
+        \bigskip\medskip
+        Advisor: \advisorstr
+        \end{center}
+}
+%
+% abstract pages
+%
+\newcommand{\firstabstract}{
+        \newpage
+        \pagenumbering{roman}
+        \thispagestyle{plain}
+        \chaptermark{\abstractname}
+        \eabstractpage
+}
+\newcommand{\secondabstract}{
+        \newpage
+        \thispagestyle{plain}
+        \chaptermark{\abstractname}
+        \jabstractpage
+}
+%
+%typeout{acknowledgements}
+\newcommand{\acknowledgements}{
+        \newpage
+        \chapter*{Acknowledgements\addcontentsline{toc}{chapter}{Acknowledgements}}
+        \chaptermark{Acknowledgements}
+}
+%typeout{yet another reference}
+\newcommand{\reference}{
+        \newpage
+        \chapter*{References\addcontentsline{toc}{chapter}{References}}
+}
+%typeout{appendix}
+%\renewcommand{\appendix}{
+%       \newpage
+%       \section*{Appendix\addcontentsline{toc}{section}{Appendix}}
+%}
+\let\saved@appendix\appendix
+\renewcommand{\appendix}{\par
+    \saved@appendix
+    \newpage
+    \thispagestyle{plain}
+    \chaptermark{\appendicestitle}% 
+    \chapter*{\appendicestitle\addcontentsline{toc}{chapter}{\appendicestitle}}
+}
+
+%\typeout{done}
+
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
+%\renewcommand{\bibname}{Bibliography}
+\renewcommand{\indexname}{Index}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+%\renewcommand{\partname}{Part}
+%\renewcommand{\chaptername}{Chapter}
+\renewcommand{\appendixname}{Appendix}
+\renewcommand{\abstractname}{Abstract}
+
+\newcommand{\appendicestitle}{Appendices}
+
+%%%%
+%% Define chaptermark for the toc, lof and lot (in case page headers are used)
+%%  --> (No longer needed due to redefinitions in new-mcommon.sty)
+%\let\saved@toc\tableofcontents
+%\renewcommand{\tableofcontents}{
+%    \chaptermark{Table of Contents}%
+%    \saved@toc
+%}
+%\let\saved@lof\listoffigures
+%\renewcommand{\listoffigures}{
+%    \saved@lof
+%    \chaptermark{List of Figures}%
+%}
+%\let\saved@lot\listoftables
+%\renewcommand{\listoftables}{
+%    \saved@lot
+%    \chaptermark{List of Tables}%
+%}
+
+%%%%
+% Remove the header on inserted blank pages in twoside+openright mode
+\renewcommand\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}

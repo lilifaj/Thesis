@@ -1,0 +1,339 @@
+% 
+% kmd-jmthesis.sty: master's thesis style in KMD (Japanese version)
+%
+%                                             Ver. 1.1   Dec. 17, 2009
+%                                             Ver. 1.2   Feb. 23, 2015
+%                                             Ver. 1.21  Jul. 23, 2015
+% 
+% This file must be included before \begin{document}. The Document
+% style must be 'jreport', so you should include this macro as follows:
+%    \documentclass[12pt]{jreport}
+%	 \usepackage{kmd-jmthesis}
+%
+\typeout{Master's Thesis / Master's Report Style for Graduate School of Media design, Keio University}
+%
+% input the common style file
+%
+\input{new-mcommon.sty}
+
+%%%%%%%%
+% Moved these from mcommon
+%
+%\typeout{section}
+\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+     \def\@svsec{}\else 
+     \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname
+      \ifnum #2=1.\fi\hskip 0.6em }\fi
+     \@tempskipa #5\relax
+      \ifdim \@tempskipa>\z@ 
+        \begingroup #6\relax
+          \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}%
+        \endgroup
+       \csname #1mark\endcsname{#7}\addcontentsline
+         {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                      \protect\numberline{\csname the#1\endcsname
+                       \ifnum #2=1.\fi}\fi
+                    #7}\else
+        \def\@svsechd{#6\hskip #3\@svsec #8\csname #1mark\endcsname
+                      {#7}\addcontentsline
+                           {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+                             \protect\numberline{\csname the#1\endcsname
+                              \ifnum #2=1.\fi}\fi
+                       #7}}\fi
+     \@xsect{#5}}
+
+\def\@makechapterhead#1{\hbox{}%
+  \vskip2\Cvs
+  {\parindent\z@
+   \raggedright
+   \reset@font\bfseries\gtfamily
+   \leavevmode
+   \ifnum \c@secnumdepth >\m@ne
+     \setbox\z@\hbox{\LARGE\@chapapp\thechapter\@chappos\hfill}%
+     \unhbox\z@\break
+     \ifptex
+       \vtop{\huge\vspace{-6pt}\hspace*{1zw}\@stretchlabel{6zw}{#1}\hfill}%
+     \else
+       \vtop{\huge\vspace{-6pt}\hspace*{1em}\@stretchlabel{6em}{#1}\hfill}%
+     \fi  
+   \else
+     #1\relax
+   \fi}\nobreak\vskip3\Cvs}
+\def\@makeschapterhead#1{\hbox{}%
+  \vskip2\Cvs
+  {\parindent\z@
+   \raggedright
+   \reset@font\huge\bfseries\gtfamily
+   \leavevmode
+   \setlength\@tempdima{\linewidth}%
+   \ifptex
+     \vtop{\hsize\@tempdima\@stretchlabel{6zw}{#1}}%
+   \else
+     \vtop{\hsize\@tempdima\@stretchlabel{6em}{#1}}%
+   \fi
+   \hfill}\vskip3\Cvs}
+
+%%%%%%%%
+     
+%
+% Figure and Table Caption
+%       from jarticle.sty, however, `` ''(blank) was used instead of 
+%       ``:'' to separate figure/table numbers and captions.
+%
+\long\def\@makecaption#1#2{
+  \vskip 10pt 
+  \setbox\@tempboxa\hbox{#1 \ #2}
+  \ifdim \wd\@tempboxa >\hsize #1 \ #2\par \else \hbox
+  to\hsize{\hfil\box\@tempboxa\hfil} 
+  \fi}
+%
+% References (bug fix jarticle.sty)
+%
+%\typeout{reference}
+\def\thebibliography#1{%
+  \chapter*{参考文献\markboth{参 考 文 献}{参 考 文 献}\addcontentsline{toc}{chapter}{参考文献}}
+  \chaptermark{参考文献}
+  \list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \usecounter{enumi}}
+  \def\newblock{\hskip .11em plus .33em minus -.07em}
+  \sloppy
+  \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+% 
+% page layout
+%
+\topmargin=0cm
+\textheight=20.5cm                      % 高さ
+\textwidth=14.6cm                       % 横幅 (約３６文字)
+\oddsidemargin=0.9cm                    % 左の空きの幅
+\evensidemargin=0.43cm                  % 右の空きの幅
+\parindent 1em                          % 字下げ 1文字
+\renewcommand{\baselinestretch}{1.2}    % 行間
+%
+% pagestyle
+%
+%\typeout{pagestyle}
+\def\yes{1}
+%
+% for final
+%
+\def\ps@final{
+\def\isfinal{1}
+\def\@evenhead{}%
+\def\@oddhead{}%
+\def\@oddfoot{\hfill\thepage\hfill}%
+\def\@evenfoot{\hfill\thepage\hfill}%
+}
+%
+% drafts
+%
+\def\ps@draft{
+\def\isfinal{0}
+% \def\draftstr{{\jpntoday, \curtime: \authorstr}}
+\def\draftstr{}
+\def\draftfoot{%
+        {{\sf \draftstr}\hfill{\sf \thepage}}%
+}
+\def\@evenhead{}%
+\def\@oddhead{}%
+\def\@oddfoot{{\draftfoot}}%
+\def\@evenfoot{{\draftfoot}}%
+}
+%
+% title page
+%
+%\typeout{titlepage}
+\renewcommand{\titlepage}{
+        \newpage
+        \thispagestyle{empty}
+        \if\isfinal\yes
+%                 {\raggedleft
+%                         \normalsize KMD-\studentnumberstr \\
+%                 }
+                \vspace*{15mm}
+                \begin{center}
+                        \LARGE\jdoctitle\datestr\heiseidatestr
+                \end{center}
+                \vspace*{27mm}
+                \begin{center}
+                        \LARGE\titlestr
+                \end{center}
+                \vspace*{27mm}
+                \begin{center}
+                        {\Large 慶應義塾大学大学院 \\
+                        メディアデザイン研究科}
+                \end{center}
+                \begin{center}
+                        \LARGE\authorstr
+                \end{center}
+
+                \vspace*{\fill}
+        \else
+%                 \vspace*{\fill}
+%                 \begin{center}
+%                         {\Huge\bf DRAFT}
+%                 \end{center}
+%                 \vspace*{1cm}
+%                 \begin{center}
+%                         \Large\bf\titlestr
+%                 \end{center}
+%                 \vspace*{1cm}
+%                 \begin{center}
+%                         {\Large \authorstr}
+%                 \end{center}
+%                 \vspace*{1cm}
+%                 \begin{center}
+%                         {\Large\bf \today}
+%                 \end{center}
+%                 \begin{center}
+%                         {\Large\bf \curtime}
+%                 \end{center}
+%                 \vspace*{\fill}
+                {\raggedleft
+                        \normalsize KMD-\studentnumberstr \\
+                }
+                \vspace*{9mm}
+                \begin{center}
+                        \Large\bf\jdoctitle
+                \end{center}
+                \vspace*{27mm}
+                \begin{center}
+                        \Large\bf\titlestr
+                \end{center}
+                \vspace*{18mm}
+                \begin{center}
+                        \Large\authorstr
+                \end{center}
+                \vspace*{50mm}
+                \begin{center}
+                        \datestr
+                \end{center}
+                \vspace*{4.5mm}
+                \begin{center}
+                        慶應義塾大学大学院 \\
+                        メディアデザイン研究科
+                \end{center}
+                \vspace*{\fill}
+        \fi
+}
+%
+% committee members page
+%
+\newcommand{\comemberspage}{
+        \newpage
+        \thispagestyle{empty}
+        \vspace*{\fill}
+\begin{center}
+        本{\jdoctype}は慶應義塾大学大学院メディアデザイン研究科に \\
+        修士(\jmajorstr)
+        授与の要件として提出した\jdocname
+        である。
+
+        \bigskip
+
+        \authorstr
+
+        \bigskip\bigskip
+
+        \begin{tabular}{p{0.3in}ll}
+    %    \multicolumn{2}{l}{指導教員：} \\
+       %        & \firstchmember & \firstchposition \\
+           %    & \secondchmember & \secondchposition \\
+        \multicolumn{2}{l}{審査委員：}\\
+               & \firstcomember & \firstposition \\
+               & \secondcomember & \secondposition \\
+               & \thirdcomember & \thirdposition \\
+               & \fourthcomember & \fourthposition \\
+               & \fifthcomember & \fifthposition
+%               & \sixthcomember & \sixthposition
+        \end{tabular}
+        \end{center}
+}
+%
+% abstract pages
+%
+\newcommand{\firstabstract}{
+        \newpage
+        \pagenumbering{roman}
+        \thispagestyle{plain}
+        \chaptermark{\abstractname}
+        \jabstractpage
+}
+\newcommand{\secondabstract}{
+    \newpage
+    \thispagestyle{plain}
+    \chaptermark{\abstractname}
+    \eabstractpage
+}
+%
+%typeout{acknowledgements}
+\newcommand{\acknowledgements}{
+  \cleardoublepage
+  \chapter*{謝辞\addcontentsline{toc}{chapter}{謝辞}}
+  \chaptermark{謝辞}
+}
+% typeout{yet another reference}
+\newcommand{\reference}{
+  \cleardoublepage
+  \chapter*{参考文献\addcontentsline{toc}{chapter}{参考文献}}
+  \chaptermark{参考文献}
+}
+% typeout{appendix}
+%%%%
+%\renewcommand{\appendix}{\par
+%        \setcounter{section}{0}
+%        \setcounter{subsection}{0}
+%        \def\thesection{\Alph{section}}
+%        \newpage
+%        \chapter*{付録\addcontentsline{toc}{chapter}{付録}}
+%}
+\let\saved@appendix\appendix
+\renewcommand{\appendix}{\par
+    \saved@appendix
+    \newpage
+    \thispagestyle{plain}
+    \chaptermark{\appendixname}% 
+    \chapter*{\appendixname\addcontentsline{toc}{chapter}{\appendixname}}
+}
+
+%%%%
+% Remove manual letterspacing from built-in chapter titles for consistency 
+% with other chapters (if really desired e.g. for headers then it can be added
+% back by the actual document using some kind of letterspace command).
+\renewcommand{\appendixname}{付録}
+\renewcommand{\abstractname}{梗概}
+\renewcommand{\contentsname}{目次}
+\renewcommand{\listfigurename}{図目次}
+\renewcommand{\listtablename}{表目次}
+\renewcommand{\indexname}{索引}
+
+%%%%
+%% Define chaptermark for the toc, lof and lot (in case page headers are used)
+%%  --> (No longer needed due to redefinitions in new-mcommon.sty)
+%\let\savedtoc\tableofcontents
+%\renewcommand{\tableofcontents}{
+%    \chaptermark{目次}%
+%    \savedtoc
+%}
+%\let\savedlof\listoffigures
+%\renewcommand{\listoffigures}{
+%    \chaptermark{図目次}%
+%    \savedlof
+%}
+%\let\savedlot\listoftables
+%\renewcommand{\listoftables}{
+%    \chaptermark{表目次}%
+%    \savedlot
+%}
+
+%%%%
+% Set plain style on inserted blank pages in twoside+openright mode
+\renewcommand\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+    \hbox{}
+    \thispagestyle{plain}
+    \newpage
+    \if@twocolumn\hbox{}\newpage\fi\fi\fi
+}
+
+% \typeout{done}
