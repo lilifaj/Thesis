@@ -72,13 +72,13 @@ function RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64
 end
 
 # Effective distance of jump of an electron
-function xf(semiconductor::Semiconductor, Rnn::Float64, U::Real, T::Real)
-    beta = semiconductor.beta(T)
+function xf(semiconductor::Semiconductor, Rnn::Function, U::Real, T::Real)
+    R = Rnn(semiconductor, U, T);
     functionI = [I1, I2, I3, I4]
     resultI = Array{Float64}(undef, 4)
 
     for i in 1:4
-        resultI[i] = functionI[i](U, T, semiconductor, Rnn)
+        resultI[i] = functionI[i](U, T, semiconductor, R)
     end
 
     return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])
