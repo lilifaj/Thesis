@@ -20,7 +20,7 @@ N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (k * T) / 
     x -> DOS(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T) * (1 - F(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
     [0, 0, 0],
     [1, R, pi],
-    rtol=1e-6)[1]
+    rtol=1e-3)[1]
 
 # Range to the nearest neighbour using a VRH approach
 # function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
@@ -63,7 +63,7 @@ RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3
     r -> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)),
     -Inf,
     U + semiconductor.ModeEffect / (k * T),
-    rtol=1e-5
+    rtol=1e-3
     )[1])^(-1/3) * 2 * semiconductor.alpha * (k * T)^(-1/3)
 
 # Range to the nearest neighbour using a percolation approach taking into account the field
@@ -72,13 +72,12 @@ function RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64
 end
 
 # Effective distance of jump of an electron
-function xf(semiconductor::Semiconductor, Rnn::Function, U::Real, T::Real)
-    R = Rnn(semiconductor, U, T);
+function xf(semiconductor::Semiconductor, Rnn::Real, U::Real, T::Real)
     functionI = [I1, I2, I3, I4]
     resultI = Array{Float64}(undef, 4)
 
     for i in 1:4
-        resultI[i] = functionI[i](U, T, semiconductor, R)
+        resultI[i] = functionI[i](U, T, semiconductor, Rnn)
     end
 
     return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])

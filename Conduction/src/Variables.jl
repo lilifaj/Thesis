@@ -9,7 +9,7 @@ I1(U, T, semiconductor, Rnn::Float64) = 0.5 * Rnn * hcubature(
     x -> DOS(semiconductor, var2(x[1], U, T, semiconductor, x[2], Rnn), T) * (1 - F(semiconductor, var2(x[1], U, T, semiconductor, x[2], Rnn), T)) * sin(2 * x[2]) * (Rnn - var2(x[1], U, T, semiconductor, x[2], Rnn) + U)^3 / (1 + semiconductor.beta(T) * cos(x[2]))^2,
     [0, 0],
     [1, pi],
-    rtol=1e-5,
+    rtol=1e-3,
     atol=1
 )[1]
 
@@ -17,7 +17,7 @@ I2(U, T, semiconductor, Rnn::Float64) = 0.5 * hcubature(
     x -> DOS(semiconductor, var3(x[1], U, T, semiconductor, x[2], Rnn), T) * (1 - F(semiconductor, var3(x[1], U, T, semiconductor,x[2], Rnn), T)) * Rnn^3 * sin(2 * x[2]) / (1 - x[1])^2,
     [0, 0],
     [1, pi],
-    rtol=1e-5,
+    rtol=1e-3,
     atol=1
 )[1]
 
@@ -25,7 +25,7 @@ I3(U, T, semiconductor, Rnn::Float64) =Rnn * hcubature(
     x -> DOS(semiconductor, var2(x[1], U, T, semiconductor, x[2], Rnn), T) * (1 - F(semiconductor, var2(x[1], U, T, semiconductor, x[2], Rnn), T)) * sin(x[2]) * (Rnn - var2(x[1], U, T, semiconductor, x[2], Rnn) + U)^2 / (1 + semiconductor.beta(T) * cos(x[2])),
     [0, 0],
     [1, pi],
-    rtol=1e-5,
+    rtol=1e-3,
     atol=1
 )[1]
 
@@ -33,7 +33,7 @@ I4(U, T, semiconductor, Rnn::Float64) = hcubature(
     x -> DOS(semiconductor, var3(x[1], U, T, semiconductor, x[2], Rnn), T) * (1 - F(semiconductor, var3(x[1], U, T, semiconductor, x[2], Rnn), T)) * Rnn^2 * sin(x[2]) / (1 - x[1])^2,
     [0, 0],
     [1, pi],
-    rtol=1e-5,
+    rtol=1e-3,
     atol=1
 )[1]
 
