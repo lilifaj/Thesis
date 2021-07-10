@@ -130,7 +130,7 @@ end
 
 # Electric diffusion (cm^2/s), second hypothesis
 function D_ter(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
-    return 1 / 6 * (xf * Rnn *  semiconductor.nu * exp(-Rnn) * t + Rnn^2) * semiconductor.nu * exp(-Rnn) / (4 * semiconductor.alpha^2)
+    return 1 / 6 * (2 * xf * Rnn *  semiconductor.nu * exp(-Rnn) * t + Rnn^2) * semiconductor.nu * exp(-Rnn) / (4 * semiconductor.alpha^2)
 end
 
 function ein(semiconductor::Semiconductor, D::Function, Rnn::Float64, xf::Float64, t::Float64)::Float64
