@@ -8,23 +8,17 @@ mutable struct Semiconductor
     Ni::Float64 # intrinsic semiconductor's density (cm^-3)
     Nd::Float64 # Doping states' density (cm^-3)
     Ed::Float64 # Energy to a vacant target site (J)
-    F::Float64 # Field (V.cm^-1)
     nu::Float64 # Base electron jump rate
     Uf::Function # Fermi level (no unit)
     SigmaI::Function # Intrinsic semiconductor's gaussian width (J)
     SigmaD::Function # Doping states' gaussian width (J)
-    beta::Function # Field Effect(No Unit)
     gamma::Function # Amount of disorder (J)
-    omega_min::Real # Lower phonon frequency limit
-    L::Real # Length of the sample
-    function Semiconductor(alpha, ModeEffect, Ni, Nd, Ed, F, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real, size::Real)
+    function Semiconductor(alpha, ModeEffect, Ni, Nd, Ed, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real)
         FUf(T) = Uf * k * T
         FSigmaI(T) = SigmaI * k * T
         FSigmaD(T) = SigmaD * k * T
-        Fbeta(T) = (F * q) / (2 * alpha * k * T)
         FGamma(T) = Gamma * k * T
-        omega_min = size^(-1/4)
-        new(alpha, ModeEffect, Ni, Nd, Ed, F, nu, FUf, FSigmaI, FSigmaD, Fbeta, FGamma, omega_min, size)
+        new(alpha, ModeEffect, Ni, Nd, Ed, nu, FUf, FSigmaI, FSigmaD, FGamma)
     end
 end
 
@@ -52,3 +46,29 @@ average_density(fn::Function, fd::Function, x::Real) =
 
 average_density(fn::Function, fd::Function, lower_value::Real, higher_value::Real) =
     return average_density_integral(fn, lower_value, higher_value) / average_density_integral(fd, lower_value, higher_value)
+
+beta(semiconductor, T, F) = (F * q) / (2 * semiconductor.alpha * k * T)
+
+function asymptoteRnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64
+
+    positiveAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * quadgk(r-> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)), -Inf, +Inf)[1] / (3 * 2.8))^(-1/3)
+    x = -U - semiconductor.ModeEffect / (k * T)
+
+    A1 = semiconductor.SigmaI(T)^2 / (x * (k * T)^2 + semiconductor.ModeEffect * k * T + semiconductor.SigmaI(T)^2) * semiconductor.Ni * exp(-semiconductor.ModeEffect^2 / (2 * semiconductor.SigmaI(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaI(T))
+
+    A2 = semiconductor.SigmaD(T)^2 / (x * (k * T)^2 + (semiconductor.ModeEffect - semiconductor.Ed) * k * T + semiconductor.SigmaD(T)^2) * semiconductor.Nd * exp(-(semiconductor.ModeEffect - semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaD(T))
+
+    J1(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaI(T)^2) - x * (1 + (semiconductor.ModeEffect * k * T) / (semiconductor.SigmaI(T)^2)))
+
+    J2(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaD(T)^2) - x * (1 + ((semiconductor.ModeEffect - semiconductor.Ed) * k * T) / (semiconductor.SigmaD(T)^2)))
+
+    negativeAsymptote = 0
+    try
+        negativeAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * (A1 * J1(x) + A2 * J2(x)) / (3 * 2.8))^(-1/3)
+    catch
+    end
+
+    (negativeAsymptote < positiveAsymptote ? res = positiveAsymptote : res = negativeAsymptote)
+
+    return res
+end
