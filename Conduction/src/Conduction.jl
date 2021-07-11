@@ -1,5 +1,6 @@
 module Conduction
 
+using Base: Real, Float64
 using QuadGK, HCubature, Roots, Base.Threads
 import Base.Threads.@spawn
 include("Variables.jl")
@@ -16,38 +17,22 @@ DOSp(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni
 F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (k * T)))
 
 # Number of free state within a sphere of radius R
-N(semiconductor::Semiconductor, U::Real, T::Real, R::Real)::Float64 = (k * T) / (8 * semiconductor.alpha^3) * 2 * pi * hcubature(
-    x -> DOS(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T) * (1 - F(semiconductor, var1(U, semiconductor.beta(T), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
+N(semiconductor::Semiconductor, U::Real, T::Real, R::Real, F::Real)::Float64 = (k * T) / (8 * semiconductor.alpha^3) * 2 * pi * hcubature(
+    x -> DOS(semiconductor, var1(U, Conduction.beta(semiconductor, T, F), R, x[1], x[2], x[3]), T) * (1 - Conduction.F(semiconductor, var1(U, Conduction.beta(semiconductor, T, F), R, x[1], x[2], x[3]), T)) * 1 / (1 - x[1])^2 * x[2]^2 * sin(x[3]),
     [0, 0, 0],
     [1, R, pi],
     rtol=1e-5)[1]
 
 # Range to the nearest neighbour using a VRH approach
-# function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
-#     i = 0;
-#     while i < 10
-#         try
-#             return find_zero(r -> N(semiconductor, U, T, r) - 1, 5 + i * 10, Order0())
-#             break
-#         catch
-#         end
-
-#         i += 1;
-#     end
-
-#     throw(ConvergenceError())
-# end
-
-# Range to the nearest neighbour using a VRH approach
-function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real)::Float64
-    Rnn(semiconductor, U, T, 1)
+function RnnVRH(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
+    Rnn(semiconductor, U, T, 1, F)
 end
 
-function Rnn(semiconductor::Semiconductor, U::Real, T::Real, x)::Float64
+function Rnn(semiconductor::Semiconductor, U::Real, T::Real, x::Real, F::Real)::Float64
     i = 0;
     while i < 100
         try
-            return find_zero(r -> N(semiconductor, U, T, r) - x, 5 + i * 10, Order0())
+            return find_zero(r -> N(semiconductor, U, T, r, F) - x, 5 + i * 10, Order0())
             break
         catch
         end
@@ -60,92 +45,89 @@ end
 
 # Range to the nearest neighbour using a percolation approach
 RnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = ( (4pi) / (3 * 2.8) * quadgk(
-    r -> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)),
+    r -> DOS(semiconductor, r, T) * (1 - Conduction.F(semiconductor, r, T)),
     -Inf,
     U + semiconductor.ModeEffect / (k * T),
     rtol=1e-3
     )[1])^(-1/3) * 2 * semiconductor.alpha * (k * T)^(-1/3)
 
 # Range to the nearest neighbour using a percolation approach taking into account the field
-function RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real)::Float64
-    Rnn(semiconductor, U, T, 2.8)
+function RnnPercoField(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
+    Rnn(semiconductor, U, T, 2.8, F)
 end
 
 # Effective distance of jump of an electron
-function xf(semiconductor::Semiconductor, Rnn::Real, U::Real, T::Real)
+function xf(semiconductor::Semiconductor, Rnn::Real, U::Real, T::Real, F::Real)
     functionI = [I1, I2, I3, I4]
     resultI = Array{Float64}(undef, 4)
 
     for i in 1:4
-        resultI[i] = functionI[i](U, T, semiconductor, Rnn)
+        resultI[i] = functionI[i](U, T, semiconductor, Rnn, F)
     end
 
     return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])
 end
 
-function asymptoteRnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Float64
+function xf(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
+    R = Conduction.RnnVRH(semiconductor, U, T, F);
 
-    positiveAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * quadgk(r-> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)), -Inf, +Inf)[1] / (3 * 2.8))^(-1/3)
-    x = -U - semiconductor.ModeEffect / (k * T)
-
-    A1 = semiconductor.SigmaI(T)^2 / (x * (k * T)^2 + semiconductor.ModeEffect * k * T + semiconductor.SigmaI(T)^2) * semiconductor.Ni * exp(-semiconductor.ModeEffect^2 / (2 * semiconductor.SigmaI(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaI(T))
-
-    A2 = semiconductor.SigmaD(T)^2 / (x * (k * T)^2 + (semiconductor.ModeEffect - semiconductor.Ed) * k * T + semiconductor.SigmaD(T)^2) * semiconductor.Nd * exp(-(semiconductor.ModeEffect - semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaD(T))
-
-    J1(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaI(T)^2) - x * (1 + (semiconductor.ModeEffect * k * T) / (semiconductor.SigmaI(T)^2)))
-
-    J2(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaD(T)^2) - x * (1 + ((semiconductor.ModeEffect - semiconductor.Ed) * k * T) / (semiconductor.SigmaD(T)^2)))
-
-    negativeAsymptote = 0
-    try
-        negativeAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * (A1 * J1(x) + A2 * J2(x)) / (3 * 2.8))^(-1/3)
-    catch
-    end
-
-    (negativeAsymptote < positiveAsymptote ? res = positiveAsymptote : res = negativeAsymptote)
-
-    return res
+    return xf(semiconductor, R, U, T, F)
 end
 
-function electronMobility(semiconductor::Semiconductor, Rnn::Float64, xf::Float64)::Float64
-    return semiconductor.nu * xf * exp(-Rnn) / (-semiconductor.F * 2 * semiconductor.alpha)
+function electronMobility(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, F::Real)::Float64
+    return semiconductor.nu * xf * exp(-Rnn) / (-F * 2 * semiconductor.alpha)
 end
 
-function t(semiconductor, Rnn::Float64, U::Real, T::Real)::Float64
-    beta = semiconductor.beta(T)
+function electronMobility(semiconductor::Semiconductor, U, T, F)::Float64
+    R = Conduction.RnnVRH(semiconductor, U, T, F);
+    xf = Conduction.xf(semiconductor, U, T, F);
+
+    return electronMobility(semiconductor, R, xf, F)
+end
+
+function t(semiconductor, Rnn::Float64, U::Real, T::Real, F::Real)::Float64
     functionI = [It1, It2, It3, It4]
     resultI = Array{Float64}(undef, 4)
 
     for i in 1:4
-        resultI[i] = functionI[i](U, T, semiconductor, Rnn)
+        resultI[i] = functionI[i](U, T, semiconductor, Rnn, F)
     end
 
     return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])
 end
 
-# Electric diffusion (cm^2/s), first hypothesis
-function D(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
-    return xf^2 / (24 * semiconductor.alpha^2) * ((1 + semiconductor.nu * t * exp(-Rnn))^2 - 1) * semiconductor.nu * exp(-Rnn)
+function t(semiconductor::Semiconductor, U, T, F)::Float64
+    R = Conduction.RnnVRH(semiconductor, U, T, F);
+    return t(semiconductor, R, U, T, F)
 end
 
-# Electric diffusion (cm^2/s), second hypothesis
-function D_ter(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
+# Electric diffusion (cm^2/s)
+function D(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64)::Float64
     return 1 / 6 * (2 * xf * Rnn *  semiconductor.nu * exp(-Rnn) * t + Rnn^2) * semiconductor.nu * exp(-Rnn) / (4 * semiconductor.alpha^2)
 end
 
-function ein(semiconductor::Semiconductor, D::Function, Rnn::Float64, xf::Float64, t::Float64)::Float64
-    return D(semiconductor, Rnn, xf, t) / electronMobility(semiconductor, Rnn, xf)
+function D(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
+    R = Conduction.RnnVRH(semiconductor, U, T, F);
+    xf = Conduction.xf(semiconductor, U, T, F);
+    t = Conduction.t(semiconductor, U, T, F);
+
+    return D(semiconductor, R, xf, t)
 end
 
-# function Dp(semiconductor::Semiconductor, T, eta, lower_value, higher_value)
-#     fn(omega) = 1 / (eta * omega^2 * (exp(hbar * omega / (k * T)) - 1))
-#     fd(omega) = omega^2 / (eta * semiconductor.gamma(T)^2 * (exp(hbar * omega / (k * T)) - 1))
-#     return average_density(fn, fd, lower_value, higher_value)
-# end
+function ein(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, t::Float64, F::Real)::Float64
+    return Conduction.D(semiconductor, Rnn, xf, t) / Conduction.electronMobility(semiconductor, Rnn, xf, F)
+end
+
+function ein(semiconductor::Semiconductor, U::Real, T::Real, F::Real)
+    R = Conduction.RnnVRH(semiconductor, U, T, F);
+    xf = Conduction.xf(semiconductor, U, T, F);
+    t = Conduction.t(semiconductor, U, T, F);
+
+    return ein(semiconductor, R, xf, t, F)
+end
 
 Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U * k * T/ hbar)^(-4)
 
-# C(U, T) = exp(U / k / T) * (U / T)^2 / (k * (exp(U / k / T) - 1)^2)
 C(U, T)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 
 kp(semiconductor, T) = k * T * quadgk(
@@ -168,44 +150,29 @@ function ke(semiconductor, T)
 end
 
 function occupiedStates(semiconductor::Semiconductor, U, T)
-    return DOS(semiconductor, U, T) * F(semiconductor, U, T)
+    return DOS(semiconductor, U, T) * Conduction.F(semiconductor, U, T)
 end
 
-function overallDiffusion(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
-    return Conduction.overallEinD(semiconductor, Conduction.D, Rnn, T, x_limit)
+function overallDiffusion(semiconductor::Semiconductor, T::Real, F::Real, x_limit::Real)
+    return Conduction.overallEinD(semiconductor, Conduction.D, T, F, x_limit)
 end
 
-function overallMobility(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
+function overallMobility(semiconductor::Semiconductor, U::Real, T::Real, F::Real, x_limit::Real)
     fd(x) = occupiedStates(semiconductor, x, T)
-
-    function fn(x, Rnn)
-        Rnn = Rnn(semiconductor, x, T);
-        xf = Conduction.xf(semiconductor, Rnn, x, T);
-        return occupiedStates(semiconductor, x, T) * electronMobility(semiconductor, Rnn, xf)
-    end
-
-    fn_final(x) = fn(x, Rnn);
+    fn(x) = return occupiedStates(semiconductor, x, T) * electronMobility(semiconductor, U, T, F)
 
     return average_density(fn_final, fd, x_limit);
 end
 
-function overallEinD(semiconductor::Semiconductor, f::Function, Rnn::Function, T, x_limit::Real)
+function overallEinD(semiconductor::Semiconductor, f::Function, T, F::Real, x_limit::Real)
     fd(x) = occupiedStates(semiconductor, x, T);
+    fn(x::Real) = occupiedStates(semiconductor, x, T) * f(semiconductor, x, T, F)
 
-    function fn(x::Real, Rnn::Function)
-        Rnn = Rnn(semiconductor, x, T);
-        xf = Conduction.xf(semiconductor, Rnn, x, T);
-        t = Conduction.t(semiconductor, Rnn, x, T);
-        return occupiedStates(semiconductor, x, T) * f(semiconductor, Rnn, xf, t)
-    end
-
-    fn_final(x) = fn(x, Rnn);
-
-    return average_density(fn_final, fd, x_limit)
+    return average_density(fn, fd, x_limit)
 end
 
-function overallEin(semiconductor::Semiconductor, Rnn::Function, T, x_limit::Real)
-    return overallEinD(semiconductor, (x, y, z, v) -> Conduction.ein(x, Conduction.D_ter, y, z, v), Rnn, T, x_limit)
+function overallEin(semiconductor::Semiconductor, T::Real, F::Real,  x_limit::Real)
+    return overallEinD(semiconductor, Conduction.ein, T, F, x_limit)
 end
 
 end # module
