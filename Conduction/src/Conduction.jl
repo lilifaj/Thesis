@@ -80,7 +80,7 @@ end
 
 function electronMobility(semiconductor::Semiconductor, U, T, F)::Float64
     R = Conduction.RnnVRH(semiconductor, U, T, F);
-    xf = Conduction.xf(semiconductor, U, T, F);
+    xf = Conduction.xf(semiconductor, R, U, T, F);
 
     return electronMobility(semiconductor, R, xf, F)
 end
@@ -108,8 +108,8 @@ end
 
 function D(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
     R = Conduction.RnnVRH(semiconductor, U, T, F);
-    xf = Conduction.xf(semiconductor, U, T, F);
-    t = Conduction.t(semiconductor, U, T, F);
+    xf = Conduction.xf(semiconductor, R, U, T, F);
+    t = Conduction.t(semiconductor, R, U, T, F);
 
     return D(semiconductor, R, xf, t)
 end
@@ -120,8 +120,8 @@ end
 
 function ein(semiconductor::Semiconductor, U::Real, T::Real, F::Real)
     R = Conduction.RnnVRH(semiconductor, U, T, F);
-    xf = Conduction.xf(semiconductor, U, T, F);
-    t = Conduction.t(semiconductor, U, T, F);
+    xf = Conduction.xf(semiconductor, R, U, T, F);
+    t = Conduction.t(semiconductor, R, U, T, F);
 
     return ein(semiconductor, R, xf, t, F)
 end
@@ -154,25 +154,22 @@ function occupiedStates(semiconductor::Semiconductor, U, T)
 end
 
 function overallDiffusion(semiconductor::Semiconductor, T::Real, F::Real, x_limit::Real)
-    return Conduction.overallEinD(semiconductor, Conduction.D, T, F, x_limit)
+    return Conduction.overall(semiconductor, Conduction.D, T, F, x_limit)
 end
 
-function overallMobility(semiconductor::Semiconductor, U::Real, T::Real, F::Real, x_limit::Real)
-    fd(x) = occupiedStates(semiconductor, x, T)
-    fn(x) = return occupiedStates(semiconductor, x, T) * electronMobility(semiconductor, U, T, F)
-
-    return average_density(fn_final, fd, x_limit);
+function overallMobility(semiconductor::Semiconductor, T::Real, F::Real, x_limit::Real)
+    return Conduction.overall(semiconductor, Conduction.electronMobility, T, F, x_limit)
 end
 
-function overallEinD(semiconductor::Semiconductor, f::Function, T, F::Real, x_limit::Real)
-    fd(x) = occupiedStates(semiconductor, x, T);
+
+function overallEin(semiconductor::Semiconductor, T::Real, F::Real,  x_limit::Real)
+    return overall(semiconductor, Conduction.ein, T, F, x_limit)
+end
+
+function overall(semiconductor::Semiconductor, f::Function, T, F::Real, x_limit::Real)
+    fd(x::Real) = occupiedStates(semiconductor, x, T);
     fn(x::Real) = occupiedStates(semiconductor, x, T) * f(semiconductor, x, T, F)
 
     return average_density(fn, fd, x_limit)
 end
-
-function overallEin(semiconductor::Semiconductor, T::Real, F::Real,  x_limit::Real)
-    return overallEinD(semiconductor, Conduction.ein, T, F, x_limit)
-end
-
 end # module
