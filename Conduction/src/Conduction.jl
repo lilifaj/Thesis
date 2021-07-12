@@ -129,24 +129,21 @@ Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U * k * T/ hbar)^(-4)
 
 C(U, T)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 
-
-kp(semiconductor, T) = k * T * quadgk(
-    r -> DOSp(semiconductor, r, T) * C(r, T) * Dp(semiconductor, r, T),
-    semiconductor.omega_min * hbar / (k * T),
-    +Inf
-)[1]
+kp(semiconductor, T) = quadgk(
+    r -> Conduction.k * T * Conduction.DOSp(semiconductor, r, T) * Conduction.C(r, T) * 4.10e-6,
+    7.95e-21 / (Conduction.k * T),
+    7.95e-20 / (Conduction.k * T)
+)[1];
 
 function ke(semiconductor, T, F)
-    # function f(r)
-    #     Rnn = Conduction.RnnVRH(semiconductor, r, T, F);
-    #     xf = Conduction.xf(semiconductor, Rnn, r, T);
-    #     t = Conduction.t(semiconductor, Rnn, r, T);
-    #     return DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, Rnn, xf, t)
-    # end
-    return 100^3 * k * T * quadgk(
-    r ->  C(r, t),
-    7.95e-21 / (Conduction.k * T),
-    7.95e-20 / (Conduction.k * T))[1]
+    return 100 * k * T * (quadgk(
+        r ->  DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, r, T, F),
+        0,
+        15)[1] +
+        quadgk(
+        r ->  DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, r, T, F),
+        0,
+        -15)[1])
 end
 
 function occupiedStates(semiconductor::Semiconductor, U, T)
