@@ -9,8 +9,7 @@ include("Utilities.jl")
 # DOS of a doped semiconductor (J^-1.cm^-3)
 DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
 
-DOSp2(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni) / semiconductor.SigmaI(T) * exp(-(log(U * k * T) - log(semiconductor.ModeEffect))^2 / (2 * (semiconductor.SigmaI(T) / hbar)^2)) / sqrt(2 * pi)
-
+# Phonon DOS (J^-1 m^-1)
 DOSp(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni) / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
 
 # Fermi-Dirac distribution
@@ -130,21 +129,22 @@ Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U * k * T/ hbar)^(-4)
 
 C(U, T)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 
+
 kp(semiconductor, T) = k * T * quadgk(
     r -> DOSp(semiconductor, r, T) * C(r, T) * Dp(semiconductor, r, T),
     semiconductor.omega_min * hbar / (k * T),
     +Inf
 )[1]
 
-function ke(semiconductor, T)
-    function f(r)
-        Rnn = Conduction.RnnVRH(semiconductor, r, T);
-        xf = Conduction.xf(semiconductor, Rnn, r, T);
-        t = Conduction.t(semiconductor, Rnn, r, T);
-        return DOS(semiconductor, r, T) * C(r, t) * D_ter(semiconductor, Rnn, xf, t)
-    end
-    return k * T * quadgk(
-    r -> f(r),
+function ke(semiconductor, T, F)
+    # function f(r)
+    #     Rnn = Conduction.RnnVRH(semiconductor, r, T, F);
+    #     xf = Conduction.xf(semiconductor, Rnn, r, T);
+    #     t = Conduction.t(semiconductor, Rnn, r, T);
+    #     return DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, Rnn, xf, t)
+    # end
+    return 100^3 * k * T * quadgk(
+    r -> DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, x, T, F),
     -15,
     15)[1]
 end
