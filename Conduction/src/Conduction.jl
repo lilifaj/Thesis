@@ -144,9 +144,9 @@ function ke(semiconductor, T, F)
     #     return DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, Rnn, xf, t)
     # end
     return 100^3 * k * T * quadgk(
-    r -> DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, x, T, F),
-    -15,
-    15)[1]
+    r ->  C(r, t),
+    7.95e-21 / (Conduction.k * T),
+    7.95e-20 / (Conduction.k * T))[1]
 end
 
 function occupiedStates(semiconductor::Semiconductor, U, T)
