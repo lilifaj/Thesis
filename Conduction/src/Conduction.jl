@@ -7,13 +7,13 @@ include("Variables.jl")
 include("Utilities.jl")
 
 # DOS of a doped semiconductor (J^-1.cm^-3)
-DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) + semiconductor.Nd / semiconductor.SigmaD(T) * exp(-(U * k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2))) / sqrt(2 * pi)
+DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI^2)) + semiconductor.Nd / semiconductor.SigmaD * exp(-(U * k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD^2))) / sqrt(2 * pi)
 
 # Phonon DOS (J^-1 m^-1)
-DOSp(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni) / semiconductor.SigmaI(T) * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI(T)^2)) / sqrt(2 * pi)
+DOSp(semiconductor::Semiconductor, U::Real, T::Real) = 100^3 * (semiconductor.Ni) / semiconductor.SigmaI * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI^2)) / sqrt(2 * pi)
 
 # Fermi-Dirac distribution
-F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf(T)) / (k * T)))
+F(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = 1 / (1 + exp(U - (semiconductor.ModeEffect + semiconductor.Uf) / (k * T)))
 
 # Number of free state within a sphere of radius R
 N(semiconductor::Semiconductor, U::Real, T::Real, R::Real, F::Real)::Float64 = (k * T) / (8 * semiconductor.alpha^3) * 2 * pi * hcubature(
@@ -124,8 +124,6 @@ function ein(semiconductor::Semiconductor, U::Real, T::Real, F::Real)
 
     return ein(semiconductor, R, xf, t, F)
 end
-
-Dp(semiconductor, U, T) = semiconductor.gamma(T)^(-2) * (U * k * T/ hbar)^(-4)
 
 C(U, T)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 

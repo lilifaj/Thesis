@@ -1,7 +1,7 @@
 q = 1.6e-19; # Electron's charge (C)
 k = 1.38e-23; # Boltzman constant (J.K^-1)
 hbar = 1.054571817*10^(-34) # Planck constant in J.s
-
+ev = 1.602e-19; # Electron volt (J)
 mutable struct Semiconductor
     alpha::Float64 # decay constant of the assumed hydrogen-like localized state wave functions (cm^-1)
     ModeEffect::Float64 # Mode effect of the phonons (J)
@@ -9,16 +9,14 @@ mutable struct Semiconductor
     Nd::Float64 # Doping states' density (cm^-3)
     Ed::Float64 # Energy to a vacant target site (J)
     nu::Float64 # Base electron jump rate
-    Uf::Function # Fermi level (no unit)
-    SigmaI::Function # Intrinsic semiconductor's gaussian width (J)
-    SigmaD::Function # Doping states' gaussian width (J)
-    gamma::Function # Amount of disorder (J)
-    function Semiconductor(alpha, ModeEffect, Ni, Nd, Ed, nu, Uf::Real, SigmaI::Real, SigmaD::Real, Gamma::Real)
-        FUf(T) = Uf * k * T
-        FSigmaI(T) = SigmaI * k * T
-        FSigmaD(T) = SigmaD * k * T
-        FGamma(T) = Gamma * k * T
-        new(alpha, ModeEffect, Ni, Nd, Ed, nu, FUf, FSigmaI, FSigmaD, FGamma)
+    Uf::Float64 # Fermi level (J)
+    SigmaI::Float64 # Intrinsic semiconductor's gaussian width (J)
+    SigmaD::Float64 # Doping states' gaussian width (J)
+    function Semiconductor(alpha, ModeEffect, Ni, Nd, Ed, nu, Uf::Real, SigmaI::Real, SigmaD::Real)
+        Uf_2 = Uf * ev;
+        SigmaI_2 = SigmaI * ev;
+        SigmaD_2 = SigmaD * ev;
+        new(alpha, ModeEffect, Ni, Nd, Ed, nu, Uf_2, SigmaI_2, SigmaD_2)
     end
 end
 
@@ -54,13 +52,13 @@ function asymptoteRnnPerco(semiconductor::Semiconductor, U::Real, T::Real)::Floa
     positiveAsymptote = (2 * semiconductor.alpha) * (k * T * 4 * pi * quadgk(r-> DOS(semiconductor, r, T) * (1 - F(semiconductor, r, T)), -Inf, +Inf)[1] / (3 * 2.8))^(-1/3)
     x = -U - semiconductor.ModeEffect / (k * T)
 
-    A1 = semiconductor.SigmaI(T)^2 / (x * (k * T)^2 + semiconductor.ModeEffect * k * T + semiconductor.SigmaI(T)^2) * semiconductor.Ni * exp(-semiconductor.ModeEffect^2 / (2 * semiconductor.SigmaI(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaI(T))
+    A1 = semiconductor.SigmaI^2 / (x * (k * T)^2 + semiconductor.ModeEffect * k * T + semiconductor.SigmaI^2) * semiconductor.Ni * exp(-semiconductor.ModeEffect^2 / (2 * semiconductor.SigmaI^2) - (semiconductor.ModeEffect + semiconductor.Uf)/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaI)
 
-    A2 = semiconductor.SigmaD(T)^2 / (x * (k * T)^2 + (semiconductor.ModeEffect - semiconductor.Ed) * k * T + semiconductor.SigmaD(T)^2) * semiconductor.Nd * exp(-(semiconductor.ModeEffect - semiconductor.Ed)^2 / (2 * semiconductor.SigmaD(T)^2) - (semiconductor.ModeEffect + semiconductor.Uf(T))/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaD(T))
+    A2 = semiconductor.SigmaD^2 / (x * (k * T)^2 + (semiconductor.ModeEffect - semiconductor.Ed) * k * T + semiconductor.SigmaD^2) * semiconductor.Nd * exp(-(semiconductor.ModeEffect - semiconductor.Ed)^2 / (2 * semiconductor.SigmaD^2) - (semiconductor.ModeEffect + semiconductor.Uf)/ (k * T)) / (sqrt(2pi) * semiconductor.SigmaD)
 
-    J1(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaI(T)^2) - x * (1 + (semiconductor.ModeEffect * k * T) / (semiconductor.SigmaI(T)^2)))
+    J1(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaI^2) - x * (1 + (semiconductor.ModeEffect * k * T) / (semiconductor.SigmaI^2)))
 
-    J2(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaD(T)^2) - x * (1 + ((semiconductor.ModeEffect - semiconductor.Ed) * k * T) / (semiconductor.SigmaD(T)^2)))
+    J2(x) = exp(-x^2 * (k * T)^2 / (2 * semiconductor.SigmaD^2) - x * (1 + ((semiconductor.ModeEffect - semiconductor.Ed) * k * T) / (semiconductor.SigmaD^2)))
 
     negativeAsymptote = 0
     try
