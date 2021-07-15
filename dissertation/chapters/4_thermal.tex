@@ -1,0 +1,95 @@
+% !TeX root = document-en.tex
+
+\chapter{Thermal properties}
+
+Thermal conduction is bore by both charge carriers and phonons however their behavior differs a lot. In the following part we will study both phonon and charge carrier transport regarding thermal characteristics.
+
+\section{Phonon transport}
+
+From the literature, it has been seen that for low frequencies phonon, a truncated gaussian DOS fits real devices behavior \cite{phonon_DOS}. To simulate the truncated DOS, we will reduce the frequency of integration during the computation of $k_p$
+
+\begin{equation}
+    g_p\left(E, \hbar \omega_{\alpha}\right)=\frac{1}{\sqrt{2 \pi}}\frac{N_{i-e}}{\sigma_{i}} \exp \left(-\frac{\left(E-\hbar \omega_{\alpha}\right)^{2}}{2 \sigma_{i}^{2}}\right)
+    \label{eq:4_1}
+\end{equation}
+
+The parameters of the DOS \ref{eq:4_1} are the same as for the pristine electric gaussian DOS. The material possesses the same features in term of phonon and charge carrier. Indeed, it has been observed \cite{phonon_hopping} that the phonon displacement can be summed up by a series of jump between non propagating states. Besides, the usual vibration of a material is modeled by a discrete part \cite{vibration_phonon} and a continuous part. We will here make the assumption that it can be simplified to a gaussian DOS.
+
+\subsection{Diffusivity}
+
+Acoustic phonons, the one that participate to the energy propagation, are deemed to be at low frequency and to quickly reach a plateau (fig. \ref{fig:4_1}).
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/plateau.png}
+    \caption{$D$ dependence on the frequency (\cite{phonon_plateau}) \label{fig:4_1}}
+\end{figure}
+
+However, this behavior is a rough approximation and usually the phonon diffusion sees some discrete characteristics. But, in order to simplify and get an approximate result, we will assume such constant diffusion. To obtain an estimate of the value, we will base ourselves on the average diffusion for amorphous silicon:
+
+\begin{equation}
+    D_p = \SI{4.10e-6}{m^2 s^{-1}}
+    \label{eq:4_2}
+\end{equation}
+
+\subsection{Conduction}
+
+Usually, the thermal conduction is defined as \cite{phonon_physics}:
+
+\begin{equation}
+    k_p = \frac{1}{V} \sum_i C_i(T)D_i
+    \label{eq:4_3}
+\end{equation}
+
+\begin{itemize}
+    \item $i$: summation over all the vibrational modes
+    \item $V$: volume of the system
+    \item $Ci$: spectral heat capacity
+    \item $D_i$: thermal diffusivity
+\end{itemize}
+
+However, to simplify eq. \ref{eq:4_3}, we will make the average over the frequencies \cite{thermal_the_one}:
+
+\begin{equation}
+    k_p = \int_{\omega_{min}}^{\omega_{max}} g^\prime (\hbar\omega) C(\hbar\omega)D(\hbar\omega) d \omega
+    \label{eq:4_4}
+\end{equation}
+
+Please note that in equation \ref{eq:4_4}, the DOS $g^\prime$ is given "in frequency": the unit is $\si{Hz^{-1} cm^{-3}}$. The spectral heat capacity is defined by:
+
+\begin{equation}
+    \begin{aligned}
+        C(\hbar\omega) &= \hbar \omega \frac{\partial d}{\partial T} \left[\left(e^{\frac{\hbar \omega}{k_BT}} - 1\right)^{-1}\right] \\
+        C(\hbar\omega) &= \hbar\omega \frac{e^{\frac{\hbar\omega}{k_BT}}}{\left(e^{\frac{\hbar\omega}{k_BT}} - 1\right)^2}
+    \end{aligned}
+    \label{eq:4_5}
+\end{equation}
+
+In eq. \ref{eq:4_4}, we defined a range for the integral through $\omega_{min}$ and $\omega_{max}$. We first defined the spatial frequencies to be $\SI{400}{cm^{-1}}$ and $\SI{4000}{cm^{-1}}$ leading to frequencies of $\SI{1.2e13}{Hz}$ and $\SI{1.2e14}{Hz}$.
+
+To make it work better with our model, we translated the frequency equation to the reduced energy one. First:
+
+\begin{equation}
+    g^\prime(\hbar \omega) = \hbar g(\hbar\omega)
+    \label{eq:4_6}
+\end{equation}
+
+By applying the change of variable $u = \frac{\hbar\omega}{k_BT}$:
+
+\begin{equation}
+    k_p = k_BT \times\int_{u_{min}}^{u_{max}} g (u) C(u)D(u)d u
+    \label{eq:4_7}
+\end{equation}
+
+\section{Charge carrier transport}
+
+It has been demonstrated that charge carrier also participates to the heat conduction in semiconductors \cite{thermal_transport}. Such process arises because electron-hole pairs tend to be created at the hod end of the material and drift to the cold end, thus transmitting their energy.
+
+It has been decided to use the same eq. \ref{eq:4_3} but with the charge carrier quantities $D$ and $g_e$ (eq. \ref{eq:3_11}, \ref{eq:DOS_e}). However, whereas for the phonons, only a small part of the frequencies were involved in the conduction process, for the electron we assume that all the frequencies participates to it. It also translate in the energy spectrum, thus:
+
+\begin{equation}
+    k_e = k_BT \left(\int_{-\infty}^{0} g_e(u) C(u)D_e(u)d u + times\int_{0}^{+\infty} g_e(u) C(u)D_e(u)d u\right)
+    \label{eq:4_8}
+\end{equation}
+
+Of course, as explained in section \ref{subsection:range}, to enhance the performances, we used a reduced range to frame the energy levels where the charge carrier are.

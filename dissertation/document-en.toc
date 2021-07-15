@@ -10,17 +10,37 @@
 \contentsline {subsection}{\numberline {1.1.5}Gaussian density of states}{6}{subsection.20}%
 \contentsline {subsection}{\numberline {1.1.6}Thermal diffusion}{6}{subsection.24}%
 \contentsline {section}{\numberline {1.2}Objectives of this thesis}{8}{section.26}%
-\contentsline {chapter}{\numberline {2}Julia}{10}{chapter.27}%
-\contentsline {section}{\numberline {2.1}Introduction}{10}{section.28}%
-\contentsline {section}{\numberline {2.2}Performances}{10}{section.29}%
-\contentsline {section}{\numberline {2.3}Notebooks}{10}{section.31}%
-\contentsline {section}{\numberline {2.4}Code implementation}{11}{section.32}%
-\contentsline {subsection}{\numberline {2.4.1}Packages}{11}{subsection.33}%
-\contentsline {subsection}{\numberline {2.4.2}Code adaptation}{12}{subsection.47}%
-\contentsline {subsubsection}{Number of free states}{12}{section*.48}%
-\contentsline {subsubsection}{Real hopped distance}{13}{section*.52}%
-\contentsline {subsubsection}{Stochastic time of trap}{14}{section*.57}%
-\contentsline {section}{\numberline {2.5}Conclusion}{15}{section.62}%
-\contentsline {chapter}{References}{16}{chapter*.63}%
-\contentsline {chapter}{Appendix}{18}{appendix*.64}%
-\contentsline {section}{\numberline {A}Appendix 1}{18}{section.65}%
+\contentsline {chapter}{\numberline {2}Electric properties}{10}{chapter.27}%
+\contentsline {section}{\numberline {2.1}Gaussian formalism}{10}{section.29}%
+\contentsline {section}{\numberline {2.2}Variable range hopping}{12}{section.33}%
+\contentsline {subsection}{\numberline {2.2.1}Background}{12}{subsection.34}%
+\contentsline {subsection}{\numberline {2.2.2}Nearest neighbor}{13}{subsection.43}%
+\contentsline {subsection}{\numberline {2.2.3}Real hopped distance}{15}{subsection.47}%
+\contentsline {subsection}{\numberline {2.2.4}Mobility}{19}{subsection.57}%
+\contentsline {subsection}{\numberline {2.2.5}Stochastic release time}{20}{subsection.64}%
+\contentsline {subsection}{\numberline {2.2.6}Diffusivity}{21}{subsection.68}%
+\contentsline {subsection}{\numberline {2.2.7}Einstein ratio}{24}{subsection.77}%
+\contentsline {subsection}{\numberline {2.2.8}Summary of some numerical value}{24}{subsection.81}%
+\contentsline {section}{\numberline {2.3}Parameters influence}{25}{section.82}%
+\contentsline {subsection}{\numberline {2.3.1}Electric Field}{25}{subsection.83}%
+\contentsline {subsection}{\numberline {2.3.2}Temperature}{28}{subsection.90}%
+\contentsline {chapter}{\numberline {3}Thermal properties}{29}{chapter.91}%
+\contentsline {section}{\numberline {3.1}Phonon transport}{29}{section.92}%
+\contentsline {subsection}{\numberline {3.1.1}Diffusivity}{29}{subsection.94}%
+\contentsline {subsection}{\numberline {3.1.2}Conduction}{30}{subsection.97}%
+\contentsline {section}{\numberline {3.2}Charge carrier transport}{31}{section.103}%
+\contentsline {chapter}{\numberline {4}Julia implementation}{33}{chapter.105}%
+\contentsline {section}{\numberline {4.1}Introduction}{33}{section.106}%
+\contentsline {section}{\numberline {4.2}Performances}{33}{section.107}%
+\contentsline {section}{\numberline {4.3}Notebooks}{33}{section.109}%
+\contentsline {section}{\numberline {4.4}Code implementation}{34}{section.110}%
+\contentsline {subsection}{\numberline {4.4.1}Reduced quantities}{34}{subsection.111}%
+\contentsline {subsection}{\numberline {4.4.2}Range of computation }{35}{subsection.129}%
+\contentsline {subsection}{\numberline {4.4.3}Integration in Julia}{36}{subsection.132}%
+\contentsline {subsubsection}{Number of free states}{37}{section*.146}%
+\contentsline {subsubsection}{Real hopped distance}{37}{section*.150}%
+\contentsline {subsubsection}{Stochastic time of release}{38}{section*.155}%
+\contentsline {section}{\numberline {4.5}Conclusion}{39}{section.160}%
+\contentsline {chapter}{References}{41}{chapter*.161}%
+\contentsline {chapter}{Appendix}{44}{appendix*.162}%
+\contentsline {section}{\numberline {A}Pentacene characteristics }{44}{section.163}%

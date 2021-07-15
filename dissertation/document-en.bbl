@@ -7,12 +7,24 @@ Apsley, N., and Hughes, H.~P.
 \newblock {\em The Philosophical Magazine: A Journal of Theoretical
   Experimental and Applied Physics 30}, 5 (1974), 963--972.
 
+\bibitem{vibration_phonon}
+Bakulin, A., Lovrincic, R., Yu, X., Selig, O., Bakker, H., Rezus, Y., Nayak,
+  P., Fonari, A., Coropceanu, V., Brédas, J.-L., and Cahen, D.
+\newblock Mode-selective vibrational modulation of charge transport in organic
+  electronic devices.
+\newblock {\em Nature Communications 6\/} (08 2015), 7880.
+
 \bibitem{ein_drift_2}
 Baranovskii, S., Faber, T., Hensel, F., Thomas, P., and Adriaenssens, G.
 \newblock Einstein's relationship for hopping electrons.
 \newblock {\em Journal of Non-Crystalline Solids 198-200\/} (1996), 214--217.
 \newblock Proceedings of the Sixteenth International Conference on Amorphous
   Semiconductors - Science and Technology.
+
+\bibitem{thermal_transport}
+Berman, R.
+\newblock {\em Thermal Conduction in Solids}.
+\newblock OXFORD SCIENCE PUBLICATIONS. Clarendon Press, 1979.
 
 \bibitem{intro_orga}
 Brütting, W.
@@ -44,6 +56,25 @@ Einstein, A.
   festen körpern [adp 35, 679 (1911)].
 \newblock {\em Annalen der Physik 14}, S1 (2005), 408--424.
 
+\bibitem{phonon_sum}
+Feldman, J.~L., Kluge, M.~D., Allen, P.~B., and Wooten, F.
+\newblock Thermal conductivity and localization in glasses: Numerical study of
+  a model of amorphous silicon.
+\newblock {\em Phys. Rev. B 48\/} (Nov 1993), 12589--12602.
+
+\bibitem{xavier_thesis}
+Kempa, X.
+\newblock {\em Study of the impact of Einstein relation enhancement on organic
+  diodes in the case of variable range hopping}.
+\newblock PhD thesis, Keio University Graduate School of Science and Technology
+  School of Integrated Design Engineering, 2020.
+
+\bibitem{general_einstein}
+Li, L., Lu, N., Liu, M., and B\"assler, H.
+\newblock General einstein relation model in disordered organic semiconductors
+  under quasiequilibrium.
+\newblock {\em Phys. Rev. B 90\/} (Dec 2014), 214107.
+
 \bibitem{multiple_theory}
 Liu, C., Huang, K., Park, W.-T., Li, M., Yang, T., Liu, X., Liang, L., Minari,
   T., and Noh, Y.-Y.
@@ -52,6 +83,12 @@ Liu, C., Huang, K., Park, W.-T., Li, M., Yang, T., Liu, X., Liang, L., Minari,
 \newblock {\em Mater. Horiz. 4\/} (2017), 608--618.
 
 \bibitem{universal_einstein}
+Lu, N., Li, L., Gao, N., and Liu, M.
+\newblock A unified description of thermal transport performance in disordered
+  organic semiconductors.
+\newblock {\em Organic Electronics 41\/} (2017), 294--300.
+
+\bibitem{thermal_the_one}
 Lu, N., Li, L., Gao, N., and Liu, M.
 \newblock A unified description of thermal transport performance in disordered
   organic semiconductors.
@@ -100,16 +137,45 @@ Sandanayaka, A. S.~D., Matsushima, T., Bencheikh, F., Terakawa, S., Potscavage,
 \newblock Indication of current-injection lasing from an organic semiconductor.
 \newblock {\em Applied Physics Express 12}, 6 (may 2019), 061010.
 
+\bibitem{phonon_DOS}
+Schirmacher, W., Diezemann, G., and Ganter, C.
+\newblock Harmonic vibrational excitations in disordered solids and the ``boson
+  peak''.
+\newblock {\em Phys. Rev. Lett. 81\/} (Jul 1998), 136--139.
+
 \bibitem{IBM}
 Shaw, J., and Seidler, P.
 \newblock Organic electronics: Introduction.
 \newblock {\em IBM Journal of Research and Development 45\/} (02 2001), 3 -- 9.
+
+\bibitem{phonon_hopping}
+Shenogin, S., Bodapati, A., Keblinski, P., and McGaughey, A. J.~H.
+\newblock Predicting the thermal conductivity of inorganic and polymeric
+  glasses: The role of anharmonicity.
+\newblock {\em Journal of Applied Physics 105}, 3 (2009), 034906.
+
+\bibitem{phonon_physics}
+Shenogin, S., Bodapati, A., Keblinski, P., and McGaughey, A. J.~H.
+\newblock Predicting the thermal conductivity of inorganic and polymeric
+  glasses: The role of anharmonicity.
+\newblock {\em Journal of Applied Physics 105}, 3 (2009), 034906.
 
 \bibitem{amorphous}
 Shibata, M., Sakai, Y., and Yokoyama, D.
 \newblock Advantages and disadvantages of vacuum-deposited and spin-coated
   amorphous organic semiconductor films for organic light-emitting diodes.
 \newblock {\em J. Mater. Chem. C 3\/} (2015), 11178--11191.
+
+\bibitem{vera_thesis}
+Stehr, V.
+\newblock {\em Prediction of charge and energy transport in organic crystals
+  with quantum chemical protocols employing the hopping model}.
+\newblock PhD thesis, 06 2015.
+
+\bibitem{phonon_plateau}
+Wyart, M.
+\newblock Scaling of phononic transport with connectivity in amorphous solids.
+\newblock {\em EPL (Europhysics Letters) 89}, 6 (Mar 2010), 64001.
 
 \bibitem{mono_crystal}
 Zhang, X., Dong, H., and Hu, W.

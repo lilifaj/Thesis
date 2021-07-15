@@ -5,45 +5,46 @@ The style file: bib/acm-sigchi.bst
 Database file #1: bib/document-en.bib
 Warning--empty journal in intro_orga
 Warning--empty journal in perovskite
-You've used 19 entries,
+Warning--empty school in vera_thesis
+You've used 30 entries,
             2243 wiz_defined-function locations,
-            669 strings with 7884 characters,
-and the built_in function-call counts, 6768 in all, are:
-= -- 644
-> -- 393
+            724 strings with 9637 characters,
+and the built_in function-call counts, 10414 in all, are:
+= -- 990
+> -- 605
 < -- 0
-+ -- 163
-- -- 142
-* -- 598
-:= -- 1169
-add.period$ -- 58
-call.type$ -- 19
-change.case$ -- 128
++ -- 251
+- -- 218
+* -- 911
+:= -- 1809
+add.period$ -- 92
+call.type$ -- 30
+change.case$ -- 196
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 150
-empty$ -- 472
-format.name$ -- 142
-if$ -- 1354
+cite$ -- 33
+duplicate$ -- 244
+empty$ -- 726
+format.name$ -- 218
+if$ -- 2075
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 19
-newline$ -- 99
-num.names$ -- 38
-pop$ -- 92
+int.to.str$ -- 30
+missing$ -- 29
+newline$ -- 154
+num.names$ -- 60
+pop$ -- 148
 preamble$ -- 1
-purify$ -- 109
+purify$ -- 169
 quote$ -- 0
-skip$ -- 94
+skip$ -- 152
 stack$ -- 0
-substring$ -- 478
-swap$ -- 17
+substring$ -- 698
+swap$ -- 28
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
-warning$ -- 2
-while$ -- 59
-width$ -- 21
-write$ -- 191
-(There were 2 warnings)
+type$ -- 118
+warning$ -- 3
+while$ -- 91
+width$ -- 32
+write$ -- 303
+(There were 3 warnings)

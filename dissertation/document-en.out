@@ -8,14 +8,34 @@
 \BOOKMARK [2][-]{subsection.20}{Gaussian density of states}{section.5}% 8
 \BOOKMARK [2][-]{subsection.24}{Thermal diffusion}{section.5}% 9
 \BOOKMARK [1][-]{section.26}{Objectives of this thesis}{chapter.4}% 10
-\BOOKMARK [0][-]{chapter.27}{Julia}{}% 11
-\BOOKMARK [1][-]{section.28}{Introduction}{chapter.27}% 12
-\BOOKMARK [1][-]{section.29}{Performances}{chapter.27}% 13
-\BOOKMARK [1][-]{section.31}{Notebooks}{chapter.27}% 14
-\BOOKMARK [1][-]{section.32}{Code implementation}{chapter.27}% 15
-\BOOKMARK [2][-]{subsection.33}{Packages}{section.32}% 16
-\BOOKMARK [2][-]{subsection.47}{Code adaptation}{section.32}% 17
-\BOOKMARK [1][-]{section.62}{Conclusion}{chapter.27}% 18
-\BOOKMARK [0][-]{chapter*.63}{References}{}% 19
-\BOOKMARK [0][-]{appendix*.64}{Appendix}{}% 20
-\BOOKMARK [1][-]{section.65}{Appendix 1}{appendix*.64}% 21
+\BOOKMARK [0][-]{chapter.27}{Electric properties}{}% 11
+\BOOKMARK [1][-]{section.29}{Gaussian formalism}{chapter.27}% 12
+\BOOKMARK [1][-]{section.33}{Variable range hopping}{chapter.27}% 13
+\BOOKMARK [2][-]{subsection.34}{Background}{section.33}% 14
+\BOOKMARK [2][-]{subsection.43}{Nearest neighbor}{section.33}% 15
+\BOOKMARK [2][-]{subsection.47}{Real hopped distance}{section.33}% 16
+\BOOKMARK [2][-]{subsection.57}{Mobility}{section.33}% 17
+\BOOKMARK [2][-]{subsection.64}{Stochastic release time}{section.33}% 18
+\BOOKMARK [2][-]{subsection.68}{Diffusivity}{section.33}% 19
+\BOOKMARK [2][-]{subsection.77}{Einstein ratio}{section.33}% 20
+\BOOKMARK [2][-]{subsection.81}{Summary of some numerical value}{section.33}% 21
+\BOOKMARK [1][-]{section.82}{Parameters influence}{chapter.27}% 22
+\BOOKMARK [2][-]{subsection.83}{Electric Field}{section.82}% 23
+\BOOKMARK [2][-]{subsection.90}{Temperature}{section.82}% 24
+\BOOKMARK [0][-]{chapter.91}{Thermal properties}{}% 25
+\BOOKMARK [1][-]{section.92}{Phonon transport}{chapter.91}% 26
+\BOOKMARK [2][-]{subsection.94}{Diffusivity}{section.92}% 27
+\BOOKMARK [2][-]{subsection.97}{Conduction}{section.92}% 28
+\BOOKMARK [1][-]{section.103}{Charge carrier transport}{chapter.91}% 29
+\BOOKMARK [0][-]{chapter.105}{Julia implementation}{}% 30
+\BOOKMARK [1][-]{section.106}{Introduction}{chapter.105}% 31
+\BOOKMARK [1][-]{section.107}{Performances}{chapter.105}% 32
+\BOOKMARK [1][-]{section.109}{Notebooks}{chapter.105}% 33
+\BOOKMARK [1][-]{section.110}{Code implementation}{chapter.105}% 34
+\BOOKMARK [2][-]{subsection.111}{Reduced quantities}{section.110}% 35
+\BOOKMARK [2][-]{subsection.129}{Range of computation }{section.110}% 36
+\BOOKMARK [2][-]{subsection.132}{Integration in Julia}{section.110}% 37
+\BOOKMARK [1][-]{section.160}{Conclusion}{chapter.105}% 38
+\BOOKMARK [0][-]{chapter*.161}{References}{}% 39
+\BOOKMARK [0][-]{appendix*.162}{Appendix}{}% 40
+\BOOKMARK [1][-]{section.163}{Pentacene characteristics }{appendix*.162}% 41

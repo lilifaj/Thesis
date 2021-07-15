@@ -1,6 +1,6 @@
 % !TeX root = document-en.tex
 
-\chapter{Julia}
+\chapter{Julia implementation}
 \label{chap:julia}
 
 \section{Introduction}
@@ -23,9 +23,53 @@ The communication and presentation of data and code is a key part in making a sc
 
 \section{Code implementation}
 
-\subsection{Packages}
+\subsection{Reduced quantities}
 
-One of the key aspect of the modelisation that has been performed, was to perform easily and quickly complex integral over multiple dimension. The computation of 1D expression such as $\sigma$ (TODO: add ref) has been realized using QUADGK package:
+To help facilitate the comprehension of each function, reduced quantities for the energy and the spatial coordinates have been used as functions parameters.
+
+\begin{lstlisting}[label={code:1}]
+    function xf(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
+        R = Conduction.RnnVRH(semiconductor, U, T, F);
+
+        return xf(semiconductor, R, U, T, F)
+    end
+\end{lstlisting}
+
+Typical functions for the diverse parameters are taking as parameters the semiconductor structure, energy, temperature and field intensity. Besides, we used extensively Julia's feature multiple dispatch to simplify and improve the readability of the function. For example in code \ref{code:1}, the primal function xf computes an other function xf with different parameters. By doing so we can maintain a coherent environment for the function calls, the real computation being done by:
+
+\begin{lstlisting}
+    function xf(semiconductor::Semiconductor, Rnn::Real, U::Real, T::Real, F::Real)
+        functionI = [I1, I2, I3, I4]
+        resultI = Array{Float64}(undef, 4)
+
+        for i in 1:4
+            resultI[i] = functionI[i](U, T, semiconductor, Rnn, F)
+        end
+
+        return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])
+    end
+\end{lstlisting}
+
+\subsection{Range of computation \label{subsection:range}}
+
+For many quantities (mobility \ref{eq:3_5}, \dots) a global value requires an integral over all the possible energies of the form:
+
+\begin{equation}
+    h = \frac{\int_{-\infty}^{+\infty}g(u)F(U)h(u)}{\int_{-\infty}^{+\infty}g(u)F(U)}
+    \label{eq:2_8}
+\end{equation}
+
+However, in the eq. \ref{eq:2_8}, the range of integration doesn't allow a smooth computation in a reasonable amount of time: usually $h(u)$ function is complicated equation involving most of the time other integrals. To reduce the time of computation, one has to first reduce the range of integration. Thankfully to our model and the gaussian DOS, most of the charge carrier are trapped in a certain energy range (fig. \ref{fig:2_2}). Such range has to be investigated for each change of material. For example with the pentacene (parameters fig \ref{fig:2_2}), we see that for an energy of $\SI{0.4}{eV}$, we have roughly $\SI{0.002}{\percent}$ of carrier ($\SI{100}{\percent}$ being the maximum value for $U = \hbar \omega_\alpha$).
+
+\begin{figure}
+    \centering
+    \includegraphics*[width=.6\paperwidth]{figures/2-julia/DOS.png}
+    \caption{DOS compared to the maximum value \label{fig:2_2}}
+\end{figure}
+
+\subsection{Integration in Julia}
+
+One of the key aspect of the modelisation that has been performed, was to perform easily and quickly complex integral over multiple dimension. The computation of 1D expression such as $k_p$ (eq. \ref{eq:4_4}) has been realized using QUADGK package:
 
 \begin{lstlisting}
     kp(semiconductor, T) = k * T * quadgk(
@@ -46,17 +90,15 @@ The multidimensional integrals have been computed using HCubature:
         rtol=1e-6)[1]
 \end{lstlisting}
 
-\subsection{Code adaptation}
-
 However, concerning the multi-dimensional integrals, they can't be used as they were presented in the thesis. The parameters presented in the born have to be some constant and not depend on an other integral parameters.
 
 \subsubsection{Number of free states\label{sec:free_states}}
 
-The formula for the number of free state is taken from TODO:REF :
+The formula for the number of free state is taken from eq. \ref{eq:3_3} :
 
 \begin{equation}
     \begin{aligned}
-    \mathcal{N}\left(u, T, \beta, \mathscr{R}\right)=\int_{0}^{\pi} \int_{0}^{\mathscr{R}} \int_{-\infty}^{\mathscr{R}+u-r(1+\beta \cos \theta)} N\left(v\right)\left[1-F\left(v\right)\right] \frac{k T}{8 \alpha^{3}} \\
+    \mathcal{N}\left(u, T, \beta, \mathscr{R}\right)=\int_{0}^{\pi} \int_{0}^{\mathscr{R}} \int_{-\infty}^{\mathscr{R}+u-r(1+\beta \cos \theta)} g\left(v\right)\left[1-F\left(v\right)\right] \frac{k T}{8 \alpha^{3}} \\
     \times 2 \pi r^2 \sin \theta d v d r d \theta
     \end{aligned}
     \label{eq:2_1}
@@ -83,7 +125,7 @@ With this simple change of variable, the time of computation has been reduced fr
 
 \subsubsection{Real hopped distance}
 
-From the equation of the real hopper distance TODO:REF:
+From the equation of the real hopped distance (eq. \ref{eq:3_4}):
 
 \begin{equation}
     \begin{aligned}
@@ -121,9 +163,9 @@ We obtain the following formulas:
     \label{eq:2_7}
 \end{equation}
 
-\subsubsection{Stochastic time of trap}
+\subsubsection{Stochastic time of release}
 
-From the equation of the stochastic time of trap TODO:REF:
+From the equation of the stochastic time of release (eq. \ref{eq:t}):
 
 \begin{equation}
     \begin{aligned}
