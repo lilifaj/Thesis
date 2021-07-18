@@ -125,21 +125,21 @@ function ein(semiconductor::Semiconductor, U::Real, T::Real, F::Real)
     return ein(semiconductor, R, xf, t, F)
 end
 
-C(U, T)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
+C(U)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 
 kp(semiconductor, T) = quadgk(
-    r -> Conduction.k * T * Conduction.DOSp(semiconductor, r, T) * Conduction.C(r, T) * 4.10e-6,
+    r -> Conduction.k * T * Conduction.DOSp(semiconductor, r, T) * Conduction.C(r) * 4.10e-6,
     7.95e-21 / (Conduction.k * T),
     7.95e-20 / (Conduction.k * T)
 )[1];
 
 function ke(semiconductor, T, F)
     return 100 * k * T * (quadgk(
-        r ->  DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, r, T, F),
+        r ->  DOS(semiconductor, r, T) * C(r) * D(semiconductor, r, T, F),
         0,
         15)[1] +
         quadgk(
-        r ->  DOS(semiconductor, r, T) * C(r, t) * D(semiconductor, r, T, F),
+        r ->  DOS(semiconductor, r, T) * C(r) * D(semiconductor, r, T, F),
         0,
         -15)[1])
 end
