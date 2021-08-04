@@ -1,10 +1,22 @@
-# Number of enclosed state by a radius of R
+# Variables for the various change of variable in integrals
+
+# Change of variable for the number of free states N
 var1(U, beta, R, t, Rp, theta) = R + U - Rp * (1 + beta * cos(theta)) - t / (1 - t)
 
+# Change of variable for real hopped distance xf
 var2(semiconductor, r, U, T, F, theta, Rnn) = Rnn * (r * (1 + Conduction.beta(semiconductor, T, F) * cos(theta)) - Conduction.beta(semiconductor, T, F) * cos(theta)) + U
 
+# Change of variable for real hopped distance xf
 var3(semiconductor, r, U, T, F, theta, Rnn) = U - Rnn * Conduction.beta(semiconductor, T, F) * cos(theta) - r / (1 - r)
 
+# Change of variable for the stochastic time of trap t
+var4(V, r, theta, U, T, Rnn, F::Real, semiconductor) = V * (Rnn - r) + U - r * Conduction.beta(semiconductor, T, F) * cos(theta)
+
+# Change of variable for the stochastic time of trap t
+var5(V, r, theta, U, T, Rnn, F::Real, semiconductor) = V / (V - 1) + U - r * Conduction.beta(semiconductor, T, F) * cos(theta)
+
+
+# Integrals for the real hopped distabce xf
 I1(U, T, semiconductor, Rnn::Float64, F::Real) = 0.5 * Rnn * hcubature(
     x -> DOS(semiconductor, var2(semiconductor, x[1], U, T, F, x[2], Rnn), T) * (1 - Conduction.F(semiconductor, var2(semiconductor, x[1], U, T, F, x[2], Rnn), T)) * sin(2 * x[2]) * (Rnn - var2(semiconductor, x[1], U, T, F, x[2], Rnn) + U)^3 / (1 + Conduction.beta(semiconductor, T, F) * cos(x[2]))^2,
     [0, 0],
@@ -37,10 +49,7 @@ I4(U, T, semiconductor, Rnn::Float64, F::Real) = hcubature(
     atol=1
 )[1]
 
-var4(V, r, theta, U, T, Rnn, F::Real, semiconductor) = V * (Rnn - r) + U - r * Conduction.beta(semiconductor, T, F) * cos(theta)
-
-var5(V, r, theta, U, T, Rnn, F::Real, semiconductor) = V / (V - 1) + U - r * Conduction.beta(semiconductor, T, F) * cos(theta)
-
+# Integrals for the stochastic time of trap t
 It1(U, T, semiconductor, Rnn::Float64, F::Real) = hcubature(
     x -> (DOS(semiconductor, var4(x[1], x[2], x[3], U, T, Rnn, F, semiconductor), T) * (1 - Conduction.F(semiconductor, var4(x[1], x[2], x[3], U, T, Rnn, F, semiconductor), T)) * exp((1 + Conduction.beta(semiconductor, T, F) * cos(x[3])) * x[2] + var4(x[1], x[2], x[3], U, T, Rnn, F, semiconductor) - U) / semiconductor.nu * 2 * pi * x[2]^2 * sin(x[3])) * (Rnn - x[2]),
     [0, 0, 0],
