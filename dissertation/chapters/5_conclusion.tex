@@ -1,0 +1,31 @@
+% !TeX root = document-en.tex
+
+\chapter{Conclusion}
+
+\section{Discussion}
+
+The electric model that we developed offered results in range with the previous literature, while giving some change in behavior and tendency. We could conclude that the geometry of the DOS and the density of charge carriers were playing a great role in understanding the behavior of the diffusion $D$ and the mobility $\mu$. It seems that the diffusivity is very sensitive to DOS geometry and $\mu$ to charge carrier quantity. With an increase in the number of free state, the global Einstein ratio $\eta$ was experiencing an increase, meaning that the diffusion was becoming preponderant in the material compared to the diffusivity. This effect was quite striking with the increase of energetic disorder.
+
+Such conclusion can be applied to doping. The process of doping alters greatly the structure of the DOS by bringing new states and by reducing the influence of traps and increases more efficiently the diffusion process and the Einstein ratio. However, the effect of increasing the doping does not change the DOS structure in such way and the increase in charge carrier becomes more preponderant regarding the Einstein ratio behavior, reducing it.
+
+Our model described behavior that is consistent and matches the behavior of other models found in literature. The final range of electric mobility, conduction and Einstein ratio are coherent with precedent work and give reasonable approximation. But some aspects still need to be better explained: the Einstein ratio experiencing a local maximum at low temperature, as well as the local maximum regarding the field.
+
+Regarding the thermal conduction, our model described values in range with precedent work for the phonon transports, but yielded overwhelmingly low values for the charge carrier thermal conduction, as well as a strange dependency regarding the field. It has been concluded that the computation precision is not adequate for such computation as the variations of the integrated quantity are very high.
+
+The implementation of this new model on Julia as also been successful. Our model can produce results in few minutes for a reasonable range of parameters on different computers. We took great care in producing a readable and understandable code to facilitate the comprehension and usability of the implemented model.
+
+\section{Limits}
+
+As explained in the chapter \ref{chap:elec}, we made many assumptions and approximation on the diffusion quantity. Trapping effect has also been taken into account solely for the diffusion.
+
+Most important, the data retrieved from precedent studies may be difficult to incorporate in our model, as the quality of the probing and the correspondences with our model may be hard to find.
+
+\section{Future prospects}
+
+An in-depth inspection of the assumption made for the diffusivity may be needed to better understand the process behind the diffusion. Even though our result were in range with precedent work, a more refined model may be considered.
+
+As reported earlier, the trapping effect is not really considered for the mobility and the addition of an exponential DOS in top of the Gaussian DOS could be a solution into reducing the too-high mobility obtained for pentacene.
+
+Thermal conduction needs to be better understood in order to produce a more accurate description of phonon diffusion. Besides, the charge carrier phonon transport is not satisfactory and need some changes to produce values in range with the literature, as well as more coherent behavior regarding the field intensity.
+
+The overall model in Julia still have some accuracy problems, particularly for extreme values and for very high or low energies (at several electron volts). A better understanding of the model at extreme energies could help refine the model and improve the overall precision.

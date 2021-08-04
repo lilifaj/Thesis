@@ -9,17 +9,21 @@
 
 \subsection{Background}
 
-For the past century, inorganic materials have been at the heart of the semiconductor industry, with element such as silicon, germanium or gallium arsenide. But, the industry turned itself to new devices and organics semiconductor are one of them. Their different set of properties: very flexible, low cost, less polluting helped them to gain interest.
+For the past century, inorganic materials have been at the heart of the semiconductor industry, with element such as silicon, germanium or gallium arsenide. But the industry turned itself to new devices, and organics semiconductor are one of them. Their different set of properties: very flexible, low cost, less polluting helped them to gain more interest.
 
-More specifically, in 1977, the first highly conducting polymer was found, chemically doped polyacetylene, was discovered \cite{polyacetylene}. Such materials can be easily processed by techniques already know in the industry: vacuum evaporation, solution casting\dots But a better understanding and control of the self-assembly of molecules, as well as a booming research field, have increased greatly the performances, reaching the charge carrier mobility of amorphous silicon for some of them (fig. \ref{fig:1}). The high diversity of geometry within the material allows a better tuning of the characteristic of the semiconductor to the use. One greater advance is the combination of both organic and inorganic molecules, particularly with perovskite. The high mobility of inorganic material combined with the more flexible geometry of organic ones make possible the creation of devices that reaches the performances of single-crystal silicon \cite{IBM,perovskite}.
+In 1977, the first highly conducting polymer was discovered: chemically doped polyacetylene \cite{polyacetylene}. Such material can be easily processed by techniques already know in the industry: vacuum evaporation, solution casting\dots But a better understanding and control of the self-assembly of molecules, as well as a booming research field, have greatly increased the performances, reaching the charge carrier mobility of amorphous silicon for some of them (fig. \ref{fig:1}). The high diversity of geometry within the material allows a better tuning of the characteristic of the semiconductor to the use cases. One greater advance is the combination of both organic and inorganic molecules, particularly with perovskite. The high mobility of inorganic material combined with the more flexible geometry of organic ones make possible the creation of devices that reaches the performances of single-crystal silicon \cite{IBM,perovskite}.
 
 \begin{figure}
     \centering
     \includegraphics[width=.6\paperwidth]{figures/evolution_perf.png}
-    \caption{Evolution of the performance for some organic semiconductors \label{fig:1}\cite{IBM}}
+    \caption{History of the evolution of mobility in organic semiconductors \label{fig:1}\cite{IBM}}
 \end{figure}
 
-This new development has been seen through the recent appearance of organic devices in the market. The more flagrant one is OLED devices, they offer a better diversity (flexible screens) with increased performance (higher color fidelity, darker black and better contrast) as well as consumption. But it's also used in professional devices such as OTFT \cite{OTFT}, laser diode \cite{laserDiode}, \dots
+This new development has been seen through the recent appearance of organic devices in the market. The more flagrant one is OLED devices, they offer a better usability (flexible screens) with increased performance (higher color fidelity, darker black and better contrast) better electric consumption. It's also used in professional devices such as OTFT \cite{OTFT}, laser diode \cite{laserDiode}, \dots
+
+\subsection{Future development}
+
+Organic semiconductor are overwhelmingly used in wearable and portable devices, mainly as screen using thin-films transistors. They offer an affordable, biodegradable, transparent, flexible alternative to the classic inorganic TFTs. However, one key characteristic for such device is the transit frequency, the highest frequency at which we can operate the transistor. Most organic material have a frequency of at most a few mega-hertz, which is not enough for modern devices which works at the gigahertz frequencies. Usually, higher operating frequency means a higher quality final product. Replacing inorganic TFTs by organic one could mean a lot for the industry as both p-channel and n-channel can be fabricated at room temperature. But the increase in performance as recently stalled and need further development and research to really reach the performances of the more classical inorganic semiconductors \cite{frequency}.
 
 \subsection{Organic materials}
 
@@ -69,13 +73,15 @@ In the variable range hopping theory (VRH), the displacement between two states 
     \item $E_i$: energy of the state $i$
 \end{itemize}
 
-Depending on the position of the final state $j$, the formula change. If the state is on higher energy, it requires tunneling to occur on the energetic part, whereas if the reaching state if of a lower energy, only the distance is taken into account for the tunneling effect.
+Depending on the position of the final state $j$, the formula changes. If the state is on higher energy, it requires tunneling to occur on the energetic part, whereas if the reaching state if of a lower energy, only the distance is taken into account for the tunneling effect, the jump being energetically favorable.
 
 Using this formalism, it is possible to access the mobility and diffusivity for charge carrier.
 
-\subsection{The einstein relation}
+\subsection{The Einstein relation}
 
-\subsubsection{Classical einstein relation}
+It has been reported in organic semiconductor that the classical Einstein relation may be violated in certain conditions \cite{general_einstein}. To better understand the changes in the Einstein ratio, we will first present the classic equation before explaining what can change.
+
+\subsubsection{Classical Einstein relation}
 
 \begin{equation}
     \frac{D}{\mu} = \frac{k_bT}{q}
@@ -91,7 +97,7 @@ Using this formalism, it is possible to access the mobility and diffusivity for 
     \item $q$: elementary charge
 \end{itemize}
 
-The einstein relation \cite{einstein}, is a useful equation that link two quantities, $\mu$ and $D$ over a simple equation. $D$ constitutes a key parameter in analyzing semiconductor but is not so easy to measure. On the contrary, the mobility is easily accessed. However, in the presence of energetic disorder, such simple equation does not seem to hold \cite{ein_drift,ein_drift_2}. In non-equelibrium cases, it also seems that we can't use this relation anymore, the relation between the diffusion and the field seems to be quadratic \cite{diffusion_F}.
+The Einstein relation \cite{Einstein}, is a useful equation that link two quantities, $\mu$ and $D$ over a simple equation. $D$ constitutes a key parameter in analyzing semiconductor but is not so easy to measure. On the contrary, the mobility is easily accessed. However, in the presence of energetic disorder, such simple equation does not seem to hold \cite{ein_drift,ein_drift_2}. In non-equelibrium cases, it also seems that we can't use this relation anymore, the relation between the diffusion and the field seems to be quadratic \cite{diffusion_F}.
 
 \subsubsection{Generalized equation}
 
@@ -128,7 +134,7 @@ From this stating, a more suitable equation has been proposed in the following t
 
 Gaussian density of states has been suggested by numerous monte-carlo simuations \cite{DOS_monte_carlo} as well by the observation of the excitonic absorption profile which is gaussian too. Besides, the intrinsic localization behavior of the gaussian density of state fit very well the observation made on real devices.
 
-From a mathematical point of view, the disorder is directly linked to $\sigma$, which broadens the bell-shaped of the function (fig. \ref{fig:5}, \ref{fig:6}).
+From a mathematical point of view, the disorder is directly linked to $\sigma$, which broadens the bell-shaped function (fig. \ref{fig:5}, \ref{fig:6}).
 
 \begin{figure}
     \centering
@@ -147,39 +153,31 @@ From a mathematical point of view, the disorder is directly linked to $\sigma$, 
 Organic semiconductors have recently received much attention regarding their potential thermoelectric effect. From their figure of merit (eq. \ref{eq:6})
 
 \begin{equation}
-    \mathrm{ZT}=\frac{\sigma \cdot S^{2}}{\kappa} T
+    \mathrm{ZT}=\frac{\sigma \cdot S^{2}}{k} T
     \label{eq:6}
 \end{equation}
 
 \begin{itemize}
     \item $S$: Seebeck coefficient
     \item $\sigma$: electrical conductivity
-    \item $\kappa$: thermal conductivity
+    \item $k$: thermal conductivity
 \end{itemize}
 
-From ZT value is representative of the electric efficiency of the device. Thus a lower thermal conductivity $\kappa$ naturally leads to higher figure of merit and to an increased energetic conversion.
+ZT value is representative of the device thermo-electric efficiency. A lower thermal conductivity $k$ naturally leads to higher figure of merit and to an increased energetic conversion.
 
-A better understanding of the process is key to engineering better devices, but the classical theory used on inorganic material \cite{einstein_model_thermic} can't be applied directly to organic ones. The variety of morphology in organic semiconductors plays a great role in defining its thermal characteristics and is extremely sensitive to the spacial arrangement of the molecules within the material.
+A better understanding of the thermo-electric behavior is key to engineering better devices, but the classical theory used on inorganic material \cite{einstein_model_thermic} can't be applied directly to organic ones. The variety of morphology in organic semiconductors plays a great role in defining its thermal characteristics and is extremely sensitive to the spacial arrangement of the molecules within the material.
 
-To simulate the thermal effect, one should take into account both charge carrier and phonon transport: $\kappa = \kappa_e + \kappa_p$ with a slight predominance of the phonon in the process of thermal conduction \cite{universal_einstein}.
+To simulate the thermal effect, one should take into account both charge carrier and phonon transport: $k = k_e + k_p$ with a slight predominance of the phonon in the process of thermal conduction \cite{universal_einstein}.
 
 \section{Objectives of this thesis}
 
-The overall understanding of both electric and thermal behavior of organic semiconductors is scarce. Their great diversity, which is at the heart of their recent success, makes it difficult to get an simulation of the charge carrier in the material. The goal of this thesis is to obtain, thanks to equations developed throughout the 20th century and to new hypothesis on the comportment of the charge carrier, as well as a powerful computer language, a reasonable approximation of the electric and thermal figures in doped organic semiconductors. Our objectives are:
+The overall understanding of both electric and thermal behavior of organic semiconductors is scarce. Their great diversity, which is at the heart of their recent success, makes it difficult to get an accurate simulation of the charge carrier in the material. The goal of this thesis is to obtain, thanks to equations developed throughout the 20th century and to new hypothesis on the comportment of the charge carrier, as well as a powerful computer language, a reasonable approximation of the electric and thermal figures in doped organic semiconductors:
 
 \begin{itemize}
-    \item Estimate einstein ratio for many type of organic semiconductors
-    \item Estimate the thermal conduction by taking into account both charge carrier and phonon participation
-    \item Take into account the doping behavior of the semiconductor, as well as the disorder and electric effect
-    \item Simulate the behavior in a fairly small amount of time
+    \item Estimating Einstein ratio for many type of organic semiconductors
+    \item Taking into account the doping behavior of the semiconductor, as well as the disorder and electric effect
+    \item Estimating the thermal conduction by taking into account both charge carrier and phonon participation
+    \item Simulating the model in a fairly small amount of time
 \end{itemize}
 
 The novelty of this study resides in the multitude of the parameters taken into account and in new behavior for charge carrier within the material.
-
-%%%%%Notes%%%%%
-% if you do not  want use endnotes style, please comment out the below.
-% \section*{Notes}
-% \addcontentsline{toc}{section}{Notes}
-% \begin{footnotesize}
-% \theendnotes
-% \end{footnotesize}

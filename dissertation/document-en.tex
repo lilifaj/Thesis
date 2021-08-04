@@ -30,6 +30,8 @@
 \usepackage[\gfxdriver]{graphicx}
 %
 %%%%%%%% Load other packages
+\usepackage{parskip}
+\usepackage{multicol}
 \usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{listings}
@@ -150,6 +152,7 @@
 % Adjust space around float captions
 \setlength{\abovecaptionskip}{0.5em}    % Space above bottom captions
 \setlength{\belowcaptionskip}{1em}      % Space below top captions
+\setlength{\parskip}{1em}
 
 %
 %%%%%%%%%%%%%% Thesis Parameters - Edit as Appropriate %%%%%%%%%%%%%%
@@ -189,7 +192,7 @@
 % Author's Name (in plain text)
 %   No need to set if the same as in (in LaTeX)
 \epauthor{}
-\advisor{Associate Professor Noda Kei}
+\advisor{Professor Noda Kei}
 %
 % Academic Year
 \syear{2021}
@@ -242,7 +245,13 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%Abstract%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\eabstract{
+\eabstract{The localization of states in organic semiconductor have caused some troubles at providing a viable thermal and electric transport. Understanding better the process in organic semiconducor could help improve the performances of many devices. We propose in this thesis to study the Einstein relationship and thermal conduction in regard of doped semiconductors which could be usefull for both understanding carrier transport and heat transport and also to engineer more efficient devices.
+
+From the standpoint of the Variable Range Hopping (VRH) theory, we will compute models for both electric conduction and diffusion for classic organic semiconductors to finally be able to assess the Einstein ratio. We will perform simulation to grasp the influence of some parameters: doping, field, carrier density, energetic disorder, Fermi level. The model predicts value in accordance with the precedent litterature for most que the quantities, excepted the temperature and the Fermi level. To confirm our electric model, we used pentacene hole-only data measured by a precedent student and have found the numerical values for reasonable field to be in range with what was measured.
+
+The background developped for the electric conduction has also been used to predict thermal conduction values for both phonons and charge carriers. Our approximated model succeeded in obtaining reasonable values in range with the litterature.
+
+A special attention has been dedicated into developping a performing model in Julia and improving the performances without harming the precision and accuracy of the model.
 }
 %%%%%%%%%%%%%%%%%%%%%%%%% document starts here %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -280,6 +289,7 @@
 \input{chapters/3_electric.tex}
 \input{chapters/4_thermal.tex}
 \input{chapters/2_julia.tex}
+\input{chapters/5_conclusion.tex}
 %\input{implementation.tex}
 %\input{evaluation.tex}
 %\input{conclusion.tex}

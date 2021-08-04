@@ -3,7 +3,7 @@
 \chapter{Electric properties}
 \label{chap:elec}
 
-The framework for the electric properties, diffusion, mobility and einstein ratio will be detailed in this section. As now on, we will adopt the following formalism. If not stated otherwise, every quantity written in lowercase will be reduced and all the quantity in uppercase will be the non-reduced equivalent ($u_F$ is the reduced quantity of $U_F$). To reduce the unit we will use respectively for the energetic dimension and spatial dimension:
+The framework for the electric properties: diffusion $D$, mobility $\mu$ and Einstein ratio $\eta$ will be detailed in this section. As now on, we will adopt the following formalism. If not stated otherwise, every quantity written in lowercase will be reduced and all the quantity in uppercase will be the non-reduced equivalent ($u_F$ is the reduced quantity of $U_F$). To reduce the unit we will use respectively for the energetic dimension and spatial dimensions:
 
 \begin{equation}
     \begin{aligned}
@@ -16,26 +16,26 @@ $k_B$ being the Boltzmann constant and $\alpha = \SI{4.34e7}{cm^{-1}}$ the decay
 
 \section{Gaussian formalism}
 
-To simulate the localized behavior of charge carrier, we will use a gaussian density of states (gaussian DOS) for doped semiconductor. The doping effect will take form of an another gaussian with a different peak. The origin of the energy will be taken to be the LUMO level, but this theory works for holes and electron alike: an energy inversion is will bring us into the hole formalism.
+To simulate the localized behavior of charge carrier, we will use a Gaussian density of states (Gaussian DOS) for doped semiconductor. The doping effect will take form of an another Gaussian with a different peak. The origin of the energy will be taken to be the LUMO level, but this theory works for holes and electron alike: an energy inversion is will bring us into the hole formalism.
 
 \begin{equation}
     \begin{aligned}
-    g\left(E, \hbar \omega_{\alpha}\right)=& \frac{1}{\sqrt{2 \pi}}\left\{\frac{N_{i-e}}{\sigma_{i}} \exp \left(-\frac{\left(E-\hbar \omega_{\alpha}\right)^{2}}{2 \sigma_{i}^{2}}\right)\right.\\
-    &\left.+\frac{N_{d-e}}{\sigma_{d}} \exp \left(-\frac{\left(E-\hbar \omega_{\alpha}+E_{d}\right)^{2}}{2 \sigma_{d}^{2}}\right)\right\}
+    g\left(E, \hbar \omega_{\alpha}\right)=& \frac{1}{\sqrt{2 \pi}}\left\{\frac{N_{i}}{\sigma_{i}} \exp \left(-\frac{\left(E-\hbar \omega_{\alpha}\right)^{2}}{2 \sigma_{i}^{2}}\right)\right.\\
+    &\left.+\frac{N_{d}}{\sigma_{d}} \exp \left(-\frac{\left(E-\hbar \omega_{\alpha}+E_{D}\right)^{2}}{2 \sigma_{d}^{2}}\right)\right\}
     \end{aligned}
     \label{eq:DOS_e}
 \end{equation}
 
 \begin{itemize}
-    \item $N_{i-e}(cm^{-3})$: density of charge carriers for the intrinsic material
-    \item $N_{d-e}(cm^{-3})$: density of charge carriers for the doped material
+    \item $N_{i}(cm^{-3})$: density of charge carriers for the intrinsic material
+    \item $N_{d}(cm^{-3})$: density of charge carriers for the doping material
     \item $\hbar \omega_\alpha(J)$: mode effect, vibration of the lattice
-    \item $\sigma_i(J)$: width of the intrinsic gaussian, representative of the disorder of the intrinsic material
-    \item $\sigma_d(J)$: width of the doped gaussian, representative of the disorder of the doped material
+    \item $\sigma_i(J)$: width of the intrinsic Gaussian, representative of the disorder of the intrinsic material
+    \item $\sigma_d(J)$: width of the doped Gaussian, representative of the disorder of the doped material
     \item $E_D(J)$: energy shift between intrinsic and doped material
 \end{itemize}
 
-$g_e$ is expressed in $cm^{-3} J^{-1}$.
+$g$ is expressed in $J^{-1} cm^{-3}$.
 
 On the figure \ref{fig:3_2}, the doping results in a broadening of the DOS, which is coherent with doping increasing the number of states within the material.
 
@@ -47,9 +47,9 @@ On the figure \ref{fig:3_2}, the doping results in a broadening of the DOS, whic
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{figures/3_elec/dos_doped.png}
-        \caption{Doped semiconductor \\ $N_{d-e} = \SI{2.1e18}{cm^{-3}}$, $E_D = \SI{0.1}{eV}$}
+        \caption{Doped semiconductor \\ $N_{d} = \SI{2.1e18}{cm^{-3}}$, $E_D = \SI{0.1}{eV}$}
     \end{subfigure}
-    \caption[DOS]{DOS doping comparison \\ $T = 300K$, $N_{i-e} = \SI{2.1e18}{cm^{-3}}$, $\hbar \omega_\alpha = \SI{0.16e-19}{J}$}
+    \caption[DOS]{DOS doping comparison \\ $T = 300K$, $N_{i} = \SI{2.1e18}{cm^{-3}}$, $\hbar \omega_\alpha = \SI{0.16e-19}{J}$}
     \label{fig:3_2}
 \end{figure}
 
@@ -62,7 +62,7 @@ Using the Fermi-Dirac distribution, the carrier concentration is:
 \section{Variable range hopping}
 
 \subsection{Background}
-We suppose that the charge carrier jump by tunneling from one state to another. The system is thus described in 4 dimensions: 3 for the spatial dimension, and one for the energy.
+We suppose that the charge carrier jump by tunneling from one state to another. The system is thus described in 4 dimensions: 3 for the spatial dimension, and 1 for the energy.
 
 In our semi-classical model, we define the average probability for a jump to be the geometrical mean for all the jump within a material:
 
@@ -84,14 +84,14 @@ The $i$ arises from the fact that $P_i < 1$ and the logarithm is thus negative. 
     \langle P \rangle = exp(-r_{nn})
 \end{equation}
 
-With $r_{nn}$ being the mean range to the nearest neighbor for each state throughout the material. This theory making the average over all the states in the material has the advantage of summarizing the spatial and energy distribution of the states in on variable $r_{nn}$. The Miller-Abrahams hopping rate can now be written as:
+With $r_{nn}$ being the average range to the nearest neighbor for each state throughout the material, it has the advantage of summarizing the spatial and energy distribution of the states in a single variable $r_{nn}$. The Miller-Abrahams hopping rate can now be written as:
 
 \begin{equation}
     \nu = \nu_0 \cdot exp(-r_{nn})
     \label{eq:3_1.1}
 \end{equation}
 
-Usually, $\nu_0$ which is the basic hopping rate is set to $\SI{1e13}{Hz}$.
+Usually, $\nu_0$, the basic hopping rate, is set to $\SI{1e13}{Hz}$.
 
 If we define $P_{ij}$ to be the probability of a jump from the state $i$ to the state $j$, from an energetic standpoint:
 
@@ -111,7 +111,7 @@ We can fairly assume that:
     \label{eq:3_1}
 \end{equation}
 
-We write the field effect as: $\beta = \frac{Fe}{2\alpha k_BT}$, $F$ being the field intensity in $V cm^{-1}$. Of course, the course of a charge carrier is modified by the field. To model this, we include it directly in the equation of the 4D distance: a state alongside the field direction will be seen as  closer or father depending on the angle $\theta$ between $R_{ij}$ and $F$:
+We write the field effect as: $\beta = \frac{Fe}{2\alpha k_BT}$, $F$ being the field intensity in $V cm^{-1}$. The course of a charge carrier is modified by the field. To model this, we include it directly in the equation of the 4D distance: a state alongside the field direction will be seen as  closer or father depending on the angle $\theta$ between $R_{ij}$ and $F$:
 
 \begin{equation}
     \left.\begin{array}{rlr}
@@ -125,7 +125,7 @@ $(1+\beta \cos \theta)$ arises from the shift of the fermi level due to the fiel
 
 \subsection{Nearest neighbor}
 
-The quantity $r_{nn}$ can be computed thanks to the formula of the "number of free states" $\mathscr{N}$, the mean number of free state at a distance $\mathscr{R}$ \footnote{Please note that the quantity $\mathscr{R}$ is reduced.} of a state. We suppose that the material is disorganized enough to make both energetic and spatial dimension uncorrelated, and that the states are equally distributed in respect of the gaussian DOS.
+The quantity $r_{nn}$ can be computed thanks to the formula of the "number of free states" $\mathscr{N}$: the mean number of free state at a distance $\mathscr{R}$ \footnote{Please note that the quantity $\mathscr{R}$ is reduced.} of a certain point in the material. We suppose that the material is disorganized enough to make both energetic and spatial dimension uncorrelated, and that the states are equally distributed in respect of the Gaussian DOS.
 
 \begin{equation}
     \begin{aligned}
@@ -141,11 +141,11 @@ The quantity $r_{nn}$ can be computed thanks to the formula of the "number of fr
     \caption{Energetic-spatial relationship \label{fig:R_max} (source \cite{hopping_theory_1})}
 \end{figure}
 
-$g(1 - F)$ represent the emptiness of a state, $F$ being the Fermi-Dirac equation, $1 - F$ is the probability of the state to be empty, i.e a state where a charge carrier can jump. $\frac{k_B T}{8 \alpha^{3}}$ is simply a reducing factor to eliminate the unit of $g(1-F)$. $4\pi r^2$ is the surface of a sphere with a radius $r$ and $\frac{1}{2}\sin \theta$ makes the average between the field effect direction and the direction of $r$. The $\frac{1}{2}$ factor arises from the integral $\int_0^\pi \frac{1}{2}\sin \theta = 1$. The born in the energetic integral $\mathscr{R}+u-r(1+\beta \cos \theta)$ correspond to the maximum energetic value for a jump of distance $\mathscr{R}$. Finally, $\mathcal{N}$ computes the number of states enclosed enclosed in a 4D sphere of radius $\mathscr{R}$.
+$g(1 - F)$ represents the emptiness of a state, $F$ being the Fermi-Dirac equation, $1 - F$ is the probability of the state to be empty, i.e a state where a charge carrier can jump. $\frac{k_B T}{8 \alpha^{3}}$ is simply a reducing factor to get rid of the $g(1-F)$ unit. $4\pi r^2$ is the surface of a sphere with a radius $r$ and $\frac{1}{2}\sin \theta$ makes the average between the field effect direction and the direction of $r$. The $\frac{1}{2}$ factor arises from the integral $\int_0^\pi \frac{1}{2}\sin \theta = 1$. The born in the energetic integral $\mathscr{R}+u-r(1+\beta \cos \theta)$ corresponds to the maximum energetic value for a jump of distance $\mathscr{R}$. Finally, $\mathcal{N}$ computes the number of states enclosed in a 4D sphere of radius $\mathscr{R}$.
 
-We thus define $r_{nn}$ being the radius at which we found in average, 1 free state, i.e $\mathcal{N}(r_{nn}) = 1$.
+We thus define $r_{nn}$ as the radius at which we found, in average, 1 free state i.e $\mathcal{N}(r_{nn}) = 1$.
 
-This method for computing $\mathscr{N}$ is similar to the percolation criteria, but they take $\mathcal{N}(r_{nn}) = 2.8$, $2.8$ being the percolation criteria. But, where the percolation theory intends to find a path of jump within the material, our $r_{nn}$ quantity means the nearest free states, which intuitively corresponds to the distance at which we find 1 state.
+This method for computing $\mathscr{N}$ is similar to the percolation criteria $\mathcal{N}(r_{nn}) = B_c$ with $B_c = 2.8$ being the percolation criteria. When the percolation theory intends to find a series of jump within the material, our $r_{nn}$ quantity means the nearest free states, which intuitively corresponds to the distance at which we find 1 state.
 
 \begin{figure}[!h]
     \centering
@@ -153,9 +153,7 @@ This method for computing $\mathscr{N}$ is similar to the percolation criteria, 
     \caption{$r_{nn}$ behavior for pentacene, $F = \SI{5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_3}}
 \end{figure}
 
-
-
-From the figure \ref{fig:3_3}, we see that for low value of energy, the quantity $r_{nn}$ skyrockets. The rarefaction of available states due to the Fermi-Dirac distribution means that for a charge carrier to find an available spot is harder. On the opposite, we see a plateau at higher energetic values. At such energy, charge carrier can make energetically favorable jump to lower states, which depends only on the intrinsic characteristics of the material (the state distribution $g(1 - F)$). Mathematically, the born $\mathscr{R}+u-r(1+\beta \cos \theta)$ makes it happen: for lower $u$, $\mathscr{R}$ compensate to cover the spectrum $g(1 - F)$, and for higher energy, $u$ alone is enough to cover it.
+From the figure \ref{fig:3_3}, we see that for low value of energy, the quantity $r_{nn}$ skyrockets. The rarefaction of free states due to both the reduction of the density thanks to the Gaussian DOS and the filling the Fermi-Dirac distribution mean that for a charge carrier to find an available spot is harder. On the opposite, we see a plateau at higher energetic values. The filling of the states is very low and at such energy, charge carrier can make energetically favorable jump to lower states. Mathematically, the born $\mathscr{R}+u-r(1+\beta \cos \theta)$ makes it happen: for lower $u$, $\mathscr{R}$ compensate to cover the spectrum $g(1 - F)$, and for higher energy, $u$ alone is enough to cover it.
 
 \subsection{Real hopped distance}
 
@@ -194,7 +192,7 @@ Moreover, to understand better the role of this integral, it is better to split 
     w = g(v)\left[1-F(v)\right]\left[\frac{r_{nn}-v+U^{\prime}}{1+\beta \cos \theta}\right]^{2} \sin \theta d v
 \end{equation}
 
-This is the weight and represent the number of state at a certain distance $r$.
+This represents the number of free state at a certain distance $r$.
 
 The function $f(v) = \left[\frac{r_{nn}-v+U^{\prime}}{1+\beta \cos \theta}\right] \cos \theta$ represents the distance to a free state pondered by the field effect $\cos \theta$.
 
@@ -212,7 +210,7 @@ With $V_1$ and $V_2$ being the surface of integration.
     \caption{$x_F$ dependence on energy, $F = \SI{5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_4}}
 \end{figure}
 
-The energy dependency (fig. \ref{fig:3_4}) see two plateaus, one a high energy is $0$, meaning that at this level, most of the jump are made only downward in energy. For the negative energies, the depletion in free state due to the Fermi-Dirac distribution makes the jump to be of a higher distance. But it reaches a plateau because at a certain point, the jump is made in energy to reach near Fermi level states.
+The energy dependency (fig. \ref{fig:3_4}) see two plateaus, one a high energy is $0$, meaning that at this level, most of the jump are made only downward in energy. For the negative energies, the depletion in free state due to the Fermi-Dirac distribution and the Gaussian DOS make the jump longer. But it reaches a plateau because at a certain point, the jump is made in energy to reach more state dense energetic levels.
 
 \begin{figure}[!h]
     \centering
@@ -227,26 +225,26 @@ The energy dependency (fig. \ref{fig:3_4}) see two plateaus, one a high energy i
     \caption{$I_2$ dependence on energy, $F = \SI{5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_6}}
 \end{figure}
 
-By looking a little bit more into detail on $I_1$ and $I_2$ (fig. \ref{fig:3_5}, \ref{fig:3_5}), we can justify mathematically the global behavior of $x_F$. $I_2$ is similar to a gaussian bell because $g(1-F)$ dominates the integral. However, for $I_1$, for positive values we have indeed the lower born of the integral that $u - r_{nn}\beta \cos \theta$ that goes beyond the high density zone of states. Concerning the lower values, the increase of $r_{nn}$ compensate the decrease of energy $u$, making the upper limit $u + rnn$ more or less constant.
+By looking a little bit more into detail on $I_1$ and $I_2$ (fig. \ref{fig:3_5}, \ref{fig:3_5}), we can justify mathematically the global behavior of $x_F$. $I_2$ is similar to a Gaussian bell because $g(1-F)$ dominates the integral. However, for $I_1$, for positive values we have indeed the lower born of the integral that $u - r_{nn}\beta \cos \theta$ that goes beyond the high density zone of states. Concerning the lower values, the increase of $r_{nn}$ compensate the decrease of energy $u$, making the upper limit $u + rnn$ more or less constant.
 
 \begin{figure}[!h]
     \centering
     \includegraphics*[width=.5\paperwidth]{figures/3_elec/field_xf.png}
-    \caption{$x_f$ dependence on the field, $F = \SI{5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_7}}
+    \caption{$x_f$ dependence on the field, $F = \SI{5.3e4}{V cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_7}}
 \end{figure}
 
-By studying the influence of the field on $x_F$ (fig. \ref{fig:3_7}), we see that it reaches a limit at which $x_F$ decreases. Physically, the field increases so much that it starts extracting the charge carrier from the material. In top of that, $\lim_{x\to 0} xf = 0$. Indeed, if the charge carrier is not influenced by an electric field, its surrounding his uniform regarding the angle $\theta$, thus the jump are equidistant regarding all the direction.
+By studying the influence of the field on $x_F$ (fig. \ref{fig:3_7}), we see that its response is linear regarding low fields. We notice that $\lim_{x\to 0} xf = 0$. Indeed, if the charge carrier is not influenced by an electric field, its surrounding is isotropic, thus the jump are equidistant regarding all the direction and there is no preferable direction jumped.
 
 \subsection{Mobility}
 
-Mobility is classically defined as the average velocity of the particle divided by the force. In our case, the mean distance jumped being $x_F$ and a particle jumps at a rate (eq. \ref{eq:3_1.1}):
+Mobility is classically defined as the average velocity of the particle divided by the force. In our case, the mean distance jumped being $x_F$ and a particle jumps at a rate $\nu_0 e^{-r_{nn}}$(eq. \ref{eq:3_1.1}):
 
 \begin{equation}
-    \mu = \frac{\langle x \rangle}{F} = \dfrac{\nu_0 X_F e^{-r_{nn}}}{F}
+    \mu = \frac{\langle X \rangle}{F} = \dfrac{\nu_0 X_F e^{-r_{nn}}}{F}
     \label{eq:3_5}
 \end{equation}
 
-From the equation \ref{eq:3_5}, we can plot the mobility depending on the energy (figure \ref{fig:3_8}). At low energy, the charge carrier are globally trapped and can't participate to the mobility. However, at higher energy, we already noticed that the jump are made in great majority regarding the energy and not regarding spatial coordinates. Thus the mobility for higher value drops to $0$.
+From the equation \ref{eq:3_5}, we can plot the mobility depending on the energy (figure \ref{fig:3_8}). At low energy, the charge carrier find it difficult to move because there is a decrease in available states and so they can't participate to the mobility. However, at higher energy, we already noticed that the jump are made in great majority regarding the energy and not regarding spatial coordinates. Thus the mobility for higher value drops to $0$ too. The global shape is very similar to a Gaussian bell.
 
 \begin{figure}[!h]
     \centering
@@ -260,7 +258,7 @@ From the formula \ref{eq:3_5}, we can compute the conductivity $\sigma$:
     \sigma(U) = qg_e(U)F(U)\mu(U)k_B T
 \end{equation}
 
-We see on the figure \ref{fig:3_9} that the curve is shifted toward LUMO level. The majority of the free charge carrier being situated near this level, it is natural for the conductivity to do the same.
+We see on the figure \ref{fig:3_9} that the curve is shifted toward LUMO level. The majority of the available states being situated near this level, it is natural for the conductivity to do the same.
 
 \begin{figure}[!h]
     \centering
@@ -283,9 +281,9 @@ In a similar way, we define:
     \sigma = \frac{\int_{-\infty}^{+\infty}\sigma(u)g(u)F(u)du}{\int_{-\infty}^{+\infty}g(u)F(u)du}
 \end{equation}
 
-\subsection{Stochastic release time}
+\subsection{Stochastic variance of time}
 
-Stochastic release time, i.e the the transport time, is an essential concept for the diffusion. For higher $t$, we will have higher displacement and higher diffusion. The equation is similar to $x_f$ (eq. \ref{eq:3_4}):
+Stochastic variance of time, i.e the variance of the trapping time, is an essential concept for the diffusion. For higher $t$, we will greater trapping effect in the material. However, even though $t = \SI{0}{s}$, it doesn't mean that the material is exempt of trap. $t$ being an average, their effect becomes negligible. The equation is similar to $x_f$ (eq. \ref{eq:3_4}):
 
 \begin{equation}
     t = \frac{T_1 + T_2}{T_3 + T_4}
@@ -305,14 +303,14 @@ We define $T_1$, $T_2$, $T_3$, $T_4$ as follow:
     \end{aligned}
 \end{equation}
 
-Similarly to eq.\ref{eq:3_I}, $g(1 - F)$ represents the emptiness of the arrival state. the exponential part can be summarized as: $exp(-r - u)$ and $\nu_0^{-1} exp(-r - u)$ represents the period of a jump. The born and the principle of the fraction is the same as for eq. \ref{eq:3_I}. Here again, $I_2$ differs from $I_1$ at it doesn't take into account the energy part: the jump is downward in energy and doesn't need any tunneling effect regarding the energy.
+Similarly to eq.\ref{eq:3_I}, $g(1 - F)$ represents the emptiness of the arrival state. the exponential part can be summarized as: $exp(-r - u)$ and $\nu_0^{-1} exp(-r - u)$ represents the period of a jump. The range and the principle of the fraction is the same as for eq. \ref{eq:3_I}. Here again, $I_2$ differs from $I_1$ at it doesn't take into account the energy part: the jump is downward in energy and is favorable.
 
-From the fig. \ref{fig:3_10}, we see that the time of a jump reaches $0$ for high value. From what has been previously deduced, at high energy the jumps (which are rare), occurs solely on the energy level, and thus are practically instantaneous. For lower value, the states being farther away with lower energy, the particle will obviously takes more time to jump.
+From the fig. \ref{fig:3_10}, we see that the time of a jump reaches low value for high energy. From what has been previously deduced, at high energy the jumps (which are rare), occurs solely on the energy level. For lower value, states being farther away, it is harder to escape a trap.
 
 \begin{figure}[!h]
     \centering
     \includegraphics*[width=.5\paperwidth]{figures/3_elec/time_u.png}
-    \caption{$t$ dependence on the energy, $F = \SI{5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_10}}
+    \caption{$t$ dependence on the energy, $F = \SI{5.3e4}{V . cm^{-1}}$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_10}}
 \end{figure}
 
 \subsection{Diffusivity}
@@ -340,10 +338,10 @@ $(X(t) - \langle X(t) \rangle$ is the drift of a certain displacement regarding 
 
 \begin{equation}
     \begin{aligned}
-        D &= \frac{1}{2 \cdot n} \langle (X(t) - \langle X(t) \rangle)^2 \rangle \nu_0 e^{-r_{nn}} \\
-        D &= \frac{1}{6} \langle X(t)^2 - 2X(t)\langle X(t) \rangle - \langle X(t) \rangle^2 \rangle \nu_0 e^{-r_{nn}} \\
-        D &= \frac{1}{6} (\langle X(t)^2 \rangle - 2 \langle X(t)\rangle \langle X(t) \rangle - \langle X(t) \rangle^2) \nu_0 e^{-r_{nn}} \\
-        D &= \frac{1}{6} (\langle X(t)^2 \rangle - \langle X(t) \rangle^2) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{2 \cdot n} \left\langle (X(t) - \langle X(t) \rangle)^2 \right\rangle \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left\langle X(t)^2 - 2X(t)\langle X(t) \rangle - \langle X(t) \rangle^2 \right\rangle \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left(\langle X(t)^2 \rangle - 2 \langle X(t)\rangle \langle X(t) \rangle - \langle X(t) \rangle^2\right) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left(\langle X(t)^2 \rangle - \langle X(t) \rangle^2\right) \nu_0 e^{-r_{nn}} \\
     \end{aligned}
     \label{eq:3_8}
 \end{equation}
@@ -352,26 +350,55 @@ We define $\Delta X$ as the average displacement around the average position $\l
 
 \begin{equation}
     \begin{aligned}
-        D &= \frac{1}{6} (\langle [\langle X \rangle + \Delta X]^2 \rangle - \langle X \rangle^2 \rangle) \nu_0 e^{-r_{nn}} \\
-        D &= \frac{1}{6} (\langle \langle X \rangle^2 + 2\langle X \rangle\Delta X + \Delta X^2 \rangle - \langle X \rangle^2) \nu_0 e^{-r_{nn}} \\
-        D &= \frac{1}{6} (2\langle X \rangle\Delta X + \Delta X^2 \rangle) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left( [\langle X \rangle + \Delta X]^2 - \langle X \rangle^2 \right) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left( \langle X \rangle^2 + 2\langle X \rangle\Delta X + (\Delta X)^2 - \langle X \rangle^2 \right) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left( 2\langle X \rangle\Delta X + (\Delta X)^2 \right) \nu_0 e^{-r_{nn}} \\
     \end{aligned}
     \label{eq:3_9}
 \end{equation}
 
-We propose the following expression for $\Delta X$ and $\langle X \rangle$:
+$\Delta X$ is the movement non-influenced by the field and $\langle X \rangle = X_F$.
+
+The quantity $t \nu_0 e^{-r_{nn}}$ models the number of jumps made by a charge carrier. We can tie this frequency to the stochastic time of trap:
+
+\begin{equation}
+    \frac{1}{\nu} = \frac{1}{\bar\nu} \pm t
+    \label{eq:3_9_2}
+\end{equation}
+
+We introduce the average hopping rate: $\bar\nu = \nu_0 e^{-r_{nn}}$. Thanks to a power series, we can approximate the hopping frequency to:
+
+\begin{equation}
+    \nu = \bar\nu \pm \bar\nu^2 t
+    \label{eq:3_9_3}
+\end{equation}
+
+As a charge carrier is subject to displacement assisted with field $X_F$, it is also subject to a random diffusive movement best represented with the $R_{nn}$ which we assume is less influenced by the field:
 
 \begin{equation}
     \begin{aligned}
-        \Delta X &= R_{nn} \\
-        \langle X \rangle &= X_F t \nu_0 e^{-r_{nn}}
+        X_d &= \nu R_{nn} \\
+        &= \bar \nu (R_{nn} \pm \Delta R)\\
+        \Delta R &= \bar\nu t R_{nn}
+    \end{aligned}
+    \label{eq:3_9_4}
+\end{equation}
+
+We assume that the average displacement around the average $\Delta X = R_{nn} \pm \Delta R$. By using the new expressions we obtained into equation \ref{eq:3_8}:
+
+\begin{equation}
+    \begin{aligned}
+        D &= \frac{1}{6} \left( 2\langle X \rangle(R_{nn} \pm \Delta R) + (R_{nn} \pm \Delta R)^2 \right) \nu_0 e^{-r_{nn}} \\
+        & \textbf{The average of } 2\langle X \rangle(R_{nn} \pm \Delta R) = 2X_F \Delta R \\
+        D &= \frac{1}{6} \left( 2X_F \Delta R + (R_{nn} \pm \Delta R)^2 \right) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left( 2X_F \Delta R + R_{nn}^2 \pm 2R_{nn}\Delta R + (\Delta R)^2 \right) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left( 2X_F \Delta R + R_{nn}^2 \pm 2R_{nn}\Delta R + (\Delta R)^2 \right) \nu_0 e^{-r_{nn}} \\
+        D &= \frac{1}{6} \left( 2X_F \Delta R + R_{nn}^2 (1 \pm 2\bar\nu t) + (\Delta R)^2 \right) \nu_0 e^{-r_{nn}} \\
     \end{aligned}
     \label{eq:3_10}
 \end{equation}
 
-$\Delta X$ is thus the distance non-influenced by the field and $\langle X \rangle$ is being influenced both by the field (through $X_F$) and by the time of transport. The quantity $t \nu_0 e^{-r_{nn}}$ model the number of jump made by a charge carrier.
-
-At the end, we obtain the following formula:
+We make multiple assumptions. First $2\bar\nu t \ll 1$ and the variations of $(\Delta R)^2$ are very small compared to $R_{nn}^2$. These two assumptions are based on the small variation around $R_{nn}$.  Finally:
 
 \begin{equation}
     D = \frac{1}{6} (2X_F t \nu_0 e^{-r_{nn}} + R_{nn}^2) \nu_0 e^{-r_{nn}}
@@ -395,7 +422,7 @@ In the same fashion as with the mobility, the diffusivity is defined throughout 
 
 \subsection{Einstein ratio}
 
-From the precedent value we computed, we can now define the einstein ratio as we will use it. Fist, the energy dependent one writes as:
+From the precedent values we computed, we can now define the Einstein ratio as we will use it. Fist, the energy dependent one writes as:
 
 \begin{equation}
     EinsteinRatio(u) = \frac{D(u)}{\mu(u)}
@@ -416,13 +443,13 @@ However, as the relation is usually referred to its original equation (eq. \ref{
 \end{figure}
 
 
-From the figure \ref{fig:3_12}, we see that the einstein ratio attains a minimum for energy around the LUMO level. The value quickly rises for lower and higher energy level. For lower energy, it is admitted that traps cause higher $\eta$ value. For greater energies, the quick decrease of the mobility due to the lack of spatial displacement as well as the constant $D$ value due to the average variation of displacement $\Delta X$, helps $\eta$ ratio value to rise quickly.
+From the figure \ref{fig:3_12}, we see that the Einstein ratio attains a minimum for energy around the LUMO level. The value quickly rises for lower and higher energy level. For lower energy, it is admitted that traps cause higher $\eta$ value. For greater energies, the quick decrease of the mobility due to the lack of spatial displacement as well as the constant $D$ value due to the average variation of displacement $\Delta X$, helps $\eta$ ratio value to rise quickly.
 
 \subsection{Summary of some numerical value}
 
 To assess the viability of our model, we will perform some computation on the global values of $\mu$, $D$, and $\eta$.
 
-We performed a computation with $F = \SI{4}{V cm^{-1}}$, to respect the value measured in Xavier's thesis \cite{xavier_thesis}.
+We performed a computation with $F = \SI{4e4}{V cm^{-1}}$, to respect the value measured in Xavier's thesis \cite{xavier_thesis}.
 
 \begin{center}
     \begin{tabular}{ |c||c|c|c|  }
@@ -437,56 +464,4 @@ We performed a computation with $F = \SI{4}{V cm^{-1}}$, to respect the value me
     \end{tabular}
 \end{center}
 
-The order of magnitude for the simulated values are comparable. However, the final simulated value $\eta$ is a bit low compared to the real one measured. The overall mobility simulated is too high compared to the real one. It's due to a under-evaluated deep traps presence in the gaussian DOS. We also considered only energetic traps and spatial trap could be considered to reduce the overall mobility.
-
-\section{Parameters influence}
-
-Now that we have introduced all the parameters and equation for the electric part in our model, we can start to study the effect of different parameters on it.
-
-\subsection{Electric Field}
-
-The more obvious parameter to tweak is the field. It can easily be tuned by the bias voltage in a transistor for example.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics*[width=.5\paperwidth]{figures/3_elec/d_field_low.png}
-    \caption{$D$ dependence on low field (pentacene parameters appendix \ref{pentacene})\label{fig:3_13}}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics*[width=.5\paperwidth]{figures/3_elec/mobi_field_low_square.png}
-    \caption{$\mu$ dependence on low field (pentacene parameters appendix \ref{pentacene})\label{fig:3_14}}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics*[width=.5\paperwidth]{figures/3_elec/ein_field_low.png}
-    \caption{$\eta$ dependence on low field (pentacene parameters appendix \ref{pentacene})\label{fig:3_15}}
-\end{figure}
-
-For lower field ($\sim \SI{1e4}{V \cdot cm^{-1}}$), we observe a linearity for $D$ (fig. \ref{fig:3_13}). Regarding the mobility, we clearly see a quadratic dependence on the field (fig. \ref{fig:3_14}). However, if we look closer at the numerical value, we can notice that for lower field the mobility is more or less constant. At the end, thanks to a constant mobility and a linear diffusivity regarding the field, the $\eta$ value is also constant.
-
-By increasing the field ($\sim \SI{1e5}{V \cdot cm^{-1}}$), we can observe a new behavior for the electric characteristics (fig. \ref{fig:3_16}, \ref{fig:3_17}, \ref{fig:3_18}).
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics*[width=.5\paperwidth]{figures/3_elec/d_field_high_square.png}
-    \caption{$D$ dependence on high field (pentacene parameters appendix \ref{pentacene})\label{fig:3_16}}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics*[width=.5\paperwidth]{figures/3_elec/mobi_field_high_square.png}
-    \caption{$\mu$ dependence on high field (pentacene parameters appendix \ref{pentacene})\label{fig:3_17}}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics*[width=.5\paperwidth]{figures/3_elec/ein_field_high.png}
-    \caption{$\eta$ dependence on high field (pentacene parameters appendix \ref{pentacene})\label{fig:3_18}}
-\end{figure}
-
-Indeed, the diffusivity $D$ starts having quadratic behavior, as described in the paper \cite{general_einstein}. While the mobility still has a quadratic behavior (fig. \ref{fig:3_17}), it seems that the increase is greater for the $\mu$ value and that the einstein ratio $\eta$ sees a local maximum for higher field (fig. \ref{fig:3_18}).
-
-\subsection{Temperature}
+The order of magnitude for the simulated values are comparable. However, the final simulated value $\eta$ is a bit low compared to the real one measured. The overall mobility simulated is too high compared to the real one. It's due to a under-evaluated deep traps presence in the Gaussian DOS. We also considered only energetic traps and spatial trap could be considered to reduce the overall mobility.

@@ -2,45 +2,63 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.4}%
 \contentsline {section}{\numberline {1.1}Organic semiconductors}{1}{section.5}%
 \contentsline {subsection}{\numberline {1.1.1}Background}{1}{subsection.6}%
-\contentsline {subsection}{\numberline {1.1.2}Organic materials}{2}{subsection.8}%
-\contentsline {subsection}{\numberline {1.1.3}Charge carrier transport}{4}{subsection.12}%
-\contentsline {subsection}{\numberline {1.1.4}The einstein relation}{5}{subsection.14}%
-\contentsline {subsubsection}{Classical einstein relation}{5}{section*.15}%
-\contentsline {subsubsection}{Generalized equation}{6}{section*.17}%
-\contentsline {subsection}{\numberline {1.1.5}Gaussian density of states}{6}{subsection.20}%
-\contentsline {subsection}{\numberline {1.1.6}Thermal diffusion}{6}{subsection.24}%
-\contentsline {section}{\numberline {1.2}Objectives of this thesis}{8}{section.26}%
-\contentsline {chapter}{\numberline {2}Electric properties}{10}{chapter.27}%
-\contentsline {section}{\numberline {2.1}Gaussian formalism}{10}{section.29}%
-\contentsline {section}{\numberline {2.2}Variable range hopping}{12}{section.33}%
-\contentsline {subsection}{\numberline {2.2.1}Background}{12}{subsection.34}%
-\contentsline {subsection}{\numberline {2.2.2}Nearest neighbor}{13}{subsection.43}%
-\contentsline {subsection}{\numberline {2.2.3}Real hopped distance}{15}{subsection.47}%
-\contentsline {subsection}{\numberline {2.2.4}Mobility}{19}{subsection.57}%
-\contentsline {subsection}{\numberline {2.2.5}Stochastic release time}{20}{subsection.64}%
-\contentsline {subsection}{\numberline {2.2.6}Diffusivity}{21}{subsection.68}%
-\contentsline {subsection}{\numberline {2.2.7}Einstein ratio}{24}{subsection.77}%
-\contentsline {subsection}{\numberline {2.2.8}Summary of some numerical value}{24}{subsection.81}%
-\contentsline {section}{\numberline {2.3}Parameters influence}{25}{section.82}%
-\contentsline {subsection}{\numberline {2.3.1}Electric Field}{25}{subsection.83}%
-\contentsline {subsection}{\numberline {2.3.2}Temperature}{28}{subsection.90}%
-\contentsline {chapter}{\numberline {3}Thermal properties}{29}{chapter.91}%
-\contentsline {section}{\numberline {3.1}Phonon transport}{29}{section.92}%
-\contentsline {subsection}{\numberline {3.1.1}Diffusivity}{29}{subsection.94}%
-\contentsline {subsection}{\numberline {3.1.2}Conduction}{30}{subsection.97}%
-\contentsline {section}{\numberline {3.2}Charge carrier transport}{31}{section.103}%
-\contentsline {chapter}{\numberline {4}Julia implementation}{33}{chapter.105}%
-\contentsline {section}{\numberline {4.1}Introduction}{33}{section.106}%
-\contentsline {section}{\numberline {4.2}Performances}{33}{section.107}%
-\contentsline {section}{\numberline {4.3}Notebooks}{33}{section.109}%
-\contentsline {section}{\numberline {4.4}Code implementation}{34}{section.110}%
-\contentsline {subsection}{\numberline {4.4.1}Reduced quantities}{34}{subsection.111}%
-\contentsline {subsection}{\numberline {4.4.2}Range of computation }{35}{subsection.129}%
-\contentsline {subsection}{\numberline {4.4.3}Integration in Julia}{36}{subsection.132}%
-\contentsline {subsubsection}{Number of free states}{37}{section*.146}%
-\contentsline {subsubsection}{Real hopped distance}{37}{section*.150}%
-\contentsline {subsubsection}{Stochastic time of release}{38}{section*.155}%
-\contentsline {section}{\numberline {4.5}Conclusion}{39}{section.160}%
-\contentsline {chapter}{References}{41}{chapter*.161}%
-\contentsline {chapter}{Appendix}{44}{appendix*.162}%
-\contentsline {section}{\numberline {A}Pentacene characteristics }{44}{section.163}%
+\contentsline {subsection}{\numberline {1.1.2}Future development}{2}{subsection.8}%
+\contentsline {subsection}{\numberline {1.1.3}Organic materials}{3}{subsection.9}%
+\contentsline {subsection}{\numberline {1.1.4}Charge carrier transport}{4}{subsection.13}%
+\contentsline {subsection}{\numberline {1.1.5}The Einstein relation}{6}{subsection.15}%
+\contentsline {subsubsection}{Classical Einstein relation}{6}{section*.16}%
+\contentsline {subsubsection}{Generalized equation}{6}{section*.18}%
+\contentsline {subsection}{\numberline {1.1.6}Gaussian density of states}{7}{subsection.21}%
+\contentsline {subsection}{\numberline {1.1.7}Thermal diffusion}{7}{subsection.25}%
+\contentsline {section}{\numberline {1.2}Objectives of this thesis}{9}{section.27}%
+\contentsline {chapter}{\numberline {2}Electric properties}{10}{chapter.28}%
+\contentsline {section}{\numberline {2.1}Gaussian formalism}{10}{section.30}%
+\contentsline {section}{\numberline {2.2}Variable range hopping}{11}{section.34}%
+\contentsline {subsection}{\numberline {2.2.1}Background}{11}{subsection.35}%
+\contentsline {subsection}{\numberline {2.2.2}Nearest neighbor}{14}{subsection.44}%
+\contentsline {subsection}{\numberline {2.2.3}Real hopped distance}{16}{subsection.48}%
+\contentsline {subsection}{\numberline {2.2.4}Mobility}{19}{subsection.58}%
+\contentsline {subsection}{\numberline {2.2.5}Stochastic variance of time}{21}{subsection.65}%
+\contentsline {subsection}{\numberline {2.2.6}Diffusivity}{22}{subsection.69}%
+\contentsline {subsection}{\numberline {2.2.7}Einstein ratio}{26}{subsection.81}%
+\contentsline {subsection}{\numberline {2.2.8}Summary of some numerical value}{27}{subsection.85}%
+\contentsline {chapter}{\numberline {3}Extensive simulation}{29}{chapter.86}%
+\contentsline {section}{\numberline {3.1}Parameters influence on Einstein}{29}{section.87}%
+\contentsline {subsection}{\numberline {3.1.1}Electric Field}{29}{subsection.88}%
+\contentsline {subsection}{\numberline {3.1.2}Temperature}{31}{subsection.93}%
+\contentsline {subsection}{\numberline {3.1.3}Charge carrier concentration}{32}{subsection.97}%
+\contentsline {subsubsection}{Fermi level influence}{33}{section*.98}%
+\contentsline {subsubsection}{Energetic disorder}{34}{section*.101}%
+\contentsline {subsubsection}{Carrier density}{36}{section*.103}%
+\contentsline {section}{\numberline {3.2}Doping effect on Einstein relation}{37}{section.106}%
+\contentsline {subsection}{\numberline {3.2.1}Effect of doping on the semiconductor}{37}{subsection.107}%
+\contentsline {subsection}{\numberline {3.2.2}Real device}{40}{subsection.114}%
+\contentsline {section}{\numberline {3.3}Thermal conduction}{42}{section.116}%
+\contentsline {subsection}{\numberline {3.3.1}Phonon transport}{42}{subsection.117}%
+\contentsline {subsubsection}{Diffusivity}{42}{section*.119}%
+\contentsline {subsubsection}{Conduction}{43}{section*.122}%
+\contentsline {subsection}{\numberline {3.3.2}Charge carrier transport}{44}{subsection.128}%
+\contentsline {subsection}{\numberline {3.3.3}Parameters influence}{45}{subsection.130}%
+\contentsline {subsubsection}{Temperature}{45}{section*.131}%
+\contentsline {subsubsection}{Field}{45}{section*.133}%
+\contentsline {subsubsection}{Semiconductor structure}{46}{section*.135}%
+\contentsline {chapter}{\numberline {4}Julia implementation}{48}{chapter.137}%
+\contentsline {section}{\numberline {4.1}Introduction}{48}{section.138}%
+\contentsline {section}{\numberline {4.2}Performances}{48}{section.139}%
+\contentsline {section}{\numberline {4.3}Notebooks}{49}{section.141}%
+\contentsline {section}{\numberline {4.4}Code implementation}{49}{section.142}%
+\contentsline {subsection}{\numberline {4.4.1}Reduced quantities}{49}{subsection.143}%
+\contentsline {subsection}{\numberline {4.4.2}Range of computation }{50}{subsection.161}%
+\contentsline {subsection}{\numberline {4.4.3}Integration in Julia}{51}{subsection.164}%
+\contentsline {subsubsection}{Number of free states}{52}{section*.178}%
+\contentsline {subsubsection}{Real hopped distance}{53}{section*.182}%
+\contentsline {subsubsection}{Stochastic time of release}{54}{section*.187}%
+\contentsline {section}{\numberline {4.5}Conclusion}{55}{section.192}%
+\contentsline {chapter}{\numberline {5}Conclusion}{56}{chapter.193}%
+\contentsline {section}{\numberline {5.1}Discussion}{56}{section.194}%
+\contentsline {section}{\numberline {5.2}Limits}{57}{section.195}%
+\contentsline {section}{\numberline {5.3}Future prospects}{57}{section.196}%
+\contentsline {chapter}{References}{59}{chapter*.197}%
+\contentsline {chapter}{Appendix}{63}{appendix*.198}%
+\contentsline {section}{\numberline {A}Pentacene characteristics }{63}{section.199}%
+\contentsline {section}{\numberline {B}Doped $\alpha $-NPD }{63}{section.200}%

@@ -1,32 +1,45 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Evolution of the performance for some organic semiconductors \cite {IBM}\relax }}{2}{figure.caption.7}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces $\sigma $ and $\pi $ bonds in ethene \cite {intro_orga}\relax }}{3}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces $\pi -\pi ^*$ bonding \cite {intro_orga}\relax }}{3}{figure.caption.10}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Hopping transport \relax }}{4}{figure.caption.11}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Gaussian DOS, $\sigma =1$ \relax }}{7}{figure.caption.22}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Gaussian DOS, $\sigma =3$ \relax }}{7}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces History of the evolution of mobility in organic semiconductors \cite {IBM}\relax }}{2}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces $\sigma $ and $\pi $ bonds in ethene \cite {intro_orga}\relax }}{3}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces $\pi -\pi ^*$ bonding \cite {intro_orga}\relax }}{4}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Hopping transport \relax }}{5}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Gaussian DOS, $\sigma =1$ \relax }}{8}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Gaussian DOS, $\sigma =3$ \relax }}{8}{figure.caption.24}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces DOS}}{11}{figure.caption.31}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Energetic-spatial relationship (source \cite {hopping_theory_1})\relax }}{14}{figure.caption.45}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces $r_{nn}$ behavior for pentacene, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{15}{figure.caption.46}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces $x_F$ dependence on energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{17}{figure.caption.53}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces $I_1$ dependence on energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{17}{figure.caption.54}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces $I_2$ dependence on energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{18}{figure.caption.55}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces $x_f$ dependence on the field, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{18}{figure.caption.56}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces $\mu $ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{19}{figure.caption.59}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces $\sigma $ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{20}{figure.caption.61}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces $t$ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{22}{figure.caption.67}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces $D$ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{23}{figure.caption.75}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces $\eta $ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{25}{figure.caption.80}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces $D$ dependence on low field (pentacene parameters appendix \ref {pentacene})\relax }}{26}{figure.caption.84}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces $\mu $ dependence on low field (pentacene parameters appendix \ref {pentacene})\relax }}{26}{figure.caption.85}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces $\eta $ dependence on low field (pentacene parameters appendix \ref {pentacene})\relax }}{27}{figure.caption.86}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces $D$ dependence on high field (pentacene parameters appendix \ref {pentacene})\relax }}{27}{figure.caption.87}%
-\contentsline {figure}{\numberline {2.17}{\ignorespaces $\mu $ dependence on high field (pentacene parameters appendix \ref {pentacene})\relax }}{28}{figure.caption.88}%
-\contentsline {figure}{\numberline {2.18}{\ignorespaces $\eta $ dependence on high field (pentacene parameters appendix \ref {pentacene})\relax }}{28}{figure.caption.89}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces DOS}}{12}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Energetic-spatial relationship (source \cite {hopping_theory_1})\relax }}{14}{figure.caption.46}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces $r_{nn}$ behavior for pentacene, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{15}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces $x_F$ dependence on energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{17}{figure.caption.54}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces $I_1$ dependence on energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{18}{figure.caption.55}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces $I_2$ dependence on energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{19}{figure.caption.56}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces $x_f$ dependence on the field, $F = \SI {5.3e4}{V cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{19}{figure.caption.57}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces $\mu $ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{20}{figure.caption.60}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces $\sigma $ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{21}{figure.caption.62}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces $t$ dependence on the energy, $F = \SI {5.3e4}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{23}{figure.caption.68}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces $D$ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{26}{figure.caption.79}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces $\eta $ dependence on the energy, $F = \SI {5.3}{V . cm^{-1}}$ (pentacene parameters appendix \ref {pentacene})\relax }}{27}{figure.caption.84}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces $D$ dependence on the frequency (\cite {phonon_plateau}) \relax }}{30}{figure.caption.95}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces $\eta $ dependence on low field (pentacene parameters appendix \ref {pentacene})\relax }}{30}{figure.caption.90}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces $\eta $ dependence on high field (pentacene parameters appendix \ref {pentacene})\relax }}{31}{figure.caption.92}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces $\eta $ dependence on $T$ (pentacene parameters appendix \ref {pentacene})\relax }}{32}{figure.caption.95}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $\sigma $ dependence on $T$ (pentacene parameters appendix \ref {pentacene})\relax }}{33}{figure.caption.96}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces $\eta $ dependence on $E_F$ \relax }}{34}{figure.caption.99}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Number of charge carrier normalized on $N_i$ \relax }}{35}{figure.caption.100}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Dependence of $\eta $ on energetic disorder $\sigma $ \relax }}{35}{figure.caption.102}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Dependence of $\eta $ on carrier density $N_i$ \relax }}{36}{figure.caption.105}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces $DOS$ dependence on the dopant quantity\relax }}{37}{figure.caption.108}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces $r_{nn}$ dependence on the dopant quantity\relax }}{38}{figure.caption.109}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces $x_F$ dependence on the dopant quantity\relax }}{39}{figure.caption.110}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces $t$ dependence on the dopant quantity\relax }}{39}{figure.caption.111}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces $\eta $ dependence on the dopant quantity\relax }}{40}{figure.caption.113}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Simulated $\eta $ compared to real value with varying field \relax }}{41}{figure.caption.115}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces $D$ dependence on the frequency (\cite {phonon_plateau}) \relax }}{43}{figure.caption.120}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces $k$ dependence on $T$ (pentacene $N_i = \SI {3e21}{cm^{-3}}$)\relax }}{46}{figure.caption.132}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces $k$ dependence on $F$ (pentacene $N_i = \SI {3e21}{cm^{-3}}$)\relax }}{46}{figure.caption.134}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces $k$ dependence on $N_i$ (pentacene, $F = \SI {5.3e4}{V cm^{-1}}$)\relax }}{47}{figure.caption.136}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Julia benchmark \relax }}{34}{figure.caption.108}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces DOS compared to the maximum value \relax }}{36}{figure.caption.131}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Julia benchmark \relax }}{49}{figure.caption.140}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces DOS compared to the maximum value \relax }}{51}{figure.caption.163}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
