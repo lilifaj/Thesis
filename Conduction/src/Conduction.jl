@@ -6,7 +6,7 @@ import Base.Threads.@spawn
 include("Variables.jl")
 include("Utilities.jl")
 
-# Please note that in this program, every energy given as a parameter of a function should be given in reduced units: u = U / k * T
+# Please note that in this program, every energy given as a parameter of a function should be given in reduced units: u = U / k * T as well as the distances r = 2 * alpha * R.
 
 # DOS of a doped semiconductor (J^-1.cm^-3)
 DOS(semiconductor::Semiconductor, U::Real, T::Real)::Float64 = (semiconductor.Ni / semiconductor.SigmaI * exp(-(U * k * T - semiconductor.ModeEffect)^2 / (2 * semiconductor.SigmaI^2)) + semiconductor.Nd / semiconductor.SigmaD * exp(-(U * k * T - semiconductor.ModeEffect + semiconductor.Ed)^2 / (2 * semiconductor.SigmaD^2))) / sqrt(2 * pi)
@@ -50,7 +50,7 @@ function Rnn(semiconductor::Semiconductor, U::Real, T::Real, x::Real, F::Real)::
 end
 
 # Effective distance of jump of an electron (reduced unit)
-function xf(semiconductor::Semiconductor, Rnn::Real, U::Real, T::Real, F::Real)
+function xf(semiconductor::Semiconductor, Rnn::Real, U::Real, T::Real, F::Real)::Float64
     functionI = [I1, I2, I3, I4]
     resultI = Array{Float64}(undef, 4)
 
@@ -72,7 +72,7 @@ function mobility(semiconductor::Semiconductor, Rnn::Float64, xf::Float64, F::Re
     return semiconductor.nu * xf * exp(-Rnn) / (-F * 2 * semiconductor.alpha)
 end
 
-function mobility(semiconductor::Semiconductor, U, T, F)::Float64
+function mobility(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
     R = Conduction.RnnVRH(semiconductor, U, T, F);
     xf = Conduction.xf(semiconductor, R, U, T, F);
 
@@ -80,7 +80,7 @@ function mobility(semiconductor::Semiconductor, U, T, F)::Float64
 end
 
 # Stochastic time of trapping (s)
-function t(semiconductor, Rnn::Float64, U::Real, T::Real, F::Real)::Float64
+function t(semiconductor::Semiconductor, Rnn::Float64, U::Real, T::Real, F::Real)::Float64
     functionI = [It1, It2, It3, It4]
     resultI = Array{Float64}(undef, 4)
 
@@ -91,7 +91,7 @@ function t(semiconductor, Rnn::Float64, U::Real, T::Real, F::Real)::Float64
     return (resultI[1] + resultI[2]) / (resultI[3] + resultI[4])
 end
 
-function t(semiconductor::Semiconductor, U, T, F)::Float64
+function t(semiconductor::Semiconductor, U::Real, T::Real, F::Real)::Float64
     R = Conduction.RnnVRH(semiconductor, U, T, F);
     return t(semiconductor, R, U, T, F)
 end
@@ -123,17 +123,17 @@ function ein(semiconductor::Semiconductor, U::Real, T::Real, F::Real)
 end
 
 # Heat conduction by frequency (J K^-1)
-C(U)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
+C(U::Real)::Float64 = U^2 * k / (exp(U/2) - exp(-U/2))^2
 
 # Heat conduction for phonons (W m^-1 K^-1)
-kp(semiconductor, T) = quadgk(
+kp(semiconductor::Semiconductor, T::Real)::Float64 = quadgk(
     r -> Conduction.k * T * Conduction.DOSp(semiconductor, r, T) * Conduction.C(r) * 4.10e-6,
     7.95e-21 / (Conduction.k * T),
     7.95e-20 / (Conduction.k * T)
 )[1];
 
 # Heat conduction for charge carriers (W m^-1 K^-1)
-function ke(semiconductor, T, F)
+function ke(semiconductor::Semiconductor, T::Real, F::Real)::Float64
     return 100 * k * T * (quadgk(
         r ->  DOS(semiconductor, r, T) * C(r) * D(semiconductor, r, T, F),
         0,
