@@ -1,21 +1,279 @@
 % !TeX root = document-en.tex
 
-\chapter{Thermal properties}
+\chapter{Extensive simulation}
+
+\section{Parameters influence on Einstein}
+
+Now that we have introduced all the parameters and equation for the electric part in our model, we can start to study the effect of different parameters on it.
+
+\subsection{Electric Field}
+
+Field is a predominant parameters in various devices, from diodes to transistor. It is also easy to measure as a difference of voltage.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/3_elec/d_field_low.png}
+        \caption{$D$ dependence on low field (pentacene parameters appendix \ref{pentacene})\label{fig:3_13}}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/3_elec/mobi_field_low_square.png}
+        \caption{$\mu$ dependence on low field (pentacene parameters appendix \ref{pentacene})\label{fig:3_14}}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/ein_field_low.png}
+    \caption{$\eta$ dependence on low field (pentacene parameters appendix \ref{pentacene})\label{fig:3_15}}
+\end{figure}
+
+For lower field ($\sim \SI{1e4}{V \cdot cm^{-1}}$), we observe a linearity for $D$ (fig. \ref{fig:3_13}). Regarding the mobility, we clearly see a quadratic dependence on the field (fig. \ref{fig:3_14}). However, if we look closer at the numerical value, we can notice that for lower field the mobility is more or less constant. At the end, thanks to a constant mobility and a linear diffusivity regarding the field, the $\eta$ value follow the tendency of $D$ and is linear regarding low fields..
+
+By increasing the field ($\sim \SI{1e5}{V \cdot cm^{-1}}$), we can observe a new behavior for the electric characteristics (fig. \ref{fig:3_16}, \ref{fig:3_17}, \ref{fig:3_18}).
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/3_elec/d_field_high_square.png}
+        \caption{$D$ dependence on high field (pentacene parameters appendix \ref{pentacene})\label{fig:3_16}}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/3_elec/mobi_field_high_square.png}
+        \caption{$\mu$ dependence on high field (pentacene parameters appendix \ref{pentacene})\label{fig:3_17}}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/ein_field_high.png}
+    \caption{$\eta$ dependence on high field (pentacene parameters appendix \ref{pentacene})\label{fig:3_18}}
+\end{figure}
+
+Indeed, the diffusivity $D$ starts having quadratic behavior, as described in the paper \cite{general_einstein}. While the mobility still has a quadratic behavior (fig. \ref{fig:3_17}), it seems that the increase is greater for the $\mu$ value and that the Einstein ratio $\eta$ sees a local maximum for higher field (fig. \ref{fig:3_18}).
+
+\subsection{Temperature}
+
+The classic Einstein relation makes it dependent on the energy with a $\frac{1}{T}$ ratio. However, on our simulation, we saw that the $\eta$ relation was increasing with lower temperature (fig. \ref{fig:3_19}). If we look closely to the dependence of $\mu$ and $D$ (fig. \ref{fig:3_20} and \ref{fig:3_21}) over the temperature, we remark that it decreases with lower temperature, which seem logical. However, at the end it seems that the diffusivity reduces more slowly compared to the mobility. Such dependence can also be found in the paper \cite{general_einstein}. One explanation would be the increase in the influence of deep traps. The strong localized states at low temperatures impaired the drift movement due to the mobility.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/3_elec/d_t.png}
+        \caption{$D$ dependence on $T$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_20}}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/3_elec/mu_t.png}
+        \caption{$\mu$ dependence on $T$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_21}}
+    \end{subfigure}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/ein_t.png}
+    \caption{$\eta$ dependence on $T$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_19}}
+\end{figure}
+
+By looking more thoroughly at the conductivity for higher $T$ value (fig. \ref{fig:3_21}), we remark that the curve follows roughly a linear dependence regarding $T^{-1/4}$ value. This relation has been proved to be the Mott dependence \cite{temperature_1}. We see that the relation is not exactly linear, but from the simplification we made for the computation (reduced range, see chapter \ref{chap:julia}), we can suppose that the relation is sufficiently verified.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/sigma_t.png}
+    \caption{$\sigma$ dependence on $T$ (pentacene parameters appendix \ref{pentacene})\label{fig:3_22}}
+\end{figure}
+
+\subsection{Charge carrier concentration}
+
+There are multiple ways of assessing the influence of the carrier concentration:
+
+\begin{itemize}
+    \item Changing $N_i$: it can be performed in a field effect transistor by changing the gate voltage \cite{einstein_measurement}.
+    \item Changing the Fermi level. By increasing it further to LUMO level, one can facilitates the passage of electrons to the LUMO level, thus changing the number of charge carrier. Such thing can be done by doping, by the impurities.
+    \item Changing the energetic disorder of the semiconductor. Like the Fermi level, such change on the DOS is performed by introducing new molecules in the semiconductor. These molecules being wanted or simply impurities.
+\end{itemize}
+
+We will assess the influence of such parameters in a purely theoretic point of view, as it is very difficult to measure such quantities isolated from the other one. It is indeed very difficult to increase the $N_i$ quantity without changing the energetic disorder or the Fermi level, as it as been observed in \cite{einstein_measurement}.
+
+\subsubsection{Fermi level influence}
+
+The simulation was performed with the following parameters:
+
+\begin{itemize}
+    \item $\sigma_i = \SI{0.1}{eV}$
+    \item $N_i = \SI{3e21}{cm^{-3}}$
+    \item $F = \SI{5.3e4}{V cm^{-1}}$
+    \item $T = \SI{300}{K}$
+\end{itemize}
+
+An increase in Fermi level allows the charge carrier to escape the deep tail traps and to rise to higher energy levels. At such level the drift mobility becomes predominant compared to the diffusion current.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/ein_fermi.png}
+    \caption{$\eta$ dependence on $E_F$ \label{fig:3_23}}
+\end{figure}
+
+On figure \ref{fig:3_23}, we see that the Fermi level reaches a limit at which a getting closer to LUMO level means increasing the mobility in place of the diffusivity. Indeed, on the figure \ref{fig:3_24} that the decrease in Einstein ratio corresponds roughly to an exponential increase in charge carrier. Meaning that they reached higher energy level with more free states available.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/charge_fermi.png}
+    \caption{Number of charge carrier normalized on $N_i$ \label{fig:3_24}}
+\end{figure}
+
+\subsubsection{Energetic disorder}
+
+We performed the simulation with the following parameters:
+
+\begin{itemize}
+    \item $N_i = \SI{3e21}{cm^{-3}}$
+    \item $E_F = \SI{-0.5}{eV}$
+    \item $F = \SI{5.3e4}{V cm^{-1}}$
+    \item $T = \SI{300}{K}$
+\end{itemize}
+
+We remark that increasing the energetic disorder increases immediately the Einstein ratio (fig. \ref{fig:3_25}). By spreading the state, we facilitate the diffusion process. Indeed, such movement is very sensitive to changes in DOS geometry: as the diffusion mainly occurs in all the direction, the change in volume of the DOS is very significant.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/eta_disorder.png}
+    \caption{Dependence of $\eta$ on energetic disorder $\sigma$ \label{fig:3_25}}
+\end{figure}
+
+\subsubsection{Carrier density}
+
+The DOS is also greatly affected by a change in carrier density $N_i$. Such changes should bring more states available in all the energy spectrum. We measured the influence of the change of carrier density by computed the charge carrier number:
+
+\begin{equation}
+    n = \int_{-\infty}^{+\infty}g(U)F(U)d U
+    \label{eq:3_15}
+\end{equation}
+
+If all the other parameters stay the same, an increase in $N_i$ results in a global increase in $g$, and thus to a global increase in charge carrier.
+
+On figure \ref{fig:3_26}, we see that the Einstein ratio increases with more carrier carrier $n$ and with more $N_i$. The diffusion is way more sensitive to change in Gaussian topology and mobility is more sensitive to input of new charge carriers. Here, it seems that the input of charge carrier is predominant compared to the change in DOS structure.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/3_elec/undoped_charge.png}
+    \caption{Dependence of $\eta$ on carrier density $N_i$ \label{fig:3_26}}
+\end{figure}
+
+\section{Doping effect on Einstein relation}
+
+Because we used from the beginning a model of doped Gaussian DOS, we're now able de easily perform computation on doped semiconductor. We'll use $\alpha$-NPD material doped with F4TCNQ (appendix \ref{alphanpd}). To fully understand the behavior of doped material, we will perform the simulation over a whole range of quantity.
+
+\subsection{Effect of doping on the semiconductor}
+
+As explained before, the DOS is heavily changed by the dopant, it gives both new free states and brings new charge carrier to the material, changing the response of diverse parameters.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/dos_doped}
+    \caption{$DOS$ dependence on the dopant quantity\label{fig:4_1}}
+\end{figure}
+
+As shown on fig. \ref{fig:4_1}, an increase in dopant means the appearance of a second Gaussian peak in lower energy and in what is the forbidden gap. Of course more dopant means a higher peak. It is noted that doping a semiconductor heavily affects its DOS, and that the range of integration should appropriately be changed (chapter \ref{chap:julia}).
+
+\vspace{1em}
+
+Such an heavy change on the DOS means that $r_{nn}$, the quantity describing the geometry of the semiconductor, will also be affected. The new states available translates to the range to the nearest neighbor by reducing its value in the whole energy spectrum (fig. \ref{fig:4_2}). Because the Fermi level is deep enough, there should be more significant states brought by the dopant than charge carrier.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/rnn_doped.png}
+    \caption{$r_{nn}$ dependence on the dopant quantity\label{fig:4_2}}
+\end{figure}
+
+\vspace{1em}
+
+From the $r_{nn}$ quantity, we compute $x_F$ (fig. \ref{fig:4_3}). When $r_{nn}$ describes the semiconductor both in distance and energy, $x_F$ only represents it from the spatial point of view. Here again, the behavior is greatly changed: in lower energy, the states are filled whereas in mid-range energy, $x_F$ is reduced because there are more states available.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/xf_doped.png}
+    \caption{$x_F$ dependence on the dopant quantity\label{fig:4_3}}
+\end{figure}
+
+\vspace{1em}
+
+Doping also greatly affects the trapping effect. If we take solely into account the trapping time, we see that for increasing dopant concentration, we have lower values (fig. \ref{fig:4_4}). It seems that doping decreases trapping influence at lower energy.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/t_doped.png}
+    \caption{$t$ dependence on the dopant quantity\label{fig:4_4}}
+\end{figure}
+
+With lower stochastic trapping time, one could imagine that the assisted diffusion will be positively affected by the doping.
+
+Indeed, if we look on the diffusivity curve (fig. \ref{fig:4_6}), we see a global increase for all the energy levels available. The same conclusion applies for the mobility $\mu$ (fig. \ref{fig:4_7}) but restricted around LUMO level, which corresponds roughly to the energy of the new states added through the doping.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/4_thermal/d_doped.png}
+        \caption{$D$ dependence on the dopant quantity\label{fig:4_6}}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.49\textwidth}
+        \centering
+        \includegraphics*[width=\textwidth]{figures/4_thermal/mu_doped.png}
+        \caption{$\mu$ dependence on the dopant quantity\label{fig:4_7}}
+    \end{subfigure}
+\end{figure}
+
+Finally, the Einstein ratio varies greatly between the pristine and the doped $\alpha$-NPD (fig \ref{fig:4_8}): it increases quite a lot. It can be explained by the deep changes that the DOS has experienced. The increase in new states really benefits the diffusion as the charge carrier have more possibilities to scatter. However, between materials with comparable DOS morphology (the material with increasing doping), the major change comes from the increase in charge carrier density. This increases benefits the mobility as we see that the Einstein ratio decreases with higher dopant.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/ein_doped.png}
+    \caption{$\eta$ dependence on the dopant quantity\label{fig:4_8}}
+\end{figure}
+
+\subsection{Real device}
+
+On a precedent student work, hole-only pentacene diode fabricated with PEDOT:PSS and silver as electrode using vacuum evaporation process in order to assess their Einstein ratio \cite{xavier_thesis}. It was assumed that the ideality factor matched the Einstein ratio in such diode. Following what the precedent student measured in his work, we could extract the following values for the pentacene:
+
+\begin{itemize}
+    \item $T = 300K$
+    \item $E_F = \SI{0.7}{eV}$
+    \item $\sigma = 0.07$
+    \item $N_i = \SI{3e21}{cm^{-3}}$
+\end{itemize}
+
+With the precedent parameters and the precedent data, we could plot the figure \ref{fig:4_9}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/xavier_fit.png}
+    \caption{Simulated $\eta$ compared to real value with varying field \label{fig:4_9}}
+\end{figure}
+
+The simulated values obtained are of a similar order of magnitude compared to the on obtained on real devices. However, the variation following the field $F$ seems to be too slow. One possible explanation could be the lack of trapping effect on the mobility.
+
+\section{Thermal conduction}
 
 Thermal conduction is bore by both charge carriers and phonons however their behavior differs a lot. In the following part we will study both phonon and charge carrier transport regarding thermal characteristics.
 
-\section{Phonon transport}
+\subsection{Phonon transport}
 
-From the literature, it has been seen that for low frequencies phonon, a truncated gaussian DOS fits real devices behavior \cite{phonon_DOS}. To simulate the truncated DOS, we will reduce the frequency of integration during the computation of $k_p$
+From the literature, it has been seen that for low frequencies phonon, a truncated Gaussian DOS fits real devices behavior \cite{phonon_DOS}. To simulate the truncated DOS, we will reduce the frequency of integration during the computation of $k_p$
 
 \begin{equation}
     g_p\left(E, \hbar \omega_{\alpha}\right)=\frac{1}{\sqrt{2 \pi}}\frac{N_{i-e}}{\sigma_{i}} \exp \left(-\frac{\left(E-\hbar \omega_{\alpha}\right)^{2}}{2 \sigma_{i}^{2}}\right)
     \label{eq:4_1}
 \end{equation}
 
-The parameters of the DOS \ref{eq:4_1} are the same as for the pristine electric gaussian DOS. The material possesses the same features in term of phonon and charge carrier. Indeed, it has been observed \cite{phonon_hopping} that the phonon displacement can be summed up by a series of jump between non propagating states. Besides, the usual vibration of a material is modeled by a discrete part \cite{vibration_phonon} and a continuous part. We will here make the assumption that it can be simplified to a gaussian DOS.
+The parameters of the DOS \ref{eq:4_1} are the same as for the pristine electric Gaussian DOS. The material possesses the same features in term of phonon and charge carrier. Indeed, it has been observed \cite{phonon_hopping} that the phonon displacement can be summed up by a series of jump between non propagating states. Besides, the usual vibration of a material is modeled by a discrete part \cite{vibration_phonon} and a continuous part. We will here make the assumption that it can be simplified to a Gaussian DOS.
 
-\subsection{Diffusivity}
+\subsubsection{Diffusivity}
 
 Acoustic phonons, the one that participate to the energy propagation, are deemed to be at low frequency and to quickly reach a plateau (fig. \ref{fig:4_1}).
 
@@ -25,14 +283,14 @@ Acoustic phonons, the one that participate to the energy propagation, are deemed
     \caption{$D$ dependence on the frequency (\cite{phonon_plateau}) \label{fig:4_1}}
 \end{figure}
 
-However, this behavior is a rough approximation and usually the phonon diffusion sees some discrete characteristics. But, in order to simplify and get an approximate result, we will assume such constant diffusion. To obtain an estimate of the value, we will base ourselves on the average diffusion for amorphous silicon:
+However, this behavior is a rough approximation and usually the phonon diffusion sees some discrete characteristics. But, in order to simplify and get an approximate result, we will assume such constant diffusion. To obtain an estimate of the value, we will base ourselves on the average diffusion for amorphous $SiO_2$:
 
 \begin{equation}
     D_p = \SI{4.10e-6}{m^2 s^{-1}}
     \label{eq:4_2}
 \end{equation}
 
-\subsection{Conduction}
+\subsubsection{Conduction}
 
 Usually, the thermal conduction is defined as \cite{phonon_physics}:
 
@@ -81,7 +339,7 @@ By applying the change of variable $u = \frac{\hbar\omega}{k_BT}$:
     \label{eq:4_7}
 \end{equation}
 
-\section{Charge carrier transport}
+\subsection{Charge carrier transport}
 
 It has been demonstrated that charge carrier also participates to the heat conduction in semiconductors \cite{thermal_transport}. Such process arises because electron-hole pairs tend to be created at the hod end of the material and drift to the cold end, thus transmitting their energy.
 
@@ -93,3 +351,41 @@ It has been decided to use the same eq. \ref{eq:4_3} but with the charge carrier
 \end{equation}
 
 Of course, as explained in section \ref{subsection:range}, to enhance the performances, we used a reduced range to frame the energy levels where the charge carrier are.
+
+\subsection{Parameters influence}
+
+Like what has been done in chapter \ref{chap:elec} with the Einstein ratio, we will perform the same sort of study on the thermal conduction.
+
+\subsubsection{Temperature}
+
+Of course the thermal conduction is influenced by the temperature. According to eq. \ref{eq:4_7} and \ref{eq:4_8}, there should be at least a linear increase in thermal conduction, which is verified in the simulations (fig. \ref{fig:4_10}). The larger phonon conduction is verified in the literature \cite{universal_einstein}. The order of magnitude for the phonon conduction seems to be also verified in the literature, but the charge carrier one seems too low. Besides, in the paper \cite{universal_einstein}, it seems that the thermal conduction does not exactly follows a linear dependence regarding the temperature like in our simulations.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/k_temperature.png}
+    \caption{$k$ dependence on $T$ (pentacene $N_i = \SI{3e21}{cm^{-3}}$)\label{fig:4_10}}
+\end{figure}
+
+\subsubsection{Field}
+
+Only conduction by charge carrier is affected by the field. From the literature \cite{universal_einstein}, the thermal conduction is constant for low fields and start to diverges at very high field value. We simulated that the charge carrier thermal conduction decreases with higher fields (fig. \ref{fig:4_11}).
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/k_field.png}
+    \caption{$k$ dependence on $F$ (pentacene $N_i = \SI{3e21}{cm^{-3}}$)\label{fig:4_11}}
+\end{figure}
+
+However, it should be noted that the equation for computing the thermal conduction for charge carriers takes into account a highly
+
+\subsubsection{Semiconductor structure}
+
+There are multiple ways to change the structure of the semiconductor, i.e changing its DOS: density of states $N_i$, the doping $N_d$ and the disorder $\sigma$.
+
+From $N_i$ standpoint, we see (fig. \ref{fig:4_12}) that increasing state density means better thermal conduction: a more dense network of states help the thermal conduction. This conclusion applies for both the phonons and charge carriers conduction. However, regarding the charge carrier one, the impact of the charge carrier on $D$ could also mean that more charge carrier participates to the thermal conduction, and not only the addition of new states.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[width=.5\paperwidth]{figures/4_thermal/k_ni.png}
+    \caption{$k$ dependence on $N_i$ (pentacene, $F = \SI{5.3e4}{V cm^{-1}}$)\label{fig:4_12}}
+\end{figure}

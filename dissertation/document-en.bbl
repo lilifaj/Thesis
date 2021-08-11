@@ -7,6 +7,13 @@ Apsley, N., and Hughes, H.~P.
 \newblock {\em The Philosophical Magazine: A Journal of Theoretical
   Experimental and Applied Physics 30}, 5 (1974), 963--972.
 
+\bibitem{temperature_1}
+Apsley, N., and Hughes, H.~P.
+\newblock Temperature- and field-dependence of hopping conduction in disordered
+  systems, ii.
+\newblock {\em The Philosophical Magazine: A Journal of Theoretical
+  Experimental and Applied Physics 31}, 6 (1975), 1327--1339.
+
 \bibitem{vibration_phonon}
 Bakulin, A., Lovrincic, R., Yu, X., Selig, O., Bakker, H., Rezus, Y., Nayak,
   P., Fonari, A., Coropceanu, V., Brédas, J.-L., and Cahen, D.
@@ -43,7 +50,7 @@ Chiang, C.~K., Fincher, C.~R., Park, Y.~W., Heeger, A.~J., Shirakawa, H.,
 \newblock Electrical conductivity in doped polyacetylene.
 \newblock {\em Phys. Rev. Lett. 39\/} (Oct 1977), 1098--1101.
 
-\bibitem{einstein}
+\bibitem{Einstein}
 {Einstein}, A.
 \newblock {{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme
   geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten
@@ -64,10 +71,10 @@ Feldman, J.~L., Kluge, M.~D., Allen, P.~B., and Wooten, F.
 
 \bibitem{xavier_thesis}
 Kempa, X.
-\newblock {\em Study of the impact of Einstein relation enhancement on organic
-  diodes in the case of variable range hopping}.
-\newblock PhD thesis, Keio University Graduate School of Science and Technology
-  School of Integrated Design Engineering, 2020.
+\newblock Study of the impact of einstein relation enhancement on organic
+  diodes in the case of variable range hopping.
+\newblock Master's thesis, Keio University Graduate School of Science and
+  Technology School of Integrated Design Engineering, 2020.
 
 \bibitem{general_einstein}
 Li, L., Lu, N., Liu, M., and B\"assler, H.
@@ -172,6 +179,13 @@ Stehr, V.
   with quantum chemical protocols employing the hopping model}.
 \newblock PhD thesis, 06 2015.
 
+\bibitem{einstein_measurement}
+Tal, O., Epstein, I., Snir, O., Roichman, Y., Ganot, Y., Chan, C.~K., Kahn, A.,
+  Tessler, N., and Rosenwaks, Y.
+\newblock Measurements of the einstein relation in doped and undoped molecular
+  thin films.
+\newblock {\em Phys. Rev. B 77\/} (May 2008), 201201.
+
 \bibitem{phonon_plateau}
 Wyart, M.
 \newblock Scaling of phononic transport with connectivity in amorphous solids.
@@ -181,5 +195,11 @@ Wyart, M.
 Zhang, X., Dong, H., and Hu, W.
 \newblock Organic semiconductor single crystals for electronics and photonics.
 \newblock {\em Advanced Materials 30}, 44 (2018), 1801048.
+
+\bibitem{frequency}
+Zschieschang, U., Borchert, J.~W., Giorgio, M., Caironi, M., Letzkus, F.,
+  Burghartz, J.~N., Waizmann, U., Weis, J., Ludwigs, S., and Klauk, H.
+\newblock Roadmap to gigahertz organic transistors.
+\newblock {\em Advanced Functional Materials 30}, 20 (2020), 1903812.
 
 \end{thebibliography}

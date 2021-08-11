@@ -2,40 +2,50 @@
 \BOOKMARK [0][-]{chapter.4}{Introduction}{}% 2
 \BOOKMARK [1][-]{section.5}{Organic semiconductors}{chapter.4}% 3
 \BOOKMARK [2][-]{subsection.6}{Background}{section.5}% 4
-\BOOKMARK [2][-]{subsection.8}{Organic materials}{section.5}% 5
-\BOOKMARK [2][-]{subsection.12}{Charge carrier transport}{section.5}% 6
-\BOOKMARK [2][-]{subsection.14}{The einstein relation}{section.5}% 7
-\BOOKMARK [2][-]{subsection.20}{Gaussian density of states}{section.5}% 8
-\BOOKMARK [2][-]{subsection.24}{Thermal diffusion}{section.5}% 9
-\BOOKMARK [1][-]{section.26}{Objectives of this thesis}{chapter.4}% 10
-\BOOKMARK [0][-]{chapter.27}{Electric properties}{}% 11
-\BOOKMARK [1][-]{section.29}{Gaussian formalism}{chapter.27}% 12
-\BOOKMARK [1][-]{section.33}{Variable range hopping}{chapter.27}% 13
-\BOOKMARK [2][-]{subsection.34}{Background}{section.33}% 14
-\BOOKMARK [2][-]{subsection.43}{Nearest neighbor}{section.33}% 15
-\BOOKMARK [2][-]{subsection.47}{Real hopped distance}{section.33}% 16
-\BOOKMARK [2][-]{subsection.57}{Mobility}{section.33}% 17
-\BOOKMARK [2][-]{subsection.64}{Stochastic release time}{section.33}% 18
-\BOOKMARK [2][-]{subsection.68}{Diffusivity}{section.33}% 19
-\BOOKMARK [2][-]{subsection.77}{Einstein ratio}{section.33}% 20
-\BOOKMARK [2][-]{subsection.81}{Summary of some numerical value}{section.33}% 21
-\BOOKMARK [1][-]{section.82}{Parameters influence}{chapter.27}% 22
-\BOOKMARK [2][-]{subsection.83}{Electric Field}{section.82}% 23
-\BOOKMARK [2][-]{subsection.90}{Temperature}{section.82}% 24
-\BOOKMARK [0][-]{chapter.91}{Thermal properties}{}% 25
-\BOOKMARK [1][-]{section.92}{Phonon transport}{chapter.91}% 26
-\BOOKMARK [2][-]{subsection.94}{Diffusivity}{section.92}% 27
-\BOOKMARK [2][-]{subsection.97}{Conduction}{section.92}% 28
-\BOOKMARK [1][-]{section.103}{Charge carrier transport}{chapter.91}% 29
-\BOOKMARK [0][-]{chapter.105}{Julia implementation}{}% 30
-\BOOKMARK [1][-]{section.106}{Introduction}{chapter.105}% 31
-\BOOKMARK [1][-]{section.107}{Performances}{chapter.105}% 32
-\BOOKMARK [1][-]{section.109}{Notebooks}{chapter.105}% 33
-\BOOKMARK [1][-]{section.110}{Code implementation}{chapter.105}% 34
-\BOOKMARK [2][-]{subsection.111}{Reduced quantities}{section.110}% 35
-\BOOKMARK [2][-]{subsection.129}{Range of computation }{section.110}% 36
-\BOOKMARK [2][-]{subsection.132}{Integration in Julia}{section.110}% 37
-\BOOKMARK [1][-]{section.160}{Conclusion}{chapter.105}% 38
-\BOOKMARK [0][-]{chapter*.161}{References}{}% 39
-\BOOKMARK [0][-]{appendix*.162}{Appendix}{}% 40
-\BOOKMARK [1][-]{section.163}{Pentacene characteristics }{appendix*.162}% 41
+\BOOKMARK [2][-]{subsection.8}{Future development}{section.5}% 5
+\BOOKMARK [2][-]{subsection.9}{Organic materials}{section.5}% 6
+\BOOKMARK [2][-]{subsection.13}{Charge carrier transport}{section.5}% 7
+\BOOKMARK [2][-]{subsection.15}{The Einstein relation}{section.5}% 8
+\BOOKMARK [2][-]{subsection.21}{Gaussian density of states}{section.5}% 9
+\BOOKMARK [2][-]{subsection.25}{Thermal diffusion}{section.5}% 10
+\BOOKMARK [1][-]{section.27}{Objectives of this thesis}{chapter.4}% 11
+\BOOKMARK [0][-]{chapter.28}{Electric properties}{}% 12
+\BOOKMARK [1][-]{section.30}{Gaussian formalism}{chapter.28}% 13
+\BOOKMARK [1][-]{section.34}{Variable range hopping}{chapter.28}% 14
+\BOOKMARK [2][-]{subsection.35}{Background}{section.34}% 15
+\BOOKMARK [2][-]{subsection.44}{Nearest neighbor}{section.34}% 16
+\BOOKMARK [2][-]{subsection.48}{Real hopped distance}{section.34}% 17
+\BOOKMARK [2][-]{subsection.58}{Mobility}{section.34}% 18
+\BOOKMARK [2][-]{subsection.65}{Stochastic variance of time}{section.34}% 19
+\BOOKMARK [2][-]{subsection.69}{Diffusivity}{section.34}% 20
+\BOOKMARK [2][-]{subsection.81}{Einstein ratio}{section.34}% 21
+\BOOKMARK [2][-]{subsection.85}{Summary of some numerical value}{section.34}% 22
+\BOOKMARK [0][-]{chapter.86}{Extensive simulation}{}% 23
+\BOOKMARK [1][-]{section.87}{Parameters influence on Einstein}{chapter.86}% 24
+\BOOKMARK [2][-]{subsection.88}{Electric Field}{section.87}% 25
+\BOOKMARK [2][-]{subsection.93}{Temperature}{section.87}% 26
+\BOOKMARK [2][-]{subsection.97}{Charge carrier concentration}{section.87}% 27
+\BOOKMARK [1][-]{section.106}{Doping effect on Einstein relation}{chapter.86}% 28
+\BOOKMARK [2][-]{subsection.107}{Effect of doping on the semiconductor}{section.106}% 29
+\BOOKMARK [2][-]{subsection.114}{Real device}{section.106}% 30
+\BOOKMARK [1][-]{section.116}{Thermal conduction}{chapter.86}% 31
+\BOOKMARK [2][-]{subsection.117}{Phonon transport}{section.116}% 32
+\BOOKMARK [2][-]{subsection.128}{Charge carrier transport}{section.116}% 33
+\BOOKMARK [2][-]{subsection.130}{Parameters influence}{section.116}% 34
+\BOOKMARK [0][-]{chapter.137}{Julia implementation}{}% 35
+\BOOKMARK [1][-]{section.138}{Introduction}{chapter.137}% 36
+\BOOKMARK [1][-]{section.139}{Performances}{chapter.137}% 37
+\BOOKMARK [1][-]{section.141}{Notebooks}{chapter.137}% 38
+\BOOKMARK [1][-]{section.142}{Code implementation}{chapter.137}% 39
+\BOOKMARK [2][-]{subsection.143}{Reduced quantities}{section.142}% 40
+\BOOKMARK [2][-]{subsection.161}{Range of computation }{section.142}% 41
+\BOOKMARK [2][-]{subsection.164}{Integration in Julia}{section.142}% 42
+\BOOKMARK [1][-]{section.192}{Conclusion}{chapter.137}% 43
+\BOOKMARK [0][-]{chapter.193}{Conclusion}{}% 44
+\BOOKMARK [1][-]{section.194}{Discussion}{chapter.193}% 45
+\BOOKMARK [1][-]{section.195}{Limits}{chapter.193}% 46
+\BOOKMARK [1][-]{section.196}{Future prospects}{chapter.193}% 47
+\BOOKMARK [0][-]{chapter*.197}{References}{}% 48
+\BOOKMARK [0][-]{appendix*.198}{Appendix}{}% 49
+\BOOKMARK [1][-]{section.199}{Pentacene characteristics }{appendix*.198}% 50
+\BOOKMARK [1][-]{section.200}{Doped -NPD }{appendix*.198}% 51

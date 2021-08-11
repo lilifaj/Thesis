@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.2)  14 JUL 2021 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.7.2)  20 JUL 2021 14:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -54,12 +54,92 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen137
 \Gin@req@width=\dimen138
+) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2020-01-22 v2.0d non-zero parskip adjustments
+ (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count182
+)) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count183
+\mult@box=\box45
+\multicol@leftmargin=\dimen139
+\c@unbalance=\count184
+\c@collectmore=\count185
+\doublecol@number=\count186
+\multicoltolerance=\count187
+\multicolpretolerance=\count188
+\full@width=\dimen140
+\page@free=\dimen141
+\premulticols=\dimen142
+\postmulticols=\dimen143
+\multicolsep=\skip51
+\multicolbaselineskip=\skip52
+\partial@page=\box46
+\last@line=\box47
+\maxbalancingoverflow=\dimen144
+\mult@rightbox=\box48
+\mult@grightbox=\box49
+\mult@gfirstbox=\box50
+\mult@firstbox=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\c@minrows=\count189
+\c@columnbadness=\count190
+\c@finalcolumnbadness=\count191
+\last@try=\dimen145
+\multicolovershoot=\dimen146
+\multicolundershoot=\dimen147
+\mult@nat@firstbox=\box89
+\colbreak@box=\box90
+\mc@col@check@num=\count192
 ) (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup4
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
-\@mathmargin=\skip51
+\@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -67,68 +147,68 @@ Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks15
-\ex@=\dimen139
+\ex@=\dimen148
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen140
+\pmbraise@=\dimen149
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count182
+\inf@bad=\count193
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count183
-\leftroot@=\count184
+\uproot@=\count194
+\leftroot@=\count195
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count185
-\DOTSCASE@=\count186
+\classnum@=\count196
+\DOTSCASE@=\count197
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box45
-\strutbox@=\box46
-\big@size=\dimen141
+\Mathstrutbox@=\box91
+\strutbox@=\box92
+\big@size=\dimen150
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count187
-\c@MaxMatrixCols=\count188
+\macc@depth=\count198
+\c@MaxMatrixCols=\count199
 \dotsspace@=\muskip16
-\c@parentequation=\count189
-\dspbrk@lvl=\count190
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
 \tag@help=\toks16
-\row@=\count191
-\column@=\count192
-\maxfields@=\count193
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
 \andhelp@=\toks17
-\eqnshift@=\dimen142
-\alignsep@=\dimen143
-\tagshift@=\dimen144
-\tagwidth@=\dimen145
-\totwidth@=\dimen146
-\lineht@=\dimen147
+\eqnshift@=\dimen151
+\alignsep@=\dimen152
+\tagshift@=\dimen153
+\tagwidth@=\dimen154
+\totwidth@=\dimen155
+\lineht@=\dimen156
 \@envbody=\toks18
-\multlinegap=\skip52
-\multlinetaggap=\skip53
+\multlinegap=\skip54
+\multlinetaggap=\skip55
 \mathdisplay@stack=\toks19
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count194
-\lst@gtempboxa=\box47
+\lst@mode=\count271
+\lst@gtempboxa=\box93
 \lst@token=\toks20
-\lst@length=\count195
-\lst@currlwidth=\dimen148
-\lst@column=\count196
-\lst@pos=\count197
-\lst@lostspace=\dimen149
-\lst@width=\dimen150
-\lst@newlines=\count198
-\lst@lineno=\count199
-\lst@maxwidth=\dimen151
+\lst@length=\count272
+\lst@currlwidth=\dimen157
+\lst@column=\count273
+\lst@pos=\count274
+\lst@lostspace=\dimen158
+\lst@width=\dimen159
+\lst@newlines=\count275
+\lst@lineno=\count276
+\lst@maxwidth=\dimen160
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
-\c@lstnumber=\count266
-\lst@skipnumbers=\count267
-\lst@framebox=\box48
+\c@lstnumber=\count277
+\lst@skipnumbers=\count278
+\lst@framebox=\box94
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2019/09/10 1.8c listings configuration
 ))
@@ -143,68 +223,68 @@ Package color Info: Driver file: pdftex.def on input line 147.
 Package: expl3 2020-02-14 L3 programming layer (loader) 
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count268
-\l__pdf_internal_box=\box49
+\l__kernel_color_stack_int=\count279
+\l__pdf_internal_box=\box95
 )) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-02-14 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count269
-\g__xparse_grabber_int=\count270
-\l__xparse_m_args_int=\count271
-\l__xparse_v_nesting_int=\count272
+\l__xparse_current_arg_int=\count280
+\g__xparse_grabber_int=\count281
+\l__xparse_m_args_int=\count282
+\l__xparse_v_nesting_int=\count283
 )
 Package: siunitx 2020/01/15 v2.7u A comprehensive (SI) units package
  (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen152
-\ar@mcellbox=\box50
-\extrarowheight=\dimen153
+\col@sep=\dimen161
+\ar@mcellbox=\box96
+\extrarowheight=\dimen162
 \NC@list=\toks21
-\extratabsurround=\skip54
-\backup@length=\skip55
-\ar@cellbox=\box51
+\extratabsurround=\skip56
+\backup@length=\skip57
+\ar@cellbox=\box97
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2020-02-14 LaTeX2e option processing using LaTeX3 keys
 )
-\l__siunitx_tmp_box=\box52
-\l__siunitx_tmp_dim=\dimen154
-\l__siunitx_tmp_int=\count273
-\l__siunitx_number_mantissa_length_int=\count274
-\l__siunitx_number_uncert_length_int=\count275
-\l__siunitx_round_int=\count276
-\l__siunitx_process_decimal_int=\count277
-\l__siunitx_process_uncertainty_int=\count278
-\l__siunitx_process_fixed_int=\count279
-\l__siunitx_process_integer_min_int=\count280
-\l__siunitx_process_precision_int=\count281
-\l__siunitx_group_min_int=\count282
-\l__siunitx_angle_marker_box=\box53
-\l__siunitx_angle_unit_box=\box54
-\l__siunitx_angle_marker_dim=\dimen155
-\l__siunitx_angle_unit_dim=\dimen156
-\l__siunitx_unit_int=\count283
-\l__siunitx_unit_denominator_int=\count284
-\l__siunitx_unit_numerator_int=\count285
-\l__siunitx_unit_prefix_int=\count286
-\l__siunitx_unit_prefix_base_int=\count287
-\l__siunitx_unit_prefix_gram_int=\count288
-\l__siunitx_number_product_int=\count289
-\c__siunitx_one_fill_skip=\skip56
-\l__siunitx_table_unit_align_skip=\skip57
-\l__siunitx_table_exponent_dim=\dimen157
-\l__siunitx_table_integer_dim=\dimen158
-\l__siunitx_table_mantissa_dim=\dimen159
-\l__siunitx_table_marker_dim=\dimen160
-\l__siunitx_table_result_dim=\dimen161
-\l__siunitx_table_uncert_dim=\dimen162
-\l__siunitx_table_fill_pre_dim=\dimen163
-\l__siunitx_table_fill_post_dim=\dimen164
-\l__siunitx_table_fill_mid_dim=\dimen165
-\l__siunitx_table_pre_box=\box55
-\l__siunitx_table_post_box=\box56
-\l__siunitx_table_mantissa_box=\box57
-\l__siunitx_table_result_box=\box58
-\l__siunitx_table_number_align_skip=\skip58
-\l__siunitx_table_text_align_skip=\skip59
+\l__siunitx_tmp_box=\box98
+\l__siunitx_tmp_dim=\dimen163
+\l__siunitx_tmp_int=\count284
+\l__siunitx_number_mantissa_length_int=\count285
+\l__siunitx_number_uncert_length_int=\count286
+\l__siunitx_round_int=\count287
+\l__siunitx_process_decimal_int=\count288
+\l__siunitx_process_uncertainty_int=\count289
+\l__siunitx_process_fixed_int=\count290
+\l__siunitx_process_integer_min_int=\count291
+\l__siunitx_process_precision_int=\count292
+\l__siunitx_group_min_int=\count293
+\l__siunitx_angle_marker_box=\box99
+\l__siunitx_angle_unit_box=\box100
+\l__siunitx_angle_marker_dim=\dimen164
+\l__siunitx_angle_unit_dim=\dimen165
+\l__siunitx_unit_int=\count294
+\l__siunitx_unit_denominator_int=\count295
+\l__siunitx_unit_numerator_int=\count296
+\l__siunitx_unit_prefix_int=\count297
+\l__siunitx_unit_prefix_base_int=\count298
+\l__siunitx_unit_prefix_gram_int=\count299
+\l__siunitx_number_product_int=\count300
+\c__siunitx_one_fill_skip=\skip58
+\l__siunitx_table_unit_align_skip=\skip59
+\l__siunitx_table_exponent_dim=\dimen166
+\l__siunitx_table_integer_dim=\dimen167
+\l__siunitx_table_mantissa_dim=\dimen168
+\l__siunitx_table_marker_dim=\dimen169
+\l__siunitx_table_result_dim=\dimen170
+\l__siunitx_table_uncert_dim=\dimen171
+\l__siunitx_table_fill_pre_dim=\dimen172
+\l__siunitx_table_fill_post_dim=\dimen173
+\l__siunitx_table_fill_mid_dim=\dimen174
+\l__siunitx_table_pre_box=\box101
+\l__siunitx_table_post_box=\box102
+\l__siunitx_table_mantissa_box=\box103
+\l__siunitx_table_result_box=\box104
+\l__siunitx_table_number_align_skip=\skip60
+\l__siunitx_table_text_align_skip=\skip61
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
 )) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
@@ -214,13 +294,13 @@ Package: caption 2020/01/03 v3.4h Customizing captions (AR)
  (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
-\captionmargin=\dimen166
-\captionmargin@=\dimen167
-\captionwidth=\dimen168
-\caption@tempdima=\dimen169
-\caption@indent=\dimen170
-\caption@parindent=\dimen171
-\caption@hangindent=\dimen172
+\captionmargin=\dimen175
+\captionmargin@=\dimen176
+\captionwidth=\dimen177
+\caption@tempdima=\dimen178
+\caption@indent=\dimen179
+\caption@parindent=\dimen180
+\caption@hangindent=\dimen181
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 Package caption Info: \@makecaption = \long macro:#1#2-> \vskip 10pt \setbox \@tempboxa \hbox {#1. #2} \ifdim \wd \@tempboxa >\hsize #1. #2\par \else \hbox to\hsize {\hfil \box \@tempboxa \hfil } \fi  on input line 1082.
@@ -230,51 +310,51 @@ Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count290
-\c@continuedfloat=\count291
+\c@caption@flags=\count301
+\c@continuedfloat=\count302
 Package caption Info: listings package is loaded.
 )
-\c@subfigure=\count292
-\c@subtable=\count293
+\c@subfigure=\count303
+\c@subtable=\count304
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen173
-\TX@old@table=\dimen174
-\TX@old@col=\dimen175
-\TX@target=\dimen176
-\TX@delta=\dimen177
-\TX@cols=\count294
+\TX@col@width=\dimen182
+\TX@old@table=\dimen183
+\TX@old@col=\dimen184
+\TX@target=\dimen185
+\TX@delta=\dimen186
+\TX@cols=\count305
 \TX@ftn=\toks22
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
-\LTleft=\skip60
-\LTright=\skip61
-\LTpre=\skip62
-\LTpost=\skip63
-\LTchunksize=\count295
-\LTcapwidth=\dimen178
-\LT@head=\box59
-\LT@firsthead=\box60
-\LT@foot=\box61
-\LT@lastfoot=\box62
-\LT@cols=\count296
-\LT@rows=\count297
-\c@LT@tables=\count298
-\c@LT@chunks=\count299
+\LTleft=\skip62
+\LTright=\skip63
+\LTpre=\skip64
+\LTpost=\skip65
+\LTchunksize=\count306
+\LTcapwidth=\dimen187
+\LT@head=\box105
+\LT@firsthead=\box106
+\LT@foot=\box107
+\LT@lastfoot=\box108
+\LT@cols=\count307
+\LT@rows=\count308
+\c@LT@tables=\count309
+\c@LT@chunks=\count310
 \LT@p@ftn=\toks23
 ) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
-\multirow@colwidth=\skip64
-\multirow@cntb=\count300
-\multirow@dima=\skip65
-\bigstrutjot=\dimen179
+\multirow@colwidth=\skip66
+\multirow@cntb=\count311
+\multirow@dima=\skip67
+\bigstrutjot=\dimen188
 ) (/usr/share/texlive/texmf-dist/tex/latex/fancybox/fancybox.sty
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box63
-\shadowsize=\dimen180
-\@Sbox=\box64
+\@fancybox=\box109
+\shadowsize=\dimen189
+\@Sbox=\box110
 \do@VerbBox=\toks24
 \the@fancyput=\toks25
 \this@fancyput=\toks26
@@ -298,14 +378,14 @@ Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks29
 \verbatim@in@stream=\read3
 )
-\tab@position=\count301
-\tab@size=\count302
-\listing@line=\count303
+\tab@position=\count312
+\tab@size=\count313
+\listing@line=\count314
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/afterpage.sty
 Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
 \AP@output=\toks30
-\AP@partial=\box65
-\AP@footins=\box66
+\AP@partial=\box111
+\AP@footins=\box112
 ) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
@@ -322,54 +402,52 @@ LaTeX Warning: You have requested package `style/fn2end',
                but the package provides `fn2end'.
 
 Package: fn2end 1995/05/31 Convert footnotes into end notes.
-\noteskip=\skip66
+\noteskip=\skip68
 ) (/home/lilifaj/Workspace/Thesis/dissertation/style/fn2end_config.sty) (/usr/share/texlive/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed) + intermediate FMi
  (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box67
-\sift@deathcycles=\count304
-\@vwid@loff=\dimen181
-\@vwid@roff=\dimen182
+\@vwid@box=\box113
+\sift@deathcycles=\count315
+\@vwid@loff=\dimen190
+\@vwid@roff=\dimen191
 )
-\c@taburow=\count305
-\tabu@nbcols=\count306
-\tabu@cnt=\count307
-\tabu@Xcol=\count308
-\tabu@alloc=\count309
-\tabu@nested=\count310
-\tabu@target=\dimen183
-\tabu@spreadtarget=\dimen184
-\tabu@naturalX=\dimen185
-\tabucolX=\dimen186
-\tabu@Xsum=\dimen187
-\extrarowdepth=\dimen188
-\abovetabulinesep=\dimen189
-\belowtabulinesep=\dimen190
-\tabustrutrule=\dimen191
+\c@taburow=\count316
+\tabu@nbcols=\count317
+\tabu@cnt=\count318
+\tabu@Xcol=\count319
+\tabu@alloc=\count320
+\tabu@nested=\count321
+\tabu@target=\dimen192
+\tabu@spreadtarget=\dimen193
+\tabu@naturalX=\dimen194
+\tabucolX=\dimen195
+\tabu@Xsum=\dimen196
+\extrarowdepth=\dimen197
+\abovetabulinesep=\dimen198
+\belowtabulinesep=\dimen199
+\tabustrutrule=\dimen256
 \tabu@thebody=\toks31
 \tabu@footnotes=\toks32
-\tabu@box=\box68
-\tabu@arstrutbox=\box69
-\tabu@hleads=\box70
-\tabu@vleads=\box71
-\tabu@cellskip=\skip67
+\tabu@box=\box114
+\tabu@arstrutbox=\box115
+\tabu@hleads=\box116
+\tabu@vleads=\box117
+\tabu@cellskip=\skip69
 ) (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
-\f@nch@headwidth=\skip68
-\f@nch@O@elh=\skip69
-\f@nch@O@erh=\skip70
-\f@nch@O@olh=\skip71
-\f@nch@O@orh=\skip72
-\f@nch@O@elf=\skip73
-\f@nch@O@erf=\skip74
-\f@nch@O@olf=\skip75
-\f@nch@O@orf=\skip76
+\f@nch@headwidth=\skip70
+\f@nch@O@elh=\skip71
+\f@nch@O@erh=\skip72
+\f@nch@O@olh=\skip73
+\f@nch@O@orh=\skip74
+\f@nch@O@elf=\skip75
+\f@nch@O@erf=\skip76
+\f@nch@O@olf=\skip77
+\f@nch@O@orf=\skip78
 ) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
- (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-) (/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
@@ -377,8 +455,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -389,12 +465,10 @@ Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen192
-\Hy@linkcounter=\count311
-\Hy@pagecounter=\count312
+\@linkdim=\dimen257
+\Hy@linkcounter=\count322
+\Hy@pagecounter=\count323
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -404,8 +478,8 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count313
-\pdfmajorversion=\count314
+\Hy@SavedSpaceFactor=\count324
+\pdfmajorversion=\count325
 Package hyperref Info: Option `hypertexnames' set `false' on input line 4421.
 Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4421.
 Package hyperref Info: Hyper figures OFF on input line 4547.
@@ -415,21 +489,21 @@ Package hyperref Info: Plain pages OFF on input line 4562.
 Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count315
+\c@Hy@tempcnt=\count326
  (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen193
+\XeTeXLinkMargin=\dimen258
  (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count316
-\Field@Width=\dimen194
-\Fld@charsize=\dimen195
+\Fld@menulength=\count327
+\Field@Width=\dimen259
+\Fld@charsize=\dimen260
 Package hyperref Info: Hyper figures OFF on input line 6430.
 Package hyperref Info: Link nesting OFF on input line 6435.
 Package hyperref Info: Hyper index ON on input line 6438.
@@ -442,18 +516,17 @@ LaTeX Info: Redefining \pageref on input line 6504.
  (/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count317
-\c@Item=\count318
+\Hy@abspage=\count328
+\c@Item=\count329
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
  (/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
-Package atveryend Info: \AP@enddocument detected (standard20110627).
 )
-\Fld@listcount=\count319
-\c@bookmark@seq@number=\count320
+\Fld@listcount=\count330
+\c@bookmark@seq@number=\count331
  (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -461,38 +534,42 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
-\Hy@SectionHShift=\skip77
-) (/home/lilifaj/Workspace/Thesis/dissertation/document-en.aux)
+\Hy@SectionHShift=\skip79
+) (/home/lilifaj/Workspace/Thesis/dissertation/document-en.aux
+
+LaTeX Warning: Label `fig:4_1' multiply defined.
+
+)
 \openout1 = `document-en.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 260.
+LaTeX Font Info:    ... okay on input line 260.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count321
-\scratchdimen=\dimen196
-\scratchbox=\box72
-\nofMPsegments=\count322
-\nofMParguments=\count323
+\scratchcounter=\count332
+\scratchdimen=\dimen261
+\scratchbox=\box118
+\nofMPsegments=\count333
+\nofMParguments=\count334
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count324
-\MPscratchDim=\dimen197
-\MPnumerator=\count325
-\makeMPintoPDFobject=\count326
+\MPscratchCnt=\count335
+\MPscratchDim=\dimen262
+\MPnumerator=\count336
+\makeMPintoPDFobject=\count337
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -500,7 +577,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count327
+\c@lstlisting=\count338
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
@@ -513,8 +590,8 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box73
-Package hyperref Info: Link coloring OFF on input line 251.
+\AtBeginShipoutBox=\box119
+Package hyperref Info: Link coloring OFF on input line 260.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -522,24 +599,24 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count328
+\c@section@level=\count339
 )
-LaTeX Info: Redefining \ref on input line 251.
-LaTeX Info: Redefining \pageref on input line 251.
-LaTeX Info: Redefining \nameref on input line 251.
+LaTeX Info: Redefining \ref on input line 260.
+LaTeX Info: Redefining \pageref on input line 260.
+LaTeX Info: Redefining \nameref on input line 260.
  (/home/lilifaj/Workspace/Thesis/dissertation/document-en.out) (/home/lilifaj/Workspace/Thesis/dissertation/document-en.out)
 \@outlinefile=\write4
 \openout4 = `document-en.out'.
 
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 251.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 260.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 251.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 260.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 251.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 260.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -563,260 +640,392 @@ Chapter 1.
 \n@tefile=\write7
 \openout7 = `document-en.end'.
 
-<figures/evolution_perf.png, id=349, 644.4075pt x 401.5pt>
+<figures/evolution_perf.png, id=419, 644.4075pt x 401.5pt>
 File: figures/evolution_perf.png Graphic file (type png)
 <use figures/evolution_perf.png>
 Package pdftex.def Info: figures/evolution_perf.png  used on input line 18.
 (pdftex.def)             Requested size: 358.50836pt x 223.38037pt.
 [1
 
-]
-<figures/pi_bonding.png, id=367, 350.30875pt x 365.365pt>
+] [2 </home/lilifaj/Workspace/Thesis/dissertation/figures/evolution_perf.png>]
+<figures/pi_bonding.png, id=444, 350.30875pt x 365.365pt>
 File: figures/pi_bonding.png Graphic file (type png)
 <use figures/pi_bonding.png>
-Package pdftex.def Info: figures/pi_bonding.png  used on input line 30.
+Package pdftex.def Info: figures/pi_bonding.png  used on input line 34.
 (pdftex.def)             Requested size: 238.9995pt x 249.27559pt.
-<figures/pi_pistar.png, id=371, 465.74pt x 300.12125pt>
+<figures/pi_pistar.png, id=448, 465.74pt x 300.12125pt>
 File: figures/pi_pistar.png Graphic file (type png)
 <use figures/pi_pistar.png>
-Package pdftex.def Info: figures/pi_pistar.png  used on input line 36.
+Package pdftex.def Info: figures/pi_pistar.png  used on input line 40.
 (pdftex.def)             Requested size: 238.9995pt x 154.00775pt.
-<figures/hopping_theory.png, id=377, 992.70876pt x 834.11626pt>
+ [3 </home/lilifaj/Workspace/Thesis/dissertation/figures/pi_bonding.png>]
+<figures/hopping_theory.png, id=462, 992.70876pt x 834.11626pt>
 File: figures/hopping_theory.png Graphic file (type png)
 <use figures/hopping_theory.png>
-Package pdftex.def Info: figures/hopping_theory.png  used on input line 44.
+Package pdftex.def Info: figures/hopping_theory.png  used on input line 48.
 (pdftex.def)             Requested size: 238.9995pt x 200.81564pt.
- [2 </home/lilifaj/Workspace/Thesis/dissertation/figures/evolution_perf.png>] [3 </home/lilifaj/Workspace/Thesis/dissertation/figures/pi_bonding.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/pi_pistar.png>] [4 </home/lilifaj/Workspace/Thesis/dissertation/figures/hopping_theory.png>] [5]
-<figures/DOS_1.png, id=432, 462.528pt x 346.896pt>
+ [4 </home/lilifaj/Workspace/Thesis/dissertation/figures/pi_pistar.png>] [5 </home/lilifaj/Workspace/Thesis/dissertation/figures/hopping_theory.png>] [6]
+<figures/DOS_1.png, id=514, 462.528pt x 346.896pt>
 File: figures/DOS_1.png Graphic file (type png)
 <use figures/DOS_1.png>
-Package pdftex.def Info: figures/DOS_1.png  used on input line 135.
+Package pdftex.def Info: figures/DOS_1.png  used on input line 141.
 (pdftex.def)             Requested size: 298.75394pt x 224.07703pt.
-<figures/DOS_3.png, id=434, 462.528pt x 346.896pt>
+<figures/DOS_3.png, id=516, 462.528pt x 346.896pt>
 File: figures/DOS_3.png Graphic file (type png)
 <use figures/DOS_3.png>
-Package pdftex.def Info: figures/DOS_3.png  used on input line 141.
+Package pdftex.def Info: figures/DOS_3.png  used on input line 147.
 (pdftex.def)             Requested size: 298.75394pt x 224.07703pt.
- [6] [7 </home/lilifaj/Workspace/Thesis/dissertation/figures/DOS_1.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/DOS_3.png>] [8]) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/3_electric.tex [9]
+ [7] [8 </home/lilifaj/Workspace/Thesis/dissertation/figures/DOS_1.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/DOS_3.png>]) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/3_electric.tex [9]
 Chapter 2.
 [10
 
 ]
-<figures/3_elec/dos_undoped.png, id=479, 481.8pt x 321.2pt>
+<figures/3_elec/dos_undoped.png, id=551, 481.8pt x 321.2pt>
 File: figures/3_elec/dos_undoped.png Graphic file (type png)
 <use figures/3_elec/dos_undoped.png>
 Package pdftex.def Info: figures/3_elec/dos_undoped.png  used on input line 45.
 (pdftex.def)             Requested size: 203.55338pt x 135.70195pt.
-<figures/3_elec/dos_doped.png, id=480, 481.8pt x 321.2pt>
+<figures/3_elec/dos_doped.png, id=552, 481.8pt x 321.2pt>
 File: figures/3_elec/dos_doped.png Graphic file (type png)
 <use figures/3_elec/dos_doped.png>
 Package pdftex.def Info: figures/3_elec/dos_doped.png  used on input line 49.
 (pdftex.def)             Requested size: 203.55338pt x 135.70195pt.
- [11 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/dos_undoped.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/dos_doped.png>] [12]
-<figures/3_elec/R_max.png, id=500, 370.38374pt x 427.5975pt>
+ [11] [12 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/dos_undoped.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/dos_doped.png>] [13]
+<figures/3_elec/R_max.png, id=581, 370.38374pt x 427.5975pt>
 File: figures/3_elec/R_max.png Graphic file (type png)
 <use figures/3_elec/R_max.png>
 Package pdftex.def Info: figures/3_elec/R_max.png  used on input line 140.
 (pdftex.def)             Requested size: 238.9995pt x 275.91898pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13]
-<figures/3_elec/rnn.png, id=513, 481.8pt x 321.2pt>
+ [14 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/R_max.png>]
+<figures/3_elec/rnn.png, id=592, 481.8pt x 321.2pt>
 File: figures/3_elec/rnn.png Graphic file (type png)
 <use figures/3_elec/rnn.png>
 Package pdftex.def Info: figures/3_elec/rnn.png  used on input line 152.
 (pdftex.def)             Requested size: 298.75394pt x 199.17625pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[14 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/R_max.png>] [15 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/rnn.png>]
-<figures/3_elec/xf.png, id=533, 602.25pt x 401.5pt>
+ [15 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/rnn.png>] [16]
+<figures/3_elec/xf.png, id=613, 602.25pt x 401.5pt>
 File: figures/3_elec/xf.png Graphic file (type png)
 <use figures/3_elec/xf.png>
-Package pdftex.def Info: figures/3_elec/xf.png  used on input line 211.
+Package pdftex.def Info: figures/3_elec/xf.png  used on input line 209.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/3_elec/I1.png, id=538, 602.25pt x 401.5pt>
+ [17 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/xf.png>]
+<figures/3_elec/I1.png, id=628, 602.25pt x 401.5pt>
 File: figures/3_elec/I1.png Graphic file (type png)
 <use figures/3_elec/I1.png>
-Package pdftex.def Info: figures/3_elec/I1.png  used on input line 219.
+Package pdftex.def Info: figures/3_elec/I1.png  used on input line 217.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/3_elec/I2.png, id=542, 602.25pt x 401.5pt>
+<figures/3_elec/I2.png, id=632, 602.25pt x 401.5pt>
 File: figures/3_elec/I2.png Graphic file (type png)
 <use figures/3_elec/I2.png>
-Package pdftex.def Info: figures/3_elec/I2.png  used on input line 226.
+Package pdftex.def Info: figures/3_elec/I2.png  used on input line 224.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/3_elec/field_xf.png, id=548, 602.25pt x 401.5pt>
+<figures/3_elec/field_xf.png, id=638, 602.25pt x 401.5pt>
 File: figures/3_elec/field_xf.png Graphic file (type png)
 <use figures/3_elec/field_xf.png>
-Package pdftex.def Info: figures/3_elec/field_xf.png  used on input line 234.
+Package pdftex.def Info: figures/3_elec/field_xf.png  used on input line 232.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-[16]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/xf.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/I1.png>] [18 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/I2.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/field_xf.png>]
-<figures/3_elec/mobi_energy.png, id=581, 602.25pt x 401.5pt>
+[18 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/I1.png>] [19 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/I2.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/field_xf.png>]
+<figures/3_elec/mobi_energy.png, id=660, 602.25pt x 401.5pt>
 File: figures/3_elec/mobi_energy.png Graphic file (type png)
 <use figures/3_elec/mobi_energy.png>
-Package pdftex.def Info: figures/3_elec/mobi_energy.png  used on input line 253.
+Package pdftex.def Info: figures/3_elec/mobi_energy.png  used on input line 251.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
- [19 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mobi_energy.png>]
-<figures/3_elec/conduction_u.png, id=595, 602.25pt x 401.5pt>
+<figures/3_elec/conduction_u.png, id=666, 602.25pt x 401.5pt>
 File: figures/3_elec/conduction_u.png Graphic file (type png)
 <use figures/3_elec/conduction_u.png>
-Package pdftex.def Info: figures/3_elec/conduction_u.png  used on input line 267.
+Package pdftex.def Info: figures/3_elec/conduction_u.png  used on input line 265.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
- [20 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/conduction_u.png>]
-<figures/3_elec/time_u.png, id=612, 602.25pt x 401.5pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mobi_energy.png>] [21 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/conduction_u.png>]
+<figures/3_elec/time_u.png, id=690, 602.25pt x 401.5pt>
 File: figures/3_elec/time_u.png Graphic file (type png)
 <use figures/3_elec/time_u.png>
-Package pdftex.def Info: figures/3_elec/time_u.png  used on input line 314.
+Package pdftex.def Info: figures/3_elec/time_u.png  used on input line 312.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21] [22 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/time_u.png>]
-<figures/3_elec/d_u.png, id=634, 602.25pt x 401.5pt>
+[22] [23 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/time_u.png>] [24]
+<figures/3_elec/d_u.png, id=721, 602.25pt x 401.5pt>
 File: figures/3_elec/d_u.png Graphic file (type png)
 <use figures/3_elec/d_u.png>
-Package pdftex.def Info: figures/3_elec/d_u.png  used on input line 383.
+Package pdftex.def Info: figures/3_elec/d_u.png  used on input line 410.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
- [23 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_u.png>]
-<figures/3_elec/ein_u.png, id=651, 602.25pt x 401.5pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25]
+<figures/3_elec/ein_u.png, id=735, 602.25pt x 401.5pt>
 File: figures/3_elec/ein_u.png Graphic file (type png)
 <use figures/3_elec/ein_u.png>
-Package pdftex.def Info: figures/3_elec/ein_u.png  used on input line 414.
+Package pdftex.def Info: figures/3_elec/ein_u.png  used on input line 441.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24]
-<figures/3_elec/d_field_low.png, id=665, 602.25pt x 401.5pt>
+[26 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_u.png>]) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/4_thermal.tex [27 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_u.png>] [28]
+Chapter 3.
+<figures/3_elec/d_field_low.png, id=762, 602.25pt x 401.5pt>
 File: figures/3_elec/d_field_low.png Graphic file (type png)
 <use figures/3_elec/d_field_low.png>
-Package pdftex.def Info: figures/3_elec/d_field_low.png  used on input line 452.
-(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/3_elec/mobi_field_low_square.png, id=669, 602.25pt x 401.5pt>
+Package pdftex.def Info: figures/3_elec/d_field_low.png  used on input line 17.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/3_elec/mobi_field_low_square.png, id=766, 602.25pt x 401.5pt>
 File: figures/3_elec/mobi_field_low_square.png Graphic file (type png)
 <use figures/3_elec/mobi_field_low_square.png>
-Package pdftex.def Info: figures/3_elec/mobi_field_low_square.png  used on input line 458.
-(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/3_elec/ein_field_low.png, id=673, 602.25pt x 401.5pt>
+Package pdftex.def Info: figures/3_elec/mobi_field_low_square.png  used on input line 22.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/3_elec/ein_field_low.png, id=770, 602.25pt x 401.5pt>
 File: figures/3_elec/ein_field_low.png Graphic file (type png)
 <use figures/3_elec/ein_field_low.png>
-Package pdftex.def Info: figures/3_elec/ein_field_low.png  used on input line 464.
+Package pdftex.def Info: figures/3_elec/ein_field_low.png  used on input line 29.
 (pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[25 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_u.png>]
-<figures/3_elec/d_field_high_square.png, id=688, 602.25pt x 401.5pt>
-File: figures/3_elec/d_field_high_square.png Graphic file (type png)
-<use figures/3_elec/d_field_high_square.png>
-Package pdftex.def Info: figures/3_elec/d_field_high_square.png  used on input line 474.
-(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/3_elec/mobi_field_high_square.png, id=692, 602.25pt x 401.5pt>
-File: figures/3_elec/mobi_field_high_square.png Graphic file (type png)
-<use figures/3_elec/mobi_field_high_square.png>
-Package pdftex.def Info: figures/3_elec/mobi_field_high_square.png  used on input line 480.
-(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figures/3_elec/ein_field_high.png, id=696, 602.25pt x 401.5pt>
-File: figures/3_elec/ein_field_high.png Graphic file (type png)
-<use figures/3_elec/ein_field_high.png>
-Package pdftex.def Info: figures/3_elec/ein_field_high.png  used on input line 486.
-(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[26 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_field_low.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mobi_field_low_square.png>]) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/4_thermal.tex [27 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_field_low.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_field_high_square.png>] [28 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mobi_field_high_square.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_field_high.png>]
-Chapter 3.
-<figures/4_thermal/plateau.png, id=733, 575.14874pt x 489.83pt>
-File: figures/4_thermal/plateau.png Graphic file (type png)
-<use figures/4_thermal/plateau.png>
-Package pdftex.def Info: figures/4_thermal/plateau.png  used on input line 24.
-(pdftex.def)             Requested size: 298.75394pt x 254.44398pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [29
 
-] [30 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/plateau.png>] [31]) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/2_julia.tex [32]
+ </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_field_low.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mobi_field_low_square.png>]
+<figures/3_elec/d_field_high_square.png, id=789, 602.25pt x 401.5pt>
+File: figures/3_elec/d_field_high_square.png Graphic file (type png)
+<use figures/3_elec/d_field_high_square.png>
+Package pdftex.def Info: figures/3_elec/d_field_high_square.png  used on input line 41.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/3_elec/mobi_field_high_square.png, id=793, 602.25pt x 401.5pt>
+File: figures/3_elec/mobi_field_high_square.png Graphic file (type png)
+<use figures/3_elec/mobi_field_high_square.png>
+Package pdftex.def Info: figures/3_elec/mobi_field_high_square.png  used on input line 46.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/3_elec/ein_field_high.png, id=797, 602.25pt x 401.5pt>
+File: figures/3_elec/ein_field_high.png Graphic file (type png)
+<use figures/3_elec/ein_field_high.png>
+Package pdftex.def Info: figures/3_elec/ein_field_high.png  used on input line 53.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[30 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_field_low.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_field_high_square.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mobi_field_high_square.png>]
+<figures/3_elec/d_t.png, id=819, 602.25pt x 401.5pt>
+File: figures/3_elec/d_t.png Graphic file (type png)
+<use figures/3_elec/d_t.png>
+Package pdftex.def Info: figures/3_elec/d_t.png  used on input line 67.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/3_elec/mu_t.png, id=823, 602.25pt x 401.5pt>
+File: figures/3_elec/mu_t.png Graphic file (type png)
+<use figures/3_elec/mu_t.png>
+Package pdftex.def Info: figures/3_elec/mu_t.png  used on input line 72.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/3_elec/ein_t.png, id=827, 602.25pt x 401.5pt>
+File: figures/3_elec/ein_t.png Graphic file (type png)
+<use figures/3_elec/ein_t.png>
+Package pdftex.def Info: figures/3_elec/ein_t.png  used on input line 79.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/3_elec/sigma_t.png, id=834, 602.25pt x 401.5pt>
+File: figures/3_elec/sigma_t.png Graphic file (type png)
+<use figures/3_elec/sigma_t.png>
+Package pdftex.def Info: figures/3_elec/sigma_t.png  used on input line 87.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[31 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_field_high.png>] [32 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/d_t.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/mu_t.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_t.png>] [33 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/sigma_t.png>]
+<figures/3_elec/ein_fermi.png, id=866, 602.25pt x 401.5pt>
+File: figures/3_elec/ein_fermi.png Graphic file (type png)
+<use figures/3_elec/ein_fermi.png>
+Package pdftex.def Info: figures/3_elec/ein_fermi.png  used on input line 118.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+<figures/3_elec/charge_fermi.png, id=870, 602.25pt x 401.5pt>
+File: figures/3_elec/charge_fermi.png Graphic file (type png)
+<use figures/3_elec/charge_fermi.png>
+Package pdftex.def Info: figures/3_elec/charge_fermi.png  used on input line 126.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/ein_fermi.png>]
+<figures/3_elec/eta_disorder.png, id=880, 602.25pt x 401.5pt>
+File: figures/3_elec/eta_disorder.png Graphic file (type png)
+<use figures/3_elec/eta_disorder.png>
+Package pdftex.def Info: figures/3_elec/eta_disorder.png  used on input line 145.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+ [35 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/charge_fermi.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/eta_disorder.png>]
+<figures/3_elec/undoped_charge.png, id=892, 602.25pt x 401.5pt>
+File: figures/3_elec/undoped_charge.png Graphic file (type png)
+<use figures/3_elec/undoped_charge.png>
+Package pdftex.def Info: figures/3_elec/undoped_charge.png  used on input line 164.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+ [36 </home/lilifaj/Workspace/Thesis/dissertation/figures/3_elec/undoped_charge.png>]
+<figures/4_thermal/dos_doped.png, id=903, 602.25pt x 401.5pt>
+File: figures/4_thermal/dos_doped.png Graphic file (type png)
+<use figures/4_thermal/dos_doped.png>
+Package pdftex.def Info: figures/4_thermal/dos_doped.png  used on input line 178.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+ [37 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/dos_doped.png>]
+<figures/4_thermal/rnn_doped.png, id=915, 602.25pt x 401.5pt>
+File: figures/4_thermal/rnn_doped.png Graphic file (type png)
+<use figures/4_thermal/rnn_doped.png>
+Package pdftex.def Info: figures/4_thermal/rnn_doped.png  used on input line 190.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+<figures/4_thermal/xf_doped.png, id=918, 602.25pt x 401.5pt>
+File: figures/4_thermal/xf_doped.png Graphic file (type png)
+<use figures/4_thermal/xf_doped.png>
+Package pdftex.def Info: figures/4_thermal/xf_doped.png  used on input line 200.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/4_thermal/t_doped.png, id=921, 602.25pt x 401.5pt>
+File: figures/4_thermal/t_doped.png Graphic file (type png)
+<use figures/4_thermal/t_doped.png>
+Package pdftex.def Info: figures/4_thermal/t_doped.png  used on input line 210.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/4_thermal/d_doped.png, id=925, 602.25pt x 401.5pt>
+File: figures/4_thermal/d_doped.png Graphic file (type png)
+<use figures/4_thermal/d_doped.png>
+Package pdftex.def Info: figures/4_thermal/d_doped.png  used on input line 222.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+<figures/4_thermal/mu_doped.png, id=927, 602.25pt x 401.5pt>
+File: figures/4_thermal/mu_doped.png Graphic file (type png)
+<use figures/4_thermal/mu_doped.png>
+Package pdftex.def Info: figures/4_thermal/mu_doped.png  used on input line 227.
+(pdftex.def)             Requested size: 203.55338pt x 135.69951pt.
+[38 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/rnn_doped.png>] [39 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/xf_doped.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/t_doped.png>]
+<figures/4_thermal/ein_doped.png, id=945, 602.25pt x 401.5pt>
+File: figures/4_thermal/ein_doped.png Graphic file (type png)
+<use figures/4_thermal/ein_doped.png>
+Package pdftex.def Info: figures/4_thermal/ein_doped.png  used on input line 236.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+ [40 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/d_doped.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/mu_doped.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/ein_doped.png>]
+<figures/4_thermal/xavier_fit.png, id=959, 602.25pt x 401.5pt>
+File: figures/4_thermal/xavier_fit.png Graphic file (type png)
+<use figures/4_thermal/xavier_fit.png>
+Package pdftex.def Info: figures/4_thermal/xavier_fit.png  used on input line 255.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+ [41 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/xavier_fit.png>]
+<figures/4_thermal/plateau.png, id=973, 575.14874pt x 489.83pt>
+File: figures/4_thermal/plateau.png Graphic file (type png)
+<use figures/4_thermal/plateau.png>
+Package pdftex.def Info: figures/4_thermal/plateau.png  used on input line 282.
+(pdftex.def)             Requested size: 298.75394pt x 254.44398pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[42] [43 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/plateau.png>] [44]
+<figures/4_thermal/k_temperature.png, id=1023, 602.25pt x 401.5pt>
+File: figures/4_thermal/k_temperature.png Graphic file (type png)
+<use figures/4_thermal/k_temperature.png>
+Package pdftex.def Info: figures/4_thermal/k_temperature.png  used on input line 365.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<figures/4_thermal/k_field.png, id=1027, 602.25pt x 401.5pt>
+File: figures/4_thermal/k_field.png Graphic file (type png)
+<use figures/4_thermal/k_field.png>
+Package pdftex.def Info: figures/4_thermal/k_field.png  used on input line 375.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[45] [46 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/k_temperature.png> </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/k_field.png>]
+<figures/4_thermal/k_ni.png, id=1047, 602.25pt x 401.5pt>
+File: figures/4_thermal/k_ni.png Graphic file (type png)
+<use figures/4_thermal/k_ni.png>
+Package pdftex.def Info: figures/4_thermal/k_ni.png  used on input line 389.
+(pdftex.def)             Requested size: 298.75394pt x 199.17502pt.
+) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/2_julia.tex [47 </home/lilifaj/Workspace/Thesis/dissertation/figures/4_thermal/k_ni.png>]
 Chapter 4.
-<figures/benchmarks.png, id=783, 693.792pt x 428.802pt>
+<figures/benchmarks.png, id=1057, 693.792pt x 428.802pt>
 File: figures/benchmarks.png Graphic file (type png)
 <use figures/benchmarks.png>
 Package pdftex.def Info: figures/benchmarks.png  used on input line 16.
 (pdftex.def)             Requested size: 358.50836pt x 221.57813pt.
-[33
+[48
 
-] [34 </home/lilifaj/Workspace/Thesis/dissertation/figures/benchmarks.png>]
-<figures/2-julia/DOS.png, id=807, 602.25pt x 401.5pt>
+] [49 </home/lilifaj/Workspace/Thesis/dissertation/figures/benchmarks.png>] [50]
+<figures/2-julia/DOS.png, id=1097, 602.25pt x 401.5pt>
 File: figures/2-julia/DOS.png Graphic file (type png)
 <use figures/2-julia/DOS.png>
 Package pdftex.def Info: figures/2-julia/DOS.png  used on input line 66.
 (pdftex.def)             Requested size: 358.50836pt x 239.01492pt.
- [35] [36 </home/lilifaj/Workspace/Thesis/dissertation/figures/2-julia/DOS.png>] [37] [38]
+ [51 </home/lilifaj/Workspace/Thesis/dissertation/figures/2-julia/DOS.png>] [52] [53] [54]
 Overfull \hbox (1.56152pt too wide) detected at line 202
 [][][]
  []
 
-[39]) [40] (/home/lilifaj/Workspace/Thesis/dissertation/document-en.bbl [41
+) (/home/lilifaj/Workspace/Thesis/dissertation/chapters/5_conclusion.tex [55]
+Chapter 5.
+[56
 
-] [42]) [43] (/home/lilifaj/Workspace/Thesis/dissertation/chapters/appendix1-en.tex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 316.
- [44
+]) [57] [58] (/home/lilifaj/Workspace/Thesis/dissertation/document-en.bbl [59
+
+] [60] [61]) [62] (/home/lilifaj/Workspace/Thesis/dissertation/chapters/appendix1-en.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 15.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 15.
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 326.
+ [63
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 316.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 326.
  (/home/lilifaj/Workspace/Thesis/dissertation/document-en.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 316.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 316.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 326.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 326.
 Package rerunfilecheck Info: File `document-en.out' has not changed.
-(rerunfilecheck)             Checksum: C5F615D3F3F66CAD9BFB91416945019D;2617.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 316.
+(rerunfilecheck)             Checksum: F2271B03209CFB0DE388C36F4F7E6909;3328.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 14088 strings out of 481239
- 248099 string characters out of 5920378
- 521862 words of memory out of 5000000
- 28818 multiletter control sequences out of 15000+600000
- 545766 words of font info for 77 fonts, out of 8000000 for 9000
+ 14775 strings out of 481239
+ 259013 string characters out of 5920378
+ 531205 words of memory out of 5000000
+ 29412 multiletter control sequences out of 15000+600000
+ 549320 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,19n,53p,1078b,2233s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,19n,53p,1053b,2228s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on /home/lilifaj/Workspace/Thesis/dissertation/document-en.pdf (52 pages, 991400 bytes).
+Output written on /home/lilifaj/Workspace/Thesis/dissertation/document-en.pdf (71 pages, 1412703 bytes).
 PDF statistics:
- 1026 PDF objects out of 1200 (max. 8388607)
- 842 compressed objects within 9 object streams
- 246 named destinations out of 1000 (max. 500000)
- 613 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1329 PDF objects out of 1440 (max. 8388607)
+ 1063 compressed objects within 11 object streams
+ 305 named destinations out of 1000 (max. 500000)
+ 902 words of extra memory for PDF output out of 10000 (max. 10000000)
 

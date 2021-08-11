@@ -6,45 +6,45 @@ Database file #1: bib/document-en.bib
 Warning--empty journal in intro_orga
 Warning--empty journal in perovskite
 Warning--empty school in vera_thesis
-You've used 30 entries,
+You've used 33 entries,
             2243 wiz_defined-function locations,
-            724 strings with 9637 characters,
-and the built_in function-call counts, 10414 in all, are:
-= -- 990
-> -- 605
+            742 strings with 10285 characters,
+and the built_in function-call counts, 11803 in all, are:
+= -- 1112
+> -- 716
 < -- 0
-+ -- 251
-- -- 218
-* -- 911
-:= -- 1809
-add.period$ -- 92
-call.type$ -- 30
-change.case$ -- 196
++ -- 296
+- -- 260
+* -- 1048
+:= -- 2053
+add.period$ -- 101
+call.type$ -- 33
+change.case$ -- 227
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 244
-empty$ -- 726
-format.name$ -- 218
-if$ -- 2075
+cite$ -- 36
+duplicate$ -- 267
+empty$ -- 805
+format.name$ -- 260
+if$ -- 2343
 int.to.chr$ -- 0
-int.to.str$ -- 30
-missing$ -- 29
-newline$ -- 154
-num.names$ -- 60
-pop$ -- 148
+int.to.str$ -- 33
+missing$ -- 32
+newline$ -- 169
+num.names$ -- 66
+pop$ -- 172
 preamble$ -- 1
-purify$ -- 169
+purify$ -- 196
 quote$ -- 0
-skip$ -- 152
+skip$ -- 167
 stack$ -- 0
-substring$ -- 698
-swap$ -- 28
+substring$ -- 779
+swap$ -- 30
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 118
+type$ -- 130
 warning$ -- 3
-while$ -- 91
-width$ -- 32
-write$ -- 303
+while$ -- 100
+width$ -- 35
+write$ -- 333
 (There were 3 warnings)
